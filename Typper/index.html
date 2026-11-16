@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Typper · 随机键入草稿</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header><a class="brand" href="./"><span class="logo">T<span>_</span></span>Typper<span class="brand-note" data-i18n="brand">随机键入 · 自由草稿</span></a><div class="header-right"><span class="local" data-i18n="local">仅在本地运行</span><button id="language" class="language" aria-label="Switch language">EN / 中文</button></div></header>
+    <section class="intro"><div><div class="eyebrow">A LITTLE SPACE TO TYPE</div><h1 data-i18n="title">让字符，随心落下。</h1><p data-i18n="subtitle">设置节奏，开始随机键入。这里也是你的自由草稿空间。</p></div><div class="key-art" aria-hidden="true"><kbd>A</kbd><kbd>7</kbd><kbd class="blue">↵</kbd></div></section>
+    <section class="settings" aria-labelledby="settings-title">
+      <div class="section-heading"><h2 id="settings-title" data-i18n="settings">键入设置</h2><span class="badge">Aa–Zz · 0–9</span></div>
+      <div class="setting-grid"><div class="interval"><label for="speed" data-i18n="rhythm">随机间隔范围</label><div class="range-labels"><span data-i18n="fast">快 · 每秒 30 次</span><span data-i18n="slow">慢 · 每 5 分钟 1 次</span></div><input id="speed" type="range" min="0" max="1000" value="215"><div class="interval-readout"><strong id="speed-text"></strong><span data-i18n="jitter">实际间隔在下方最小值与最大值之间随机取值</span></div></div><div class="bounds"><div><label for="minimum" data-i18n="minimum">最小间隔（秒）</label><input id="minimum" type="number" min="0.03333333333333333" max="300" step="any" value="0.1"></div><span class="dash">—</span><div><label for="maximum" data-i18n="maximum">最大间隔（秒）</label><input id="maximum" type="number" min="0.03333333333333333" max="300" step="any" value="0.3"></div></div></div>
+      <div class="controls"><div class="hint"><span class="hint-icon">⌨</span><span data-i18n="hint">按任意键退出随机键入模式</span></div><div class="actions"><button id="clear" class="secondary"><span aria-hidden="true">⌫</span> <span data-i18n="clear">一键清屏</span></button><button id="start" class="primary"><span aria-hidden="true">▶</span> <span id="start-label">三秒后开始键入</span></button></div></div>
+      <p id="error" role="alert"></p>
+    </section>
+    <section class="draft-panel"><div class="draft-heading"><div class="draft-title"><h2 data-i18n="draft">草稿记录</h2><span id="status" role="status" class="status">就绪</span></div><span class="save-note" id="save-note">草稿自动保存在此浏览器</span></div><textarea id="draft" spellcheck="false" aria-label="草稿记录" placeholder="从这里开始，写点什么……"></textarea><div class="draft-footer"><span><b id="count">0</b> <span data-i18n="characters">个字符</span></span><span data-i18n="unlimited">自由编辑 · 无长度限制</span></div></section>
+    <footer><span>TYPPER <span class="footer-dot">/</span> <span data-i18n="footer">为简单的键入而生</span></span><a href="LICENSE" target="_blank">Apache License 2.0 ↗</a></footer>
+  </main><script src="app.js"></script>
+</body>
+</html>

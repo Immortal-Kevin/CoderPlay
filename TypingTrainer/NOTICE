@@ -1,0 +1,9 @@
+Typing Trainer 1.0
+Original application source, tests, installer, charts and bundled practice texts are licensed under Apache License 2.0.
+No third-party source has been relabeled as original application code.
+Private articles, personal training records, and databases are not relicensed by using this application.
+
+Includes Microsoft .NET runtime and Windows Desktop components, copyright .NET Foundation and Contributors, under MIT and retained upstream notices in licenses/.
+This product includes software developed by the University of California, Berkeley and its contributors.
+Upstream components retain their own licenses; Apache-2.0 applies to this project's original work.
+Windows system DLLs and installed system fonts are used from Windows and are not redistributed.

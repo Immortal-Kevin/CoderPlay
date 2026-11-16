@@ -1,0 +1,12 @@
+[Ii][Nn][Pp][Uu][Tt]/
+[Oo][Uu][Tt][Pp][Uu][Tt]/
+input draft/
+output draft/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.lnk
+/Diagnostics/
+/TypingTrainer/reports/
