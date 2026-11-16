@@ -5,7 +5,7 @@ Windows 11 x64 原生离线打字训练器，C# / .NET 10 / WPF。无账号、�
 ## 运行与安装
 
 便携版：解压整个 ZIP，运行 `TypingTrainer.exe`，不需要管理员权限或预装 .NET。
-安装版：运行 `TypingTrainer-Setup.exe`，安装到 `%LOCALAPPDATA%\Programs\TypingTrainer`，从开始菜单启动；Windows「已安装的应用」可卸载。安装目录非空时拒绝覆盖，请先卸载旧版。
+安装版：运行 `TypingTrainer-Setup.exe`，从开始菜单启动；Windows「已安装的应用」可卸载。安装目录非空时拒绝覆盖，请先卸载旧版。
 卸载保留用户数据和被用户修改过的安装文件。卸载器从系统临时目录运行辅助进程，以便删除原安装目录；临时辅助文件可随系统临时文件清理。
 构建未签名，Windows SmartScreen 可能提示。未做跨电脑实机验证。
 
@@ -28,7 +28,7 @@ Windows 11 x64 原生离线打字训练器，C# / .NET 10 / WPF。无账号、�
 TXT 自动识别 UTF-8、UTF-8 BOM、UTF-16 BOM 和常见无 BOM UTF-16LE；可手动选 UTF-16LE/BE、GB18030。DOCX 通过 ZIP/XML 提取正文、段落、tab 与换行，不执行宏、脚本、外部链接或 XML 外部实体。
 **旧版二进制 DOC 暂不支持**，导入时说明原因；请先另存为 DOCX/TXT。不依赖 Office/COM 或云端转换。
 上限 4 MB 文件、4000 Unicode 字符（保证精确编辑距离性能）；空白、损坏、非法控制字符和相同正文重复导入会被拒绝，原文件不修改。
-默认数据目录 `%LOCALAPPDATA%\TypingTrainer`：`articles/`（预留）、`database/trainer.db`（文章元数据及正文、成绩）、`config/settings.json`、`backups/`。SQLite 通过 Windows 11 自带 winsqlite3.dll 使用，不分发系统 DLL。
+数据目录包含 `articles/`（预留）、`database/trainer.db`（文章元数据及正文、成绩）、`config/settings.json`、`backups/`。SQLite 通过 Windows 11 自带 winsqlite3.dll 使用，不分发系统 DLL。
 数据库事务写入、版本 1 初始化、拒绝较新版本降级、单实例互斥。每日首次运行或保存时备份，清空成绩前额外备份，最多保留 7 份。
 目录迁移要求独立空目录，复制后 SHA-256 校验与 SQLite integrity_check，通过后原子更新默认目录下 location.json；失败回滚，原目录保留。迁移拒绝符号链接目录。请仅选择本地磁盘路径。
 
