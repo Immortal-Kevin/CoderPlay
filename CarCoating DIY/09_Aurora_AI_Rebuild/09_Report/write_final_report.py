@@ -1,0 +1,76 @@
+import pathlib,json,csv,hashlib
+root=pathlib.Path(__file__).resolve().parents[1];rep=root/'09_Report'
+read=lambda name:json.loads((rep/name).read_text(encoding='utf-8-sig'))
+png=read('Final_PNG_Validation.json');prior=read('P1_P6_Preservation_Check.json');editable=read('Editable_Final_Validation.json');stats=read('P7_Complete_Model_Stats.json')
+samples=[json.loads(l) for l in (rep/'Render_Resource_Samples.jsonl').read_text(encoding='utf-8-sig').splitlines() if l.strip()]
+minram=min(s['available_ram_bytes'] for s in samples)/2**30
+maxshared=max([g['SharedUsage'] for s in samples for g in s.get('gpu_memory',[])]+[0])/2**30
+maxwork=max([p['WorkingSet64'] for s in samples for p in s.get('processes',[])]+[0])/2**30
+active=[g for s in samples for g in s.get('gpu_activity',[])]
+renders=[read(f'Render_{v}_{a}_8000.json') for v in ['Standard','Metallic'] for a in ['Front_ThreeQuarter','Rear_ThreeQuarter','Left','Right']]
+criteria=[
+('PARTIAL','船体主要曲面','主船体为新建 144×128 四边面放样，引擎外壳 128 径向段，保留 128 段青环。部分继承的舰桥基座、中央尾部与局部接缝仍有棱面，未达到全船电影级表面精修。'),
+('PASS','四个引擎机械结构','四套分层外壳、喷口内衬、散热鳍片、金银卡箍、固定件与支架；P7_Engines 共 264 个对象。'),
+('PASS','实际新增舷窗','两侧共 16 块独立舷窗玻璃，附金属边框；舰桥另有玻璃结构。'),
+('PASS','实际新增舱门','两侧独立大型舱门，包含外框、密封条、铰链、锁扣及状态窗。'),
+('PARTIAL','装甲几何层次与接缝','84 个装甲对象，具备厚度、倒角与实缝；曲面局部仍可看到过渡不够均匀、板边过亮等程序化建模痕迹。'),
+('PARTIAL','自然金属反射','使用 Principled PBR、金银饰条、粗糙度变化和 HDRI/面积灯，金属反射可见；整体仍偏干净的数字模型，未达到所要求的电影道具观感。'),
+('PASS','顶部及两侧 Alterra','4 块曲面投影贴花，左右船侧及顶部尾翼两面均有；附双侧特写。'),
+('PASS','标志文字','准确保留指定图片中的 ALTERRA 字形（双 R），无 AI 拼写；源图分辨率有限，1024 工作贴图不是新恢复的原生矢量。'),
+('PASS','真实生成式 AI 主体纹理','独立环境 TinySD 本地 img2img 实际推理；4 组采纳纹理绑定于主船体、装甲、引擎与饰条。输入、原始输出、种子和日志均保留。'),
+('PASS','跨视角 AI 一致','四视角使用同一 3D 工程、同一组物体坐标三平面投影材质；没有分别生成四艘船。'),
+('PASS' if editable['p5_ion_geometry_worldtransform_identical'] else 'PARTIAL','保留 P5 尾焰','保留 P5 原有 3D 尾焰对象；最终渲染将对应相机原有 P5 IonOnly 图层按同尺寸叠加以保留柔和透明辉光。不是新 AI 尾焰。'),
+('PASS' if all(x['pass'] for x in png) else 'FAIL','透明 PNG','8 张全部实际解码检查 RGBA、透明像素、半透明渐变、轮廓边距和透明区 RGB；详见 Final_PNG_Validation.json。'),
+('PASS' if editable['reopened'] and not editable['missing_images_before_pack'] else 'PARTIAL','Blender 可重开','最终标准工程重新打开并完成 512 px EEVEE 验证渲染；纹理已打包；详细验证 JSON 随附。'),
+('PARTIAL','200% 细节优于 P6','相同灯光/相机的引擎裁切可见新增真实鳍片、内衬与卡箍，非简单锐化；但低分辨率 AI 微纹理及部分旧舰桥棱面仍限制极近景质量。')]
+lines=['# Aurora P7 AI Full Rebuild 验收报告','',
+'本次已实际交付定制重制版：新建主要船体及机械组件、真实本地生成式 AI 材质、精确 Alterra 贴花、两版四视角 8000 px 透明 PNG。它不是官方原模型复原。**文件交付已完成，但电影级视觉目标仅部分达成，不能据此认定严格视觉验收全部通过。**','',
+'## 制作与真实性','',
+f'- Blender 4.5.9 LTS；EEVEE 64 samples；模型统计 {stats["raw_faces"]:,} 个原始面、{stats["evaluated_triangles"]:,} 个评估后三角形（统计快照不含灯光）。P6 约 28,819 三角形；本次主要增量来自新建放样船体、独立装甲和机械组件。',
+'- 使用 P6 源工程并保留归档组件；没有重扫游戏。曲面船体按源截面和人工修订的下部轮廓重建，新增结构属于创作，不冒充原游戏细节。',
+'- 白色涂层、银金结构、深灰机械采用四组新材质。主体材质以世界高度连续混合白/深蓝，保留白金、青环及四引擎特征。玻璃与发光元件采用确定的程序化 PBR。',
+'- 每组 6 张 4096×4096 通道图（BaseColor / Roughness / Metallic / Height / Normal / Emission），共 24 张。非发光涂层的 Emission 为黑色；青环发光由单独节点控制。主材质实际使用高度驱动 Bump，提供的派生 Normal 可供后续编辑，不虚称所有通道均已接入。',
+'- 接入材质的 AI 图案由物体坐标三平面投影保持跨视角一致，未进行 UV 烘焙；材质节点及图片已打包，可继续编辑。',
+'- 本地自制摄影棚 HDRI：P7_Studio_HDRI_v04.exr（1024×512 浮点），仅用于反射和照明。标准版与增强版主要差别为粗糙度、镀层反射与世界光强，未把整船 Metallic 设为 1。','',
+'## 本地 AI、来源与设备','',
+'- 独立环境：`'+str(root/'Tools/AI_venv')+'`。未修改 IVAD，也未安装 CUDA 依赖。',
+'- 模型：[segmind/tiny-sd](https://huggingface.co/segmind/tiny-sd)，固定 revision `cad0bd7495fa6c4bcca01b19a723dc91627fe84f`；模型卡声明 CreativeML OpenRAIL-M，模型卡及许可证文本已保存。该模型许可不等于游戏资产或商标授权。',
+'- 实际环境：PyTorch 2.14.1+cpu、diffusers 0.35.1、transformers 4.57.1，float32，CPU 4 线程。官方 XPU wheel 多次传输截断/超时，未能完成 XPU 环境部署，改用 CPU 推理。CPU 构建的 `torch.xpu.is_available() == False` **不能证明 B390 硬件不支持 XPU**。',
+'- 第一轮真实 img2img：4 组，384×384，20 steps、strength 0.58、guidance 6、seed 71001–71004（实际去噪迭代 11 步），每组约 33 秒。输入、输出、参数、哈希和日志见 03_AI_Textures 及 09_Report。',
+'- 第二轮 512 px 高强度探索保留为拒用候选；白色候选产生人形机械物，未采用。没有把这些错误结构映射到飞船。',
+'- **4K 是材质制作分辨率，非原生 4K AI 推理。**采纳的 384 px AI 输出经过镜像无缝拼接、去除低频照明及通道制作形成 4K 图集；精确机械细节主要由真实几何提供。微观细节仍有限。',
+'- 软件来自官方 PyTorch/PyPI，模型来自公开 Hugging Face 仓库，已做发布方 SHA256 对照，结果见 Segmented_Download_Verification.json、Python_Wheel_Source_Hashes.json。未上传本地船体资产；未修改驱动或关闭安全防护。','',
+'## 渲染与文件检查','',
+f'- 8 张高清均使用 EEVEE，未触发 CPU 渲染回退；Blender 进程 Below Normal，线程上限 4。采样记录检测到 GPU 3D 引擎活动（{len(active)} 条活动记录），共享 GPU 内存峰值约 {maxshared:.2f} GiB；Blender 工作集采样峰值 {maxwork:.2f} GiB；系统可用 RAM 最低采样 {minram:.2f} GiB。采样并非瞬时峰值精确测量。',
+f'- 高清单张渲染耗时 {min(x["seconds"] for x in renders):.1f}–{max(x["seconds"] for x in renders):.1f} 秒（不含后续 PNG 合成）。',
+'- 前/后 3/4：8000×5967；左/右：8000×4458。PNG 最终尺寸来自重新渲染，不是整船图片插值放大。',
+'- 保留 P5 三维尾焰，并使用 P5 同相机原透明尾焰图层完成后期辉光合成。完整工程直接渲染的原始发光球不等同于最终柔化辉光；复现最终 PNG 请使用 Run_P7.ps1 / compose_render.py，仍依赖项目中的原 P5 IonOnly 文件。',
+f'- P5 尾焰 {editable["p5_ion_mesh_count"]} 个 mesh 的顶点与世界变换逐项哈希对比：'+str(editable['p5_ion_geometry_worldtransform_identical'])+'。',
+f'- P1–P6 既有交付清单核验 {prior["records"]} 条，未改变 {prior["unchanged"]} 条，详见 P1_P6_Preservation_Check.json。所有新增内容位于 P7 目录。',
+'- 透明轮廓均留有外边距，透明 RGB 已归零；边缘仍应由厂家按目标底色进一步软打样。深色及海蓝色 JPEG 仅为检查预览，不是交付透明图。','',
+'## 逐项验收','',
+'| # | 项目 | 结果 | 依据及限制 |','|---|---|---|---|']
+lines += [f'| {n} | {name} | {status} | {detail} |' for n,(status,name,detail) in enumerate(criteria,1)]
+lines += ['','## 最终文件（绝对路径）','',
+'### 可编辑工程及组件','',
+'- '+str(root/'01_Blender/Aurora_P7_AI_Rebuild_Editable_Final.blend'),
+'- '+str(root/'01_Blender/Aurora_P7_AI_Rebuild_Metallic_Final.blend'),
+'- '+str(root/'02_Geometry/P7_Independent_Components.blend'),
+'','### 8000 px 透明 PNG','']
+lines += ['- '+x['path'] for x in png]
+lines += ['','### 对比与证据','']
+for p in sorted((root/'08_Comparison').glob('*.jpg')):lines.append('- '+str(p))
+lines += ['- '+str(root/'03_AI_Textures/AI_Input_Generated_Adopted_Comparison.jpg'),
+'- '+str(root/'03_AI_Textures/Inference_Parameters_and_Results.json'),
+'- '+str(rep/'Final_PNG_Validation.json'),'- '+str(rep/'Editable_Final_Validation.json'),'- '+str(rep/'Delivery_Manifest.csv'),
+'','## 尚未解决','',
+'电影级视觉目标未完全达到：部分舰桥与尾部仍有棱面，装甲衔接有程序化痕迹，白色主体仍偏数字模型质感；AI 原图分辨率有限，近距离微观纹理不足。独立新组件和工程可继续美术精修，但本报告不以 8K 像素数代替视觉验收。',
+'本阶段仅本地个人设计；未进行印刷、公开传播或对外上传。游戏设计、标志以及后续印刷使用的许可仍由用户与权利方确认。']
+(rep/'Aurora_P7_AI_Rebuild_Report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+with (rep/'Delivery_Manifest.csv').open('w',encoding='utf-8-sig',newline='') as f:
+ writer=csv.writer(f);writer.writerow(['absolute_path','bytes','sha256'])
+ for p in sorted(root.rglob('*')):
+  if not p.is_file() or 'Tools' in p.relative_to(root).parts or p==rep/'Delivery_Manifest.csv':continue
+  with p.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
+  writer.writerow([str(p),p.stat().st_size,digest])
+print(str(rep/'Aurora_P7_AI_Rebuild_Report.md'))
