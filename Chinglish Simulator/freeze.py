@@ -11,6 +11,8 @@ setup(
                 ('data/chinglish_rules.json', 'data/chinglish_rules.json'),
                 ('data/intensity.json', 'data/intensity.json'),
                 'LICENSE',
+                'setup-local.cmd',
+                'setup-local.ps1',
             ],
             'include_msvcr': True,
         },

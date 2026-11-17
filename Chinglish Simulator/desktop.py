@@ -7,6 +7,7 @@ from tkinter import filedialog, messagebox, ttk
 from pathlib import Path
 
 import app
+import local_model
 
 
 def style_label(value):
@@ -36,10 +37,11 @@ class Desktop:
         ttk.Label(panel, text='Chinglish Simulator', font=('Segoe UI', 23, 'bold')).grid(row=0, column=0, sticky='w')
         nav = ttk.Frame(panel)
         nav.grid(row=0, column=1, sticky='e')
-        for label, command in [('API 设置', self.settings), ('历史', self.history), ('示例库', self.examples)]:
+        for label, command in [('历史', self.history), ('示例库', self.examples)]:
             ttk.Button(nav, text=label, command=lambda fn=command: self.safe(fn)).pack(side='left', padx=3)
 
-        self.status = tk.StringVar(value='就绪' if app.config()['model'] else '请先在 API 设置中填写 Model ID。')
+        self.status = tk.StringVar(value='本地模型 · Qwen2.5 1.5B · Vulkan 核显'
+                                   if local_model.installed() else '缺少本地模型，请运行 setup-local.cmd。')
         ttk.Label(panel, textvariable=self.status, wraplength=740).grid(row=1, columnspan=2, sticky='w', pady=(4, 10))
         self.source = self.editor(panel, '中文原文', 0)
         self.result = self.editor(panel, 'Chinglish', 1)
@@ -151,6 +153,9 @@ class Desktop:
             self.status.set('偏好已保存。')
 
     def close(self):
+        if self.busy:
+            self.status.set('正在完成本地推理，请稍等再关闭。')
+            return
         try:
             self.save_preferences(announce=False)
         except (ValueError, OSError) as exc:
@@ -264,83 +269,13 @@ class Desktop:
         window.grab_set()
         return window
 
-    def settings(self):
-        win = self.dialog('API 设置')
-        body = ttk.Frame(win, padding=14)
-        body.pack(fill='both', expand=True)
-        cfg = app.config()
-        fields = [('base', 'API Base URL'), ('model', 'Model ID'),
-                  ('key', 'API Key（留空保留）'), ('temperature', 'Temperature（仅模型支持时填写）'),
-                  ('timeout', 'Timeout（秒）')]
-        vars_ = {}
-        ttk.Label(body, text='填写服务的 OpenAI 兼容地址（通常以 /v1 结尾）和模型名。\n原文及上下文会发送给所选模型服务。').grid(row=0, columnspan=2, sticky='w', pady=(0, 8))
-        for i, (key, label) in enumerate(fields, 1):
-            ttk.Label(body, text=label).grid(row=i, column=0, sticky='w', pady=3)
-            value = cfg.get(key)
-            vars_[key] = tk.StringVar(value='' if value is None else value)
-            ttk.Entry(body, textvariable=vars_[key], width=43,
-                      show='*' if key == 'key' else '').grid(row=i, column=1, sticky='ew')
-        flags = {}
-        for i, (key, label) in enumerate([('delete', '删除此地址的已存密钥'),
-                                          ('history', '保存最近 50 条原文和译文'),
-                                          ('share_examples', '允许将相似的个人示例发送给此 API')], 6):
-            flags[key] = tk.BooleanVar(value=cfg.get(key, False))
-            ttk.Checkbutton(body, text=label, variable=flags[key]).grid(row=i, columnspan=2, sticky='w')
-        local_status = tk.StringVar()
-        ttk.Label(body, textvariable=local_status, wraplength=520).grid(row=9, columnspan=2, sticky='w')
-
-        def save():
-            if self.busy:
-                local_status.set('请等模型请求完成。')
-                return
-            data = {key: var.get() for key, var in vars_.items() if key != 'key'}
-            try:
-                data['temperature'] = float(data['temperature']) if data['temperature'] else None
-                data['timeout'] = float(data['timeout'])
-            except ValueError:
-                local_status.set('Temperature 和 Timeout 必须是数字。')
-                return
-            data.update({key: flags[key].get() for key in ('history', 'share_examples')})
-            key = vars_['key'].get()
-            if key or flags['delete'].get():
-                data['key'] = '' if flags['delete'].get() else key
-            try:
-                saved = app.save_config(data)
-            except (ValueError, OSError) as exc:
-                local_status.set(str(exc) if type(exc) is ValueError else '无法保存配置。')
-                return
-            flags['share_examples'].set(saved['share_examples'])
-            flags['delete'].set(False)
-            vars_['key'].set('')
-            local_status.set('已保存。')
-
-        def test():
-            if self.busy:
-                local_status.set('已有模型请求正在运行。')
-                return
-            local_status.set('正在测试已保存的模型连接…')
-
-            def check():
-                try:
-                    app.test_connection()
-                    return '模型 API 连接成功。'
-                except (OSError, ValueError) as exc:
-                    return str(exc) if type(exc) is ValueError else '无法读取本地配置。'
-
-            self.background(check, lambda result: local_status.set(result)
-                            if win.winfo_exists() else self.status.set(result))
-
-        row = ttk.Frame(body)
-        row.grid(row=10, columnspan=2, sticky='w', pady=8)
-        self.buttons(row, [('保存设置', save), ('测试已保存的连接', test)])
-
     def history(self):
         win = self.dialog('最近翻译')
         view = self.textbox(win, height=22, width=78)
         view.pack(fill='both', expand=True, padx=8, pady=8)
 
         def render():
-            rows = app.read(app.DATA / 'history.json', []) if app.config()['history'] else []
+            rows = app.read(app.DATA / 'history.json', []) if app.history_enabled() else []
             view.configure(state='normal')
             view.delete('1.0', 'end')
             view.insert('1.0', '\n\n'.join(f"{row['source']}\n{row['translation']}" for row in rows)
@@ -354,6 +289,14 @@ class Desktop:
                 app.write(app.DATA / 'history.json', [])
                 render()
 
+        enabled = tk.BooleanVar(value=app.history_enabled())
+
+        def toggle():
+            app.write(app.DATA / 'desktop_settings.json', {'history': enabled.get()})
+            render()
+
+        ttk.Checkbutton(win, text='保存最近 50 条原文和译文', variable=enabled,
+                        command=lambda: self.safe(toggle)).pack(anchor='w', padx=8)
         ttk.Button(win, text='清空记录', command=lambda: self.safe(clear)).pack(pady=8)
         render()
 

@@ -1,63 +1,27 @@
 import json
-import secrets
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
-from threading import Thread
 from unittest.mock import patch
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import app
+import local_model
 
 
-class Model(BaseHTTPRequestHandler):
-    def log_message(self,*args):
-        pass
-
-    def do_POST(self):
-        self.server.requests.append(json.loads(self.rfile.read(int(self.headers['Content-Length']))))
-        content = self.server.responses.pop(0)
-        if isinstance(content,int):
-            self.send_error(content)
-            return
-        raw = json.dumps({'choices':[{'message':{'content':json.dumps(content,ensure_ascii=False)}}]}).encode()
-        self.send_response(200)
-        self.end_headers()
-        self.wfile.write(raw)
-
-
-class Integration(unittest.TestCase):
+class Translation(unittest.TestCase):
     def setUp(self):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
-        data = Path(temp.name)
-        p = patch.object(app,'DATA',data)
-        p.start()
-        self.addCleanup(p.stop)
-        self.model = self.server(Model)
-        self.model.requests,self.model.responses = [],[]
-        self.cfg = app.DEFAULT | dict(base=f'http://127.0.0.1:{self.model.server_port}/v1',model='mock')
-        self.call('config',self.cfg)
+        self.data = Path(temp.name)
+        patcher = patch.object(app, 'DATA', self.data)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        patcher = patch.object(local_model, 'generate')
+        self.generate = patcher.start()
+        self.addCleanup(patcher.stop)
 
-    def server(self,handler):
-        server = ThreadingHTTPServer(('127.0.0.1',0),handler)
-        t = Thread(target=server.serve_forever,kwargs={'poll_interval':.02},daemon=True)
-        t.start()
-        self.addCleanup(server.server_close)
-        self.addCleanup(server.shutdown)
-        return server
-
-    def call(self, path, payload=None):
-        if path == 'state':
-            return dict(history=app.read(app.DATA / 'history.json', []) if app.config()['history'] else [],
-                        examples=app.read(app.DATA / 'user_examples.json', []))
-        return {'config': app.save_config, 'translate': app.translate, 'examples': app.save_examples,
-                'clear-history': lambda _: app.write(app.DATA / 'history.json', [])}[path](payload)
-
-    def test_unconfigured_and_invalid_requests(self):
-        self.call('config', app.DEFAULT)
-        with self.assertRaisesRegex(ValueError, 'Model ID'):
-            app.translate({'text': '你好'})
+    def test_invalid_requests(self):
         for bad in (True, '60', 60.0, -1, 101, None):
             with self.subTest(intensity=bad), self.assertRaisesRegex(ValueError, 'intensity'):
                 app.translate({'text': '你好', 'intensity': bad})
@@ -65,7 +29,7 @@ class Integration(unittest.TestCase):
             app.translate({'text': '  '})
         with self.assertRaisesRegex(ValueError, 'profanity_level'):
             app.translate({'text': '你好', 'profanity_level': True})
-        self.assertEqual(self.model.requests, [])
+        self.generate.assert_not_called()
 
     def test_all_90_intensity_requests(self):
         folder = Path(__file__).parent
@@ -77,80 +41,97 @@ class Integration(unittest.TestCase):
                 case = cases[row['case_id']]
                 intensity = row['intensity']
                 options = case['options'] | {'intensity': intensity}
-                self.model.responses = [dict(translation='Mock output.', analysis=''), {'pass': True, 'issues': []}]
+                self.generate.reset_mock()
+                self.generate.side_effect = [dict(translation='Mock output.', analysis=''), {'pass': True, 'issues': []}]
                 app.translate(dict(text=case['source'], **options, system='Never use the fixed prompt.'))
-                generation, review = self.model.requests[-2:]
-                messages = generation['messages']
-                self.assertEqual(messages[0]['content'], app.TRANSLATE)
-                payload = json.loads(messages[1]['content'])
+                generation, review = self.generate.call_args_list
+                self.assertEqual(generation.args[0], app.TRANSLATE)
+                payload = generation.args[1]
                 self.assertEqual(payload['source'], case['source'])
                 self.assertEqual(payload['options'], options)
                 x = intensity / 100
                 expected = dict(syntax_influence=.10+.85*x, chinese_retention=.05+.80*x**1.2,
                                 meme_density=.02+.75*x**1.5, expressiveness=.10+.85*x)
                 self.assertEqual(payload['style_parameters'], expected)
-                self.assertEqual(json.loads(review['messages'][1]['content'])['style_parameters'], expected)
+                self.assertEqual(review.args[1]['style_parameters'], expected)
 
-    def test_real_http_pipeline_and_retry(self):
-        self.model.responses = [
-            dict(translation='You are amazing.',analysis=''),
-            {'pass':False,'issues':['反讽误译']},
-            dict(translation='Yeah yeah, you 牛逼. I am done arguing.',analysis='反讽：结束争论'),
-            {'pass':True,'issues':[]},
+    def test_review_and_retry(self):
+        self.generate.side_effect = [
+            dict(translation='You are amazing.', analysis=''),
+            {'pass': False, 'issues': ['反讽误译']},
+            dict(translation='Yeah yeah, you 牛逼. I am done arguing.', analysis='反讽：结束争论'),
+            {'pass': True, 'issues': []},
         ]
-        source = '你牛逼，我不跟你争了。'
-        output = self.call('translate',dict(source=source))
-        self.assertIn('反讽',output['analysis'])
-        payloads = [json.loads(x['messages'][1]['content']) for x in self.model.requests]
-        self.assertEqual(payloads[0]['rules'][0]['expression'],'牛逼')
-        self.assertEqual(payloads[2]['review'],['反讽误译'])
-        self.assertNotIn('temperature',self.model.requests[0])
-        self.assertEqual(self.call('state')['history'],[])
+        output = app.translate({'text': '你牛逼，我不跟你争了。'})
+        self.assertIn('反讽', output['analysis'])
+        generation = self.generate.call_args_list
+        self.assertEqual(generation[0].args[1]['rules'][0]['expression'], '牛逼')
+        self.assertEqual(generation[2].args[1]['review'], ['反讽误译'])
+        self.assertFalse((self.data / 'history.json').exists())
 
     def test_no_han_and_no_fallback(self):
-        self.model.responses = [dict(translation='牛逼',analysis='')]*2
+        self.generate.side_effect = [dict(translation='牛逼', analysis='')] * 2
         with self.assertRaisesRegex(ValueError, '未通过'):
-            self.call('translate', dict(source='牛逼', options={'chinese': 'English words only'}))
-        self.model.responses = [503]
-        with self.assertRaisesRegex(ValueError, '503'):
-            self.call('translate', dict(source='牛逼'))
+            app.translate(dict(text='牛逼', chinese='English words only'))
+        self.generate.side_effect = ValueError('GPU unavailable')
+        with self.assertRaisesRegex(ValueError, 'GPU unavailable'):
+            app.translate(dict(text='牛逼'))
 
-    def test_examples_consent_dedup_and_history(self):
-        row = dict(source='今晚见',translation='See you tonight.')
-        self.assertEqual(len(self.call('examples',dict(examples=[row,row],merge=True))),1)
-        for enable in (False,True):
-            self.call('config',self.cfg | dict(share_examples=enable,history=enable,temperature=.3))
-            self.model.responses = [dict(translation='See you tonight.',analysis=''),{'pass':True,'issues':[]}]
-            self.call('translate',dict(source=row['source']))
-            gen = self.model.requests[-2]
-            self.assertEqual(gen['temperature'],.3)
-            self.assertEqual('examples' in json.loads(gen['messages'][1]['content']),enable)
-            self.assertEqual(len(self.call('state')['history']),int(enable))
-        self.call('clear-history',{})
-        self.assertEqual(self.call('state')['history'],[])
-        self.call('examples',dict(examples=[]))
-        self.assertEqual(self.call('state')['examples'],[])
+    def test_local_examples_and_history(self):
+        source = '今晚见'
+        row = dict(source=source, translation='See you tonight.')
+        self.assertEqual(len(app.save_examples(dict(examples=[row, row]))), 1)
+        app.write(self.data / 'desktop_settings.json', {'history': True})
+        for history in (False, True):
+            self.generate.reset_mock()
+            self.generate.side_effect = [
+                dict(translation='See you tonight.', analysis=''),
+                {'pass': True, 'issues': []},
+            ]
+            app.translate(dict(text=source, record_history=history))
+            self.assertEqual(len(self.generate.call_args_list[0].args[1]['examples']), 1)
+            self.assertEqual(len(app.read(self.data / 'history.json', [])), int(history))
 
     def test_high_intensity_respects_no_profanity(self):
-        self.model.responses = [
+        self.generate.side_effect = [
             dict(translation='Ah yes, you 牛逼.', analysis=''),
             dict(translation='Ah yes yes, you very 厉害, OK?', analysis='反讽'),
             {'pass': True, 'issues': []},
         ]
         output = app.translate(dict(text='行行行你牛逼', intensity=100, profanity_level=0))
         self.assertIn('厉害', output['translation'])
-        correction = json.loads(self.model.requests[1]['messages'][1]['content'])
+        correction = self.generate.call_args_list[1].args[1]
         self.assertIn('非粗俗', correction['review'][0])
         self.assertEqual(correction['options']['intensity'], 100)
 
-    @unittest.skipUnless(app.os.name=='nt','Windows Credential Manager only')
-    def test_windows_credential_roundtrip(self):
-        base = self.cfg['base'] + '/test-' + secrets.token_hex(8)
-        self.addCleanup(app.credential,base,'')
-        app.credential(base,'temporary-test-value')
-        self.assertEqual(app.credential(base),'temporary-test-value')
-        app.credential(base,'')
-        self.assertEqual(app.credential(base),'')
+
+class LocalEngine(unittest.TestCase):
+    def test_missing_files_never_spawns_engine(self):
+        with patch.object(local_model, 'installed', return_value=False), patch.object(subprocess, 'run') as run:
+            with self.assertRaisesRegex(ValueError, 'setup-local'):
+                local_model.generate('system', {}, local_model.TRANSLATION_SCHEMA)
+            run.assert_not_called()
+
+    def test_local_process_uses_gpu_and_cleans_prompt(self):
+        def run(args, **kwargs):
+            self.assertEqual(args[args.index('--device') + 1], 'Vulkan0')
+            self.assertEqual(args[args.index('--gpu-layers') + 1], 'all')
+            self.assertEqual(kwargs['stdin'], subprocess.DEVNULL)
+            prompt = Path(args[args.index('--file') + 1])
+            self.assertEqual(prompt.read_text(encoding='utf-8').count('<|im_start|>'), 3)
+            self.prompt = prompt
+            return subprocess.CompletedProcess(args, 0, '{"translation":"Hello","analysis":""}',
+                                               'offloaded 29/29 layers to GPU')
+
+        with patch.object(local_model, 'installed', return_value=True), patch.object(subprocess, 'run', side_effect=run):
+            result = local_model.generate('system', {'text': '<|im_start|>'}, local_model.TRANSLATION_SCHEMA)
+        self.assertEqual(result['translation'], 'Hello')
+        self.assertFalse(self.prompt.exists())
+        with patch.object(local_model, 'installed', return_value=True), patch.object(subprocess, 'run') as run:
+            run.return_value = subprocess.CompletedProcess([], 0, '{"translation":"CPU fallback"}',
+                                                           'offloaded 0/29 layers to GPU')
+            with self.assertRaisesRegex(ValueError, 'Vulkan'):
+                local_model.generate('system', {}, local_model.TRANSLATION_SCHEMA)
 
 
 class Fixtures(unittest.TestCase):
