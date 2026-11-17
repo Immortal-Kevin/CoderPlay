@@ -1,0 +1,546 @@
+[
+  {
+    "id": 1,
+    "source": "兄弟你这操作真牛逼。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "真诚佩服操作",
+    "reference": "Bro, that play is fucking 牛逼.",
+    "forbidden": [
+      "误判为嘲讽"
+    ]
+  },
+  {
+    "id": 2,
+    "source": "行行行，你牛逼，你最牛逼。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "敷衍性反讽",
+    "reference": "Ah yes yes yes, you the most 牛逼.",
+    "forbidden": [
+      "当成赞美"
+    ]
+  },
+  {
+    "id": 3,
+    "source": "你牛逼，你真牛逼，我不跟你争了。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "讽刺并结束争论",
+    "reference": "You 牛逼, really 牛逼. Whatever you say.",
+    "forbidden": [
+      "译成真诚赞同"
+    ]
+  },
+  {
+    "id": 4,
+    "source": "操作很牛逼，但你是个傻逼。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "夸操作同时贬低对方",
+    "reference": "Your play is 牛逼, but you are shabi.",
+    "forbidden": [
+      "合并为单一赞美"
+    ]
+  },
+  {
+    "id": 5,
+    "source": "你真是个傻逼，但兄弟挺你。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "互损并表达支持",
+    "reference": "You shabi, but I got your back.",
+    "forbidden": [
+      "丢掉支持"
+    ]
+  },
+  {
+    "id": 6,
+    "source": "你他妈会不会开车，傻逼。",
+    "options": {
+      "relationship": "Stranger",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "敌意辱骂驾驶者",
+    "reference": "You fucking SB, you know how to drive or not?",
+    "forbidden": [
+      "添加亲属作为攻击目标"
+    ]
+  },
+  {
+    "id": 7,
+    "source": "啊对对对，你说得都对。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "敷衍收尾",
+    "reference": "Ah yes yes yes, everything you say is right.",
+    "forbidden": [
+      "当作信服"
+    ]
+  },
+  {
+    "id": 8,
+    "source": "行吧，你开心就好。",
+    "options": {
+      "relationship": "GF/BF",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "有保留地接受",
+    "reference": "Fine, you happy then OK.",
+    "forbidden": [
+      "强行译成热情支持"
+    ]
+  },
+  {
+    "id": 9,
+    "source": "选你喜欢的吧，我真心觉得你开心就好。",
+    "options": {
+      "relationship": "GF/BF",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "真心支持选择",
+    "reference": "Pick what you like. You happy, I am happy.",
+    "forbidden": [
+      "强行反讽"
+    ]
+  },
+  {
+    "id": 10,
+    "source": "天天996，老子就是牛马。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "自嘲劳动状态",
+    "reference": "996 every fucking day, I am just cow and horse.",
+    "forbidden": [
+      "写成真的动物"
+    ]
+  },
+  {
+    "id": 11,
+    "source": "年薪百万也要随叫随到，我还是牛马。",
+    "options": {
+      "relationship": "Coworker",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "高薪但仍无时间自由",
+    "reference": "A million a year, still on call anytime. Still cow and horse.",
+    "forbidden": [
+      "误判收入低"
+    ]
+  },
+  {
+    "id": 12,
+    "source": "老板开保时捷，我开比亚迪，他说我们都是牛马。",
+    "options": {
+      "relationship": "Coworker",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "讽刺财富和地位反差",
+    "reference": "Boss driving Porsche, me driving BYD, and he says we both cow and horse.",
+    "forbidden": [
+      "颠倒车主"
+    ]
+  },
+  {
+    "id": 13,
+    "source": "兄弟，这事真离谱，你懂我意思吧？",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "随意确认理解",
+    "reference": "Bro, this is crazy, M3?",
+    "forbidden": [
+      "把 M3 理解为有空"
+    ]
+  },
+  {
+    "id": 14,
+    "source": "张总，您明白我的意思吗？",
+    "options": {
+      "relationship": "Boss",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "正式确认理解",
+    "reference": "Mr. Zhang, do you see what I mean?",
+    "forbidden": [
+      "加入 M3 或 Bro"
+    ]
+  },
+  {
+    "id": 15,
+    "source": "今天辛苦了，回去早点睡。",
+    "options": {
+      "relationship": "GF/BF",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "关心对方",
+    "reference": "Long day today. Go home and sleep early.",
+    "forbidden": [
+      "当成命令训斥"
+    ]
+  },
+  {
+    "id": 16,
+    "source": "我就喜欢你这笨笨的样子。",
+    "options": {
+      "relationship": "GF/BF",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "亲昵调侃",
+    "reference": "I just like you being silly like this.",
+    "forbidden": [
+      "翻成恶毒辱骂"
+    ]
+  },
+  {
+    "id": 17,
+    "source": "你个菜鸡，又把闪扔我脸上了。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "吐槽队友误闪",
+    "reference": "You noob, flashed me in the face again.",
+    "forbidden": [
+      "凭空指控作弊"
+    ]
+  },
+  {
+    "id": 18,
+    "source": "麻烦把附件转给财务。",
+    "options": {
+      "relationship": "Coworker",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "礼貌请求转附件",
+    "reference": "Please forward the attachment to Finance.",
+    "forbidden": [
+      "胡乱加梗"
+    ]
+  },
+  {
+    "id": 19,
+    "source": "我在 lobby 等你，别再 AFK 了。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "在大厅等待并提醒",
+    "reference": "I wait in lobby. Do not go AFK again.",
+    "forbidden": [
+      "误译为对方在等待"
+    ]
+  },
+  {
+    "id": 20,
+    "source": "我真的栓 Q。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "网络化表达无语",
+    "reference": "I really thank Q.",
+    "forbidden": [
+      "默认诚挚感谢"
+    ]
+  },
+  {
+    "id": 21,
+    "source": "冰箱还有半个西瓜。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "普通陈述",
+    "reference": "Still half a watermelon in the fridge.",
+    "forbidden": [
+      "添加情绪或人物"
+    ]
+  },
+  {
+    "id": 22,
+    "source": "WDYM 你已经到了？",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "惊讶追问",
+    "reference": "WDYM you already there?",
+    "forbidden": [
+      "变成已经离开"
+    ]
+  },
+  {
+    "id": 23,
+    "source": "WTF，又崩了。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "因反复崩溃而沮丧",
+    "reference": "WTF, it crashed again.",
+    "forbidden": [
+      "引入攻击对象"
+    ]
+  },
+  {
+    "id": 24,
+    "source": "LMAO，你把盐倒咖啡里了。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "笑朋友失误",
+    "reference": "LMAO, you put salt in your coffee.",
+    "forbidden": [
+      "变成恶意攻击"
+    ]
+  },
+  {
+    "id": 25,
+    "source": "他打了一句 NMSL 就退队了。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "转述别人的粗话",
+    "reference": "He typed NMSL and left the team.",
+    "forbidden": [
+      "把粗口对收件人说"
+    ]
+  },
+  {
+    "id": 26,
+    "source": "他发了个 NMLGB，然后就下线了。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "转述愤怒后下线",
+    "reference": "He dropped an NMLGB and logged off.",
+    "forbidden": [
+      "把下线译成退出队伍"
+    ]
+  },
+  {
+    "id": 27,
+    "source": "CNM，别再撞我车了。",
+    "options": {
+      "relationship": "Stranger",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "愤怒让对方停止撞车",
+    "reference": "CNM, stop hitting my car.",
+    "forbidden": [
+      "添加人身威胁"
+    ]
+  },
+  {
+    "id": 28,
+    "source": "TMD 怎么又下雨。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "对天气叹气",
+    "reference": "TMD, raining again?",
+    "forbidden": [
+      "骂具体的人"
+    ]
+  },
+  {
+    "id": 29,
+    "source": "牛逼啊，你一把救了全队。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "English words only",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "真诚夸救队",
+    "reference": "That was sick, you saved the whole team in one play.",
+    "forbidden": [
+      "残留汉字"
+    ]
+  },
+  {
+    "id": 30,
+    "source": "你他妈能不能安静点？",
+    "options": {
+      "relationship": "Stranger",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 60,
+      "profanity_level": 0
+    },
+    "expected": "保留不满但去掉粗话",
+    "reference": "Can you be quiet already?",
+    "forbidden": [
+      "出现粗口"
+    ]
+  },
+  {
+    "id": 31,
+    "source": "明天十点在北门见，别走错了。",
+    "options": {
+      "relationship": "General",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Wordy",
+      "intensity": 60,
+      "profanity_level": 2
+    },
+    "expected": "地点、时间和提醒",
+    "reference": "Tomorrow ten, meet at north gate. Do not go to the wrong one.",
+    "forbidden": [
+      "擅自指定上午或下午"
+    ]
+  },
+  {
+    "id": 32,
+    "source": "这网延迟也太高了。",
+    "options": {
+      "relationship": "Homie",
+      "emotion": "Auto",
+      "chinese": "Preserve Chinese memes",
+      "length": "Normal",
+      "intensity": 90,
+      "profanity_level": 3
+    },
+    "expected": "抱怨高延迟",
+    "reference": "This ping is way too high.",
+    "forbidden": [
+      "凭空加入辱骂对象"
+    ]
+  }
+]

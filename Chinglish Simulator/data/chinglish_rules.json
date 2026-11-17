@@ -1,0 +1,183 @@
+[
+  {
+    "expression": "牛逼",
+    "literal": "厉害",
+    "pragmatics": "真心夸奖、反讽式放弃争论，或佩服操作但不认同行为",
+    "emotion": "赞赏、反讽",
+    "relationship": "朋友、同事、陌生人",
+    "sarcasm": "行行行、你最牛逼、不争了等线索",
+    "example": "Ah yes yes yes, you 牛逼.",
+    "avoid": "不把重复夸奖加撤退当真心赞美",
+    "aliases": [
+      "牛逼",
+      "NB"
+    ]
+  },
+  {
+    "expression": "傻逼",
+    "literal": "愚蠢的人",
+    "pragmatics": "敌意辱骂或亲近的人互损",
+    "emotion": "敌意、玩笑",
+    "relationship": "朋友、陌生人、足够亲近的情侣",
+    "sarcasm": "亲密支持能改变攻击性",
+    "example": "You fucking shabi, but I got your back.",
+    "avoid": "不默认情侣能接受重口互损，也不扩大攻击目标",
+    "aliases": [
+      "傻逼",
+      "SB",
+      "Shabi"
+    ]
+  },
+  {
+    "expression": "啊对对对",
+    "literal": "对",
+    "pragmatics": "敷衍、反讽、结束争论",
+    "emotion": "不耐烦、反讽",
+    "relationship": "不限",
+    "sarcasm": "重复的对常表示放弃争论",
+    "example": "Ah yes yes yes, everything you say is right.",
+    "avoid": "不默认真诚同意",
+    "aliases": [
+      "啊对对对",
+      "对对对"
+    ]
+  },
+  {
+    "expression": "你开心就好",
+    "literal": "只要你开心",
+    "pragmatics": "隐晦不满、放手接受或真心支持",
+    "emotion": "不满、关心",
+    "relationship": "情侣、朋友",
+    "sarcasm": "行吧、随你等可能是消极信号",
+    "example": "Fine fine, you happy then OK.",
+    "avoid": "有明确支持语境时不强加反讽",
+    "aliases": [
+      "你开心就好"
+    ]
+  },
+  {
+    "expression": "牛马",
+    "literal": "牛与马",
+    "pragmatics": "打工人不自由、自嘲或讽刺劳动关系",
+    "emotion": "自嘲、抱怨",
+    "relationship": "打工人、上司和员工",
+    "sarcasm": "地位或财富反差可构成讽刺",
+    "example": "996 every day, I am just cow and horse.",
+    "avoid": "不当作动物，也不假定低收入",
+    "aliases": [
+      "牛马"
+    ]
+  },
+  {
+    "expression": "M3",
+    "literal": "你明白我的意思吧",
+    "pragmatics": "特定随意网络语境的确认、句尾强调",
+    "emotion": "轻松、强调",
+    "relationship": "朋友、嘻哈或篮球社群",
+    "sarcasm": "不专用于反讽",
+    "example": "This shit is crazy, M3?",
+    "avoid": "不解释成 I am free；不虚构来源或在正式场合乱加",
+    "aliases": [
+      "M3",
+      "你懂我意思吧"
+    ]
+  },
+  {
+    "expression": "CNM",
+    "literal": "操你妈",
+    "pragmatics": "强烈辱骂或原有粗口",
+    "emotion": "根据上下文",
+    "relationship": "随意交流",
+    "sarcasm": "上下文可改变语气",
+    "example": "CNM, watch where you are going.",
+    "avoid": "不要在原文没有相应语气时增加，也不增加攻击对象",
+    "aliases": [
+      "CNM",
+      "操你妈"
+    ]
+  },
+  {
+    "expression": "NMSL",
+    "literal": "你妈死了",
+    "pragmatics": "敌意重的攻击",
+    "emotion": "根据上下文",
+    "relationship": "随意交流",
+    "sarcasm": "上下文可改变语气",
+    "example": "He literally typed NMSL.",
+    "avoid": "不要在原文没有相应语气时增加，也不增加攻击对象",
+    "aliases": [
+      "NMSL",
+      "你妈死了"
+    ]
+  },
+  {
+    "expression": "NMLGB",
+    "literal": "你妈了个逼",
+    "pragmatics": "强烈辱骂或暴怒感叹",
+    "emotion": "根据上下文",
+    "relationship": "随意交流",
+    "sarcasm": "上下文可改变语气",
+    "example": "He dropped an NMLGB and left.",
+    "avoid": "不要在原文没有相应语气时增加，也不增加攻击对象",
+    "aliases": [
+      "NMLGB",
+      "你妈了个逼"
+    ]
+  },
+  {
+    "expression": "TMD",
+    "literal": "他妈的",
+    "pragmatics": "强调、惊讶或怒气",
+    "emotion": "根据上下文",
+    "relationship": "随意交流",
+    "sarcasm": "上下文可改变语气",
+    "example": "TMD, it is raining again.",
+    "avoid": "不要在原文没有相应语气时增加，也不增加攻击对象",
+    "aliases": [
+      "TMD",
+      "他妈的"
+    ]
+  },
+  {
+    "expression": "WDYM",
+    "literal": "你什么意思",
+    "pragmatics": "追问，也可能质疑",
+    "emotion": "根据上下文",
+    "relationship": "随意交流",
+    "sarcasm": "上下文可改变语气",
+    "example": "WDYM you already left?",
+    "avoid": "不要在原文没有相应语气时增加，也不增加攻击对象",
+    "aliases": [
+      "WDYM",
+      "你什么意思"
+    ]
+  },
+  {
+    "expression": "WTF",
+    "literal": "搞什么鬼",
+    "pragmatics": "惊讶、困惑或愤怒",
+    "emotion": "根据上下文",
+    "relationship": "随意交流",
+    "sarcasm": "上下文可改变语气",
+    "example": "WTF, it crashed again.",
+    "avoid": "不要在原文没有相应语气时增加，也不增加攻击对象",
+    "aliases": [
+      "WTF",
+      "搞什么鬼"
+    ]
+  },
+  {
+    "expression": "LMAO",
+    "literal": "笑死",
+    "pragmatics": "觉得好笑或冷嘲",
+    "emotion": "根据上下文",
+    "relationship": "随意交流",
+    "sarcasm": "上下文可改变语气",
+    "example": "LMAO, you put salt in your coffee.",
+    "avoid": "不要在原文没有相应语气时增加，也不增加攻击对象",
+    "aliases": [
+      "LMAO",
+      "笑死"
+    ]
+  }
+]

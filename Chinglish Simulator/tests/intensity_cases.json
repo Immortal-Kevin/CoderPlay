@@ -1,0 +1,362 @@
+[
+  {
+    "case_id": 1,
+    "intensity": 0
+  },
+  {
+    "case_id": 1,
+    "intensity": 20
+  },
+  {
+    "case_id": 1,
+    "intensity": 40
+  },
+  {
+    "case_id": 1,
+    "intensity": 60
+  },
+  {
+    "case_id": 1,
+    "intensity": 80
+  },
+  {
+    "case_id": 1,
+    "intensity": 100
+  },
+  {
+    "case_id": 2,
+    "intensity": 0
+  },
+  {
+    "case_id": 2,
+    "intensity": 20
+  },
+  {
+    "case_id": 2,
+    "intensity": 40
+  },
+  {
+    "case_id": 2,
+    "intensity": 60
+  },
+  {
+    "case_id": 2,
+    "intensity": 80
+  },
+  {
+    "case_id": 2,
+    "intensity": 100
+  },
+  {
+    "case_id": 5,
+    "intensity": 0
+  },
+  {
+    "case_id": 5,
+    "intensity": 20
+  },
+  {
+    "case_id": 5,
+    "intensity": 40
+  },
+  {
+    "case_id": 5,
+    "intensity": 60
+  },
+  {
+    "case_id": 5,
+    "intensity": 80
+  },
+  {
+    "case_id": 5,
+    "intensity": 100
+  },
+  {
+    "case_id": 6,
+    "intensity": 0
+  },
+  {
+    "case_id": 6,
+    "intensity": 20
+  },
+  {
+    "case_id": 6,
+    "intensity": 40
+  },
+  {
+    "case_id": 6,
+    "intensity": 60
+  },
+  {
+    "case_id": 6,
+    "intensity": 80
+  },
+  {
+    "case_id": 6,
+    "intensity": 100
+  },
+  {
+    "case_id": 7,
+    "intensity": 0
+  },
+  {
+    "case_id": 7,
+    "intensity": 20
+  },
+  {
+    "case_id": 7,
+    "intensity": 40
+  },
+  {
+    "case_id": 7,
+    "intensity": 60
+  },
+  {
+    "case_id": 7,
+    "intensity": 80
+  },
+  {
+    "case_id": 7,
+    "intensity": 100
+  },
+  {
+    "case_id": 8,
+    "intensity": 0
+  },
+  {
+    "case_id": 8,
+    "intensity": 20
+  },
+  {
+    "case_id": 8,
+    "intensity": 40
+  },
+  {
+    "case_id": 8,
+    "intensity": 60
+  },
+  {
+    "case_id": 8,
+    "intensity": 80
+  },
+  {
+    "case_id": 8,
+    "intensity": 100
+  },
+  {
+    "case_id": 9,
+    "intensity": 0
+  },
+  {
+    "case_id": 9,
+    "intensity": 20
+  },
+  {
+    "case_id": 9,
+    "intensity": 40
+  },
+  {
+    "case_id": 9,
+    "intensity": 60
+  },
+  {
+    "case_id": 9,
+    "intensity": 80
+  },
+  {
+    "case_id": 9,
+    "intensity": 100
+  },
+  {
+    "case_id": 10,
+    "intensity": 0
+  },
+  {
+    "case_id": 10,
+    "intensity": 20
+  },
+  {
+    "case_id": 10,
+    "intensity": 40
+  },
+  {
+    "case_id": 10,
+    "intensity": 60
+  },
+  {
+    "case_id": 10,
+    "intensity": 80
+  },
+  {
+    "case_id": 10,
+    "intensity": 100
+  },
+  {
+    "case_id": 11,
+    "intensity": 0
+  },
+  {
+    "case_id": 11,
+    "intensity": 20
+  },
+  {
+    "case_id": 11,
+    "intensity": 40
+  },
+  {
+    "case_id": 11,
+    "intensity": 60
+  },
+  {
+    "case_id": 11,
+    "intensity": 80
+  },
+  {
+    "case_id": 11,
+    "intensity": 100
+  },
+  {
+    "case_id": 12,
+    "intensity": 0
+  },
+  {
+    "case_id": 12,
+    "intensity": 20
+  },
+  {
+    "case_id": 12,
+    "intensity": 40
+  },
+  {
+    "case_id": 12,
+    "intensity": 60
+  },
+  {
+    "case_id": 12,
+    "intensity": 80
+  },
+  {
+    "case_id": 12,
+    "intensity": 100
+  },
+  {
+    "case_id": 13,
+    "intensity": 0
+  },
+  {
+    "case_id": 13,
+    "intensity": 20
+  },
+  {
+    "case_id": 13,
+    "intensity": 40
+  },
+  {
+    "case_id": 13,
+    "intensity": 60
+  },
+  {
+    "case_id": 13,
+    "intensity": 80
+  },
+  {
+    "case_id": 13,
+    "intensity": 100
+  },
+  {
+    "case_id": 14,
+    "intensity": 0
+  },
+  {
+    "case_id": 14,
+    "intensity": 20
+  },
+  {
+    "case_id": 14,
+    "intensity": 40
+  },
+  {
+    "case_id": 14,
+    "intensity": 60
+  },
+  {
+    "case_id": 14,
+    "intensity": 80
+  },
+  {
+    "case_id": 14,
+    "intensity": 100
+  },
+  {
+    "case_id": 18,
+    "intensity": 0
+  },
+  {
+    "case_id": 18,
+    "intensity": 20
+  },
+  {
+    "case_id": 18,
+    "intensity": 40
+  },
+  {
+    "case_id": 18,
+    "intensity": 60
+  },
+  {
+    "case_id": 18,
+    "intensity": 80
+  },
+  {
+    "case_id": 18,
+    "intensity": 100
+  },
+  {
+    "case_id": 21,
+    "intensity": 0
+  },
+  {
+    "case_id": 21,
+    "intensity": 20
+  },
+  {
+    "case_id": 21,
+    "intensity": 40
+  },
+  {
+    "case_id": 21,
+    "intensity": 60
+  },
+  {
+    "case_id": 21,
+    "intensity": 80
+  },
+  {
+    "case_id": 21,
+    "intensity": 100
+  },
+  {
+    "case_id": 29,
+    "intensity": 0
+  },
+  {
+    "case_id": 29,
+    "intensity": 20
+  },
+  {
+    "case_id": 29,
+    "intensity": 40
+  },
+  {
+    "case_id": 29,
+    "intensity": 60
+  },
+  {
+    "case_id": 29,
+    "intensity": 80
+  },
+  {
+    "case_id": 29,
+    "intensity": 100
+  }
+]

@@ -1,0 +1,10 @@
+__pycache__/
+.env
+data/*
+!data/chinglish_rules.json
+!data/intensity.json
+/build/
+/dist/
+*.egg-info/
+!data/user_examples.template.json
+tests/*.local.json

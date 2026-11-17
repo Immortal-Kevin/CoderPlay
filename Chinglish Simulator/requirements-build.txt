@@ -1,0 +1,2 @@
+# Optional Windows executable build dependency.
+cx-Freeze==8.6.2

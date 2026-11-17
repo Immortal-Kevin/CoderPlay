@@ -1,0 +1,6 @@
+{
+  "syntax_influence": [0.10, 0.85, 1.0],
+  "chinese_retention": [0.05, 0.80, 1.2],
+  "meme_density": [0.02, 0.75, 1.5],
+  "expressiveness": [0.10, 0.85, 1.0]
+}
