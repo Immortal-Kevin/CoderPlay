@@ -202,7 +202,7 @@ class Desktop:
                        chinese=options['chinese'], output_length=options['length'].lower(),
                        preserve_chinese_memes=options['chinese'] == app.OPTIONS['chinese'][0])
         self.save_preferences(announce=False)
-        self.status.set(f"正在翻译和审核 · 强度 {options['intensity']}%")
+        self.status.set(f"正在翻译 · 强度 {options['intensity']}%")
 
         def done(result):
             self.current = dict(source=source, options=options)

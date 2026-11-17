@@ -19,17 +19,6 @@ TRANSLATION_SCHEMA = {
     'properties': {'translation': {'type': 'string'}, 'analysis': {'type': 'string'}},
     'required': ['translation', 'analysis'], 'additionalProperties': False,
 }
-REVIEW_SCHEMA = {
-    'type': 'object',
-    'properties': {'pass': {'type': 'boolean'}, 'issues': {'type': 'array', 'items': {'type': 'string'}}},
-    'required': ['pass', 'issues'], 'additionalProperties': False,
-}
-
-
-class InvalidOutput(ValueError):
-    pass
-
-
 def installed():
     return ENGINE.is_file() and MODEL.is_file() and MODEL.stat().st_size == MODEL_SIZE
 
@@ -79,4 +68,4 @@ def generate(system, payload, schema):
             return output
     except ValueError:
         pass
-    raise InvalidOutput('本地模型未生成完整结果，请缩短原文或重新生成。')
+    raise ValueError('本地模型未生成完整结果，请缩短原文或重新生成。')

@@ -42,9 +42,9 @@ class Translation(unittest.TestCase):
                 intensity = row['intensity']
                 options = case['options'] | {'intensity': intensity}
                 self.generate.reset_mock()
-                self.generate.side_effect = [dict(translation='Mock output.', analysis=''), {'pass': True, 'issues': []}]
+                self.generate.return_value = dict(translation='Mock output.', analysis='')
                 app.translate(dict(text=case['source'], **options, system='Never use the fixed prompt.'))
-                generation, review = self.generate.call_args_list
+                generation, = self.generate.call_args_list
                 self.assertEqual(generation.args[0], app.TRANSLATE)
                 payload = generation.args[1]
                 self.assertEqual(payload['source'], case['source'])
@@ -53,26 +53,15 @@ class Translation(unittest.TestCase):
                 expected = dict(syntax_influence=.10+.85*x, chinese_retention=.05+.80*x**1.2,
                                 meme_density=.02+.75*x**1.5, expressiveness=.10+.85*x)
                 self.assertEqual(payload['style_parameters'], expected)
-                self.assertEqual(review.args[1]['style_parameters'], expected)
 
-    def test_review_and_retry(self):
-        self.generate.side_effect = [
-            dict(translation='You are amazing.', analysis=''),
-            {'pass': False, 'issues': ['反讽误译']},
-            dict(translation='Yeah yeah, you 牛逼. I am done arguing.', analysis='反讽：结束争论'),
-            {'pass': True, 'issues': []},
-        ]
-        output = app.translate({'text': '你牛逼，我不跟你争了。'})
-        self.assertIn('反讽', output['analysis'])
-        generation = self.generate.call_args_list
-        self.assertEqual(generation[0].args[1]['rules'][0]['expression'], '牛逼')
-        self.assertEqual(generation[2].args[1]['review'], ['反讽误译'])
-        self.assertFalse((self.data / 'history.json').exists())
+    def test_translation_returns_first_result_without_audit(self):
+        self.generate.return_value = dict(translation='Your mom is fucking dead.', analysis='辱骂')
+        result = app.translate(dict(text='你妈死了', profanity_level=0))
+        self.assertEqual(result, self.generate.return_value)
+        self.generate.assert_called_once()
+        self.assertEqual(self.generate.call_args.args[1]['options']['profanity_level'], 0)
 
-    def test_no_han_and_no_fallback(self):
-        self.generate.side_effect = [dict(translation='牛逼', analysis='')] * 2
-        with self.assertRaisesRegex(ValueError, '未通过'):
-            app.translate(dict(text='牛逼', chinese='English words only'))
+    def test_engine_failure_surfaces(self):
         self.generate.side_effect = ValueError('GPU unavailable')
         with self.assertRaisesRegex(ValueError, 'GPU unavailable'):
             app.translate(dict(text='牛逼'))
@@ -84,26 +73,10 @@ class Translation(unittest.TestCase):
         app.write(self.data / 'desktop_settings.json', {'history': True})
         for history in (False, True):
             self.generate.reset_mock()
-            self.generate.side_effect = [
-                dict(translation='See you tonight.', analysis=''),
-                {'pass': True, 'issues': []},
-            ]
+            self.generate.return_value = dict(translation='See you tonight.', analysis='')
             app.translate(dict(text=source, record_history=history))
             self.assertEqual(len(self.generate.call_args_list[0].args[1]['examples']), 1)
             self.assertEqual(len(app.read(self.data / 'history.json', [])), int(history))
-
-    def test_high_intensity_respects_no_profanity(self):
-        self.generate.side_effect = [
-            dict(translation='Ah yes, you 牛逼.', analysis=''),
-            dict(translation='Ah yes yes, you very 厉害, OK?', analysis='反讽'),
-            {'pass': True, 'issues': []},
-        ]
-        output = app.translate(dict(text='行行行你牛逼', intensity=100, profanity_level=0))
-        self.assertIn('厉害', output['translation'])
-        correction = self.generate.call_args_list[1].args[1]
-        self.assertIn('非粗俗', correction['review'][0])
-        self.assertEqual(correction['options']['intensity'], 100)
-
 
 class LocalEngine(unittest.TestCase):
     def test_missing_files_never_spawns_engine(self):

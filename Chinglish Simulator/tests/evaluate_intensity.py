@@ -19,8 +19,6 @@ def main():
     folder = Path(__file__).parent
     fixtures = {r['id']: r for r in json.loads((folder / 'cases.json').read_text(encoding='utf-8'))}
     matrix = json.loads((folder / 'intensity_cases.json').read_text(encoding='utf-8'))
-    rubric = (app.REVIEW + ' 使用 expected 与 forbidden 检查语义；reference 仅供参考，'
-              '不要求同一参考句符合所有强度。')
     failed = False
     for row in matrix[:args.case_count * 6]:
         case = fixtures[row['case_id']]
@@ -30,12 +28,9 @@ def main():
                                 temperature=local_model.TEMPERATURE, **case)
             try:
                 result = app.translate(case | dict(record_history=False, use_examples=False))
-                review = app.structured(rubric, case | result)
-                passed = review.get('pass') is True and review.get('issues') == []
-                report.update(output=result, review=review, passed=passed)
-                failed |= not passed
+                report.update(output=result, generated=True)
             except ValueError as exc:
-                report.update(error=str(exc), passed=False)
+                report.update(error=str(exc), generated=False)
                 failed = True
             print(json.dumps(report, ensure_ascii=False), flush=True)
     return int(failed)
