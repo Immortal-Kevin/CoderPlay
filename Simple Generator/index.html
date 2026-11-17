@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple Generator</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#131614;color:#ecf0eb;font:15px "Segoe UI","Microsoft YaHei",sans-serif}header{padding:22px 28px;border-bottom:1px solid #343c34;font-size:21px;font-weight:700}main{display:grid;grid-template-columns:1fr 1fr 2fr;min-height:calc(100vh - 72px)}main[hidden]{display:none}section{min-width:0;padding:24px;border-right:1px solid #343c34}h2{margin:0 0 20px;font-size:17px}label{display:block;margin:15px 0 6px}input,textarea,select,button{font:inherit;color:inherit;border:1px solid #414b42;border-radius:8px;background:#222823;padding:9px 11px}textarea,select,input:not([type=range]){width:100%}textarea{resize:vertical;min-height:120px}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}.primary{background:#c9ec9d;color:#17210e;border-color:#c9ec9d;font-weight:700}input[type=range]{width:100%;accent-color:#c9ec9d;padding:0}output{float:right;color:#c9ec9d}progress{width:100%;accent-color:#c9ec9d}.preview{height:clamp(230px,49vh,620px);display:grid;place-items:center;background:#191e1a;border:1px solid #343c34;border-radius:12px;margin:12px 0;overflow:hidden;color:#9ba79c}.preview img{max-width:100%;max-height:100%;object-fit:contain;min-height:0}.row{display:flex;gap:8px;align-items:center}.row input{min-width:0}.row button{flex:none}.actions{margin-top:12px;flex-wrap:wrap}#thumbs{display:flex;gap:7px;overflow-x:auto}#thumbs button{padding:2px;flex:none}#thumbs img{height:48px;width:64px;object-fit:cover;display:block}#thumbs .selected{border-color:#c9ec9d}dialog{background:#1c231d;color:inherit;border:1px solid #414b42;border-radius:14px;padding:24px;width:min(400px,90vw)}dialog::backdrop{background:#090c09dd}p{overflow-wrap:anywhere}#generate{width:100%;margin-top:18px}@media(max-width:850px){main{grid-template-columns:1fr 1fr}section:last-child{grid-column:1/-1}}@media(max-width:520px){main{grid-template-columns:1fr}}
+</style>
+<header>Simple Generator</header>
+<dialog id="gate">
+  <form id="age-form"><h2>年龄认证</h2><label for="year">出生年份</label>
+  <input id="year" type="number" min="1900" max="2100" step="1" required placeholder="YYYY">
+  <p id="age-message" aria-live="polite">2005 年之前出生可进入。</p>
+  <button class="primary">进入</button></form>
+</dialog>
+<main id="workspace" hidden>
+<section>
+<h2>模型与提示词</h2>
+<label for="style">生成模式</label><select id="style"><option value="photo">写实 · Chilloutmix</option><option value="comic">漫画 · ControlNet</option><option value="oil">油画 · ControlNet</option></select>
+<label for="positive">正向提示词</label><textarea id="positive" maxlength="2000" placeholder="例如：雨后的街道，暖色窗光"></textarea>
+<label for="negative">负向提示词</label><textarea id="negative" maxlength="2000" placeholder="例如：模糊，文字，水印"></textarea>
+<button id="translate">中译英</button><p id="translation-message" aria-live="polite"></p>
+</section>
+<section>
+<h2>生成参数</h2>
+<form id="settings">
+<label for="size">输出尺寸</label><select id="size">
+<optgroup label="1:1"><option>640×640</option><option>768×768</option><option>1024×1024</option><option>1080×1080</option></optgroup>
+<optgroup label="16:9 横图"><option>640×360</option><option>960×540</option><option>1280×720</option><option>1600×900</option><option>1920×1080</option></optgroup></select>
+<label for="freedom">AI 自由度 <output>5</output></label><input id="freedom" type="range" min="1" max="10" value="5">
+<label for="detail">细节补全度 <output>5</output></label><input id="detail" type="range" min="1" max="10" value="5">
+<label for="color">颜色丰富度 <output>5</output></label><input id="color" type="range" min="1" max="10" value="5">
+<label for="rounds">Batch 轮数</label><input id="rounds" type="number" min="1" max="10" value="1" required>
+<label for="count">每轮张数</label><input id="count" type="number" min="1" max="5" value="1" required>
+<button class="primary" id="generate">生成</button>
+</form>
+</section>
+<section>
+<h2>进度与预览</h2>
+<progress id="progress" max="100" value="0" aria-label="生成进度"></progress>
+<div id="status" role="status">等待生成</div>
+<div id="preview" class="preview">暂无预览</div><div id="thumbs"></div>
+<label for="folder">保存文件夹</label><div class="row"><input id="folder"><button id="browse">选择文件夹</button></div>
+<div class="row actions"><button id="save" class="primary" disabled>保存</button><button id="delete" disabled>删除</button><button id="again" disabled>重新生成</button></div>
+<p id="action-message" role="status"></p>
+</section>
+</main>
+<script>
+const byId = id => document.getElementById(id);
+let selected, previous = '', submitted = false;
+async function api(path, body) {
+  const response = await fetch('/api/' + path, body === undefined ? {} : {
+    method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw Error(data.error || '请求失败（' + response.status + '）');
+  return data;
+}
+function handle(id, event, message, run) {
+  byId(id).addEventListener(event, async e => {
+    e.preventDefault();
+    byId(message).textContent = '';
+    try { await run(); } catch (error) { byId(message).textContent = error.message; }
+  });
+}
+function draw(keys) {
+  const preview = byId('preview');
+  const thumbs = byId('thumbs');
+  preview.replaceChildren();
+  thumbs.replaceChildren();
+  if (selected) {
+    const image = document.createElement('img');
+    image.src = '/api/image/' + selected;
+    image.alt = '当前生成图';
+    preview.append(image);
+  } else preview.textContent = '暂无预览';
+  keys.forEach((key, index) => {
+    const button = document.createElement('button');
+    button.classList.toggle('selected', selected === key);
+    const image = document.createElement('img');
+    image.src = '/api/image/' + key;
+    image.alt = '第 ' + (index + 1) + ' 张';
+    button.append(image);
+    button.onclick = () => { selected = key; draw(keys); };
+    thumbs.append(button);
+  });
+  byId('save').disabled = byId('delete').disabled = !selected;
+}
+async function refresh() {
+  const data = await api('status');
+  byId('status').textContent = data.message;
+  byId('progress').value = data.progress;
+  byId('generate').disabled = data.busy;
+  byId('again').disabled = data.busy || !submitted;
+  if (!byId('folder').dataset.initialized) {
+    byId('folder').value = data.folder;
+    byId('folder').dataset.initialized = 'yes';
+  }
+  if (!data.images.includes(selected)) selected = data.images[0];
+  const signature = data.images.join(',');
+  if (signature !== previous) { previous = signature; draw(data.images); }
+}
+async function poll() {
+  try { await refresh(); }
+  catch { byId('status').textContent = '本地服务已断开'; }
+  setTimeout(poll, 650);
+}
+byId('gate').addEventListener('cancel', event => event.preventDefault());
+byId('gate').showModal();
+handle('age-form', 'submit', 'age-message', async () => {
+  const result = await api('age', {year: Number(byId('year').value)});
+  if (!result.allowed) {
+    byId('age-message').textContent = '未达到年龄要求，本地服务已退出。';
+    byId('age-form').querySelector('button').disabled = true;
+    window.close();
+    return;
+  }
+  byId('gate').close();
+  byId('workspace').hidden = false;
+  poll();
+});
+let positiveTranslation;
+byId('positive').addEventListener('input', () => { positiveTranslation = undefined; });
+const prompts = () => Object.fromEntries(['positive','negative'].map(key => [key, byId(key).value]));
+handle('translate', 'click', 'translation-message', async () => {
+  byId('translate').disabled = true;
+  try {
+    byId('translation-message').textContent = '正在本地翻译';
+    const before = prompts();
+    const result = await api('translate', before);
+    if (byId('positive').value === before.positive && before.positive !== result.positive) {
+      positiveTranslation = {original_positive: before.positive, translated_positive: result.positive};
+    }
+    Object.entries(result).forEach(([key, value]) => {
+      if (byId(key).value === before[key]) byId(key).value = value;
+    });
+    byId('translation-message').textContent = '翻译完成';
+  } finally { byId('translate').disabled = false; }
+});
+async function start(settings) {
+  await api('generate', settings);
+  submitted = true;
+  await refresh();
+}
+handle('settings', 'submit', 'action-message', () => start({
+  ...prompts(), ...positiveTranslation, size: byId('size').value.split('×').map(Number), style: byId('style').value,
+  ...Object.fromEntries(['freedom','detail','color','rounds','count'].map(key => [key, Number(byId(key).value)]))
+}));
+handle('again', 'click', 'action-message', () => start({again:true}));
+handle('browse', 'click', 'action-message', async () => { byId('folder').value = (await api('folder', {})).folder; });
+handle('save', 'click', 'action-message', async () => {
+  const result = await api('image/' + selected + '/save', {folder: byId('folder').value.trim()});
+  byId('action-message').textContent = '已保存 · ' + result.path;
+});
+handle('delete', 'click', 'action-message', async () => { await api('image/' + selected + '/delete', {}); await refresh(); });
+document.querySelectorAll('input[type=range]').forEach(input => {
+  input.oninput = () => { input.previousElementSibling.querySelector('output').value = input.value; };
+});
+</script>
+</html>
