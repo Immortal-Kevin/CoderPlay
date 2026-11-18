@@ -40,7 +40,7 @@ class Desktop:
         for label, command in [('历史', self.history), ('示例库', self.examples)]:
             ttk.Button(nav, text=label, command=lambda fn=command: self.safe(fn)).pack(side='left', padx=3)
 
-        self.status = tk.StringVar(value='本地模型 · Qwen2.5 1.5B · Vulkan 核显'
+        self.status = tk.StringVar(value=f'本地模型 · {local_model.MODEL_NAME} · Vulkan 核显'
                                    if local_model.installed() else '缺少本地模型，请运行 setup-local.cmd。')
         ttk.Label(panel, textvariable=self.status, wraplength=740).grid(row=1, columnspan=2, sticky='w', pady=(4, 10))
         self.source = self.editor(panel, '中文原文', 0)

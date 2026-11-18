@@ -40,7 +40,7 @@ if (!(Test-Path -LiteralPath $cli)) {
     Move-Item -LiteralPath $staging -Destination $engine
     Remove-Item -LiteralPath $archive
 }
-Get-VerifiedFile 'https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/91cad51170dc346986eccefdc2dd33a9da36ead9/qwen2.5-1.5b-instruct-q5_k_m.gguf' (Join-Path $root 'qwen2.5-1.5b-instruct-q5_k_m.gguf') 'B46661073C18E5B56A41FA320975F866A00DEF1FF08FEEF4718E013258896F8C' 1285494304
+Get-VerifiedFile 'https://huggingface.co/jc-builds/Qwen3-4B-Instruct-2507-GGUF/resolve/4e6afbc2cf425128ec54bd934d9bf2d644e50448/Qwen3-4B-Instruct-2507-Q4_K_M.gguf' (Join-Path $root 'Qwen3-4B-Instruct-2507-Q4_K_M.gguf') '3605803B982CB64AEAD44F6C1B2AE36E3ACDB41D8E46C8A94C6533BC4C67E597' 2497281120
 & $cli --list-devices
 if ($LASTEXITCODE -ne 0) { throw 'Could not list Vulkan devices.' }
 Write-Host 'Local files are ready. Launch Chinglish Simulator.exe.'

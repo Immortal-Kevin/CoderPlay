@@ -9,9 +9,9 @@ import tempfile
 INSTALL_ROOT = Path(os.environ.get('LOCALAPPDATA', str(Path.home()))) / 'Chinglish Simulator'
 INFERENCE = INSTALL_ROOT / 'inference'
 ENGINE = INFERENCE / 'llama-b12466' / 'llama-completion.exe'
-MODEL = INFERENCE / 'qwen2.5-1.5b-instruct-q5_k_m.gguf'
-MODEL_SIZE = 1285494304
-MODEL_NAME = 'Qwen2.5-1.5B-Instruct Q5_K_M'
+MODEL = INFERENCE / 'Qwen3-4B-Instruct-2507-Q4_K_M.gguf'
+MODEL_SIZE = 2497281120
+MODEL_NAME = 'Qwen3-4B-Instruct-2507 Q4_K_M'
 TEMPERATURE = 0.3
 OFFLOADED = re.compile(r'offloaded (\d+)/(\d+) layers to GPU')
 TRANSLATION_SCHEMA = {
