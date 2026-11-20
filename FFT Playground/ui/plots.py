@@ -2,6 +2,7 @@ import bisect
 import math
 import tkinter as tk
 from core.spectrum import peaks
+from .i18n import translate
 
 BG, GRID, FG, BLUE, CYAN = "#121820", "#293645", "#edf3fc", "#1677FF", "#42d5dc"
 
@@ -12,6 +13,7 @@ class Plot(tk.Canvas):
         self.scale = max(1.0, self.winfo_fpixels("1i") / 96)
         self.configure(height=round(185 * self.scale))
         self.title, self.xlabel, self.status, self.color = title, xlabel, status, color
+        self.language = "zh"
         self.x, self.y, self.marks = [], [], []
         self.view = None
         self.drag_origin = None
@@ -48,7 +50,7 @@ class Plot(tk.Canvas):
     def draw(self):
         self.delete("all")
         s = self.scale
-        self.create_text(12*s, 12*s, text=self.title + "  ·  Amplitude (a.u.)", fill=FG, anchor="w", font=("Microsoft YaHei UI", 10, "bold"))
+        self.create_text(12*s, 12*s, text=translate(self.title, self.language) + "  ·  Amplitude (a.u.)", fill=FG, anchor="w", font=("Microsoft YaHei UI", 10, "bold"))
         if not self.view:
             return
         left, top, right, bottom = self.bounds()

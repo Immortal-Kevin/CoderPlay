@@ -1,6 +1,10 @@
 # FFT Playground v1.0 · 振动信号与频谱实验室
 
-Windows 10/11 本地独立窗口，中文深色仪器界面。完全离线、CPU 运行，无账户、API Key、遥测或上传。自有源码采用 **Apache-2.0**。
+Windows 10/11 本地独立窗口，中英文深色仪器界面。完全离线、CPU 运行，无账户、API Key、遥测或上传。自有源码采用 **Apache-2.0**。
+
+**v1.0.3：**右上角新增“中文 / English”语言切换，应用内参数、预设、按钮、图表标题、说明、状态与错误提示即时切换。切换保留参数、导入记录、分析结果、缩放范围和播放状态；默认启动为中文，选择作用于当前会话。CSV列名/参数标识和Hz/RPM/a.u.单位保持稳定；系统文件对话框的内置控件遵循Windows显示语言。[下载 v1.0.3 Windows x64 便携版](https://github.com/Immortal-Kevin/CoderPlay/releases/tag/fft-playground-v1.0.3)。
+
+![English UI with the language selector at the top right](docs/desktop-en.jpg)
 
 **v1.0.2：**新增可调“正常运行（有底噪）”预设。[下载最新 Windows x64 便携版](https://github.com/Immortal-Kevin/CoderPlay/releases/tag/fft-playground-v1.0.2)。
 
@@ -73,8 +77,8 @@ py -3 -m venv .venv
 重建便携版（必须使用审计过的官方Python3.14.7 Windows x64运行时；Windows自带.NET Framework C#编译器）：
 
 ```powershell
-python tools/build_portable.py --python-root "C:\路径\pythoncore-3.14-64" --output releases/FFT-Playground-v1.0.1-win64
-python tools/audit_portable.py releases/FFT-Playground-v1.0.1-win64.zip
+python tools/build_portable.py --python-root "C:\路径\pythoncore-3.14-64" --output releases/FFT-Playground-v1.0.3-win64 --version 1.0.3
+python tools/audit_portable.py releases/FFT-Playground-v1.0.3-win64.zip
 ```
 
 输出目录必须尚不存在，脚本不会删除已有产物。实际包有独立MANIFEST.json，记录文件、嵌套stdlib源码成员、SHA256及PE导入；运行时由`python314._pth`隔离。修改组件后必须重新核验，不能直接沿用旧审计。

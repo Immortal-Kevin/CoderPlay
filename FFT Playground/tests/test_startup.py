@@ -61,12 +61,14 @@ def descendants(w):
         yield c
         yield from descendants(c)
 notebook=next(w for w in descendants(r) if w.winfo_class()=='TNotebook')
-for tab in notebook.tabs():
-    notebook.select(tab);r.update()
-    for w in descendants(r.nametowidget(tab)):
-        if w.winfo_class()=='TEntry':
-            assert w.winfo_rootx()+w.winfo_width()<=notebook.winfo_rootx()+notebook.winfo_width()
-            assert w.winfo_rooty()+w.winfo_height()<=notebook.winfo_rooty()+notebook.winfo_height()
+for language in ('中文','English'):
+    u.language_choice.set(language);u.change_language()
+    for tab in notebook.tabs():
+        notebook.select(tab);r.update()
+        for w in descendants(r.nametowidget(tab)):
+            if w.winfo_class()=='TEntry':
+                assert w.winfo_rootx()+w.winfo_width()<=notebook.winfo_rootx()+notebook.winfo_width()
+                assert w.winfo_rooty()+w.winfo_height()<=notebook.winfo_rooty()+notebook.winfo_height()
 for p in u.plots:
     assert p.bounds()[0]>170
 u.close()

@@ -1,4 +1,4 @@
-# Portable runtime license audit — v1.0.2
+# Portable runtime license audit — v1.0.3
 
 This document covers the **actual folder ZIP**, separately from the source-only
 v1.0 audit. Own C# launcher and Python application: Apache-2.0. No pip bundler
@@ -12,7 +12,7 @@ notices below. No GPL/AGPL/LGPL tool or runtime code is used in this package.
 
 | Component | Pinned version/source | SPDX or exact terms | Distribution obligation and verification |
 |---|---|---|---|
-| Original launcher/application |1.0.2, tools/PortableLauncher.cs and project sources |Apache-2.0 |Keep LICENSE/NOTICE; mark changes. Source is included in application/ |
+| Original launcher/application |1.0.3, tools/PortableLauncher.cs and project sources |Apache-2.0 |Keep LICENSE/NOTICE; mark changes. Source is included in application/ |
 | CPython executable, python314.dll, stdlib and selected .pyd extensions |Official Windows x64 3.14.7; python.org distribution URL recorded in MANIFEST.json |Python-2.0 and incorporated permissive terms |Complete original LICENSE.txt plus Doc/license.rst retained; interpreter core signature checked as Python Software Foundation; every packaged file has a SHA256 |
 | Tcl and Tk, embedded script libraries |9.0.4; CPython dependency snapshot tcltk-9.0.4.0 |TCL |Keep verbatim Tcl/Tk copyright, permissions and disclaimers; exact dependency-snapshot notices retained |
 | Tcl regular expression implementation |Henry Spencer1998/1999, fixed tcl-9.0.4.0 source snapshot |LicenseRef-Henry-Spencer-1998 |Explicit royalty-free source/binary use permitted for any purpose; exact header notice/disclaimer retained; not GNU regex |

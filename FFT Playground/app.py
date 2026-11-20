@@ -45,7 +45,9 @@ def main():
     def callback_error(kind, value, tb):
         logging.error("Tk callback failed", exc_info=(kind, value, tb))
         from tkinter import messagebox
-        messagebox.showerror("运行错误", f"{kind.__name__}: {value}\n\n完整日志：{log_directory() / 'application.log'}", parent=root)
+        owner = getattr(root, "application", None)
+        show = owner.error if owner else messagebox.showerror
+        show("运行错误", f"{kind.__name__}: {value}\n\n完整日志：{log_directory() / 'application.log'}", parent=root)
     root.report_callback_exception = callback_error
     window = MainWindow(root)
     root.application = window

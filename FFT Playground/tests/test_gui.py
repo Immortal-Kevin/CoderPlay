@@ -189,3 +189,83 @@ def test_normal_noise_preset_and_adjustable_floor(app):
     assert noisy.parameters.harmonics==clean.parameters.harmonics
     high_band=[i for i,f in enumerate(clean.frequency) if 200<=f<=500]
     assert sum(noisy.amplitude[i]**2 for i in high_band)>sum(clean.amplitude[i]**2 for i in high_band)+1e-4
+
+
+def test_language_switch_preserves_analysis_and_views(app, monkeypatch):
+    from ui.i18n import translate
+    from ui import main_window
+    root=app.root
+    app.preset_name.set("正常运行（有底噪）")
+    app.load_preset()
+    deadline=time.monotonic()+15
+    while app.busy and time.monotonic()<deadline:
+        root.update();time.sleep(.01)
+    original=app.result
+    parameters={name:v.get() for name,v in app.vars.items()}
+    app.plots[1].view=(10,100,0,1)
+    app.notebook.select(1)
+    views=[p.view for p in app.plots]
+    selected=app.notebook.select()
+    errors=[]
+    monkeypatch.setattr(main_window.messagebox,"showerror",lambda *args,**kwargs:errors.append(args))
+    try:
+        app.language_choice.set("English")
+        app.language_switch.event_generate("<<ComboboxSelected>>")
+        root.update()
+        assert app.language=="en"
+        assert app.update_button.cget("text")=="Generate / Update"
+        assert app.preset_name.get()=="Normal operation (background noise)"
+        assert app.notebook.tab(0,"text")=="Sampling / Analysis"
+        assert app.result is original
+        assert [p.view for p in app.plots]==views
+        assert app.notebook.select()==selected
+        assert {name:v.get() for name,v in app.vars.items()}==parameters
+        assert "Updated" in app.status.get()
+        assert "Time waveform" in app.plots[0].itemcget(app.plots[0].find_all()[0],"text")
+        app.vars["band_high"].set("2048")
+        app.update()
+        assert errors[-1][0]=="Invalid parameters"
+        assert "Nyquist" in errors[-1][1] and "包络" not in errors[-1][1]
+        app.vars["band_high"].set(parameters["band_high"])
+        app.language_choice.set("中文")
+        app.language_switch.event_generate("<<ComboboxSelected>>")
+        root.update()
+        assert app.update_button.cget("text")=="生成 / 更新"
+        assert app.preset_name.get()=="正常运行（有底噪）"
+        assert app.result is original and [p.view for p in app.plots]==views
+    finally:
+        app.language_choice.set("中文");app.change_language()
+
+
+def test_english_presets_playback_and_layout(app):
+    root=app.root
+    try:
+        app.language_choice.set("English");app.change_language()
+        app.preset_name.set("Normal operation (background noise)")
+        app.load_preset()
+        deadline=time.monotonic()+15
+        while app.busy and time.monotonic()<deadline:
+            root.update();time.sleep(.01)
+        assert app.result.parameters.noise==.15
+        root.geometry("1320x680+0+0")
+        def descendants(w):
+            for c in w.winfo_children():
+                yield c
+                yield from descendants(c)
+        for tab in app.notebook.tabs():
+            app.notebook.select(tab);root.update()
+            for w in descendants(root.nametowidget(tab)):
+                if w.winfo_class()=="TEntry":
+                    assert w.winfo_rootx()+w.winfo_width()<=app.notebook.winfo_rootx()+app.notebook.winfo_width()
+                    assert w.winfo_rooty()+w.winfo_height()<=app.notebook.winfo_rooty()+app.notebook.winfo_height()
+        assert app.language_switch.winfo_rootx()>root.winfo_rootx()+root.winfo_width()*.7
+        for w in descendants(root):
+            if w.winfo_ismapped() and w.winfo_class()=="TButton":
+                assert w.winfo_rootx()+w.winfo_width()<=root.winfo_rootx()+root.winfo_width()
+        app.start();root.update()
+        assert "Playing:" in app.status.get()
+        app.language_choice.set("中文");app.change_language()
+        assert app.playing and "播放" in app.status.get()
+    finally:
+        app.stop();app.language_choice.set("中文");app.change_language()
+        root.geometry("1366x768+0+0");root.update()

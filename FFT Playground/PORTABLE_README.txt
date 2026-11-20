@@ -1,4 +1,7 @@
-FFT Playground 1.0.2 — Windows x64 portable edition
+FFT Playground 1.0.3 — Windows x64 portable edition
+
+Switch 中文 / English at the top right. Application labels, presets, chart
+titles and messages update without changing parameters, data or plot views.
 
 New preset: 正常运行（有底噪）. Adjust 背景底噪 σ in 采样 / 分析,
 then click 生成 / 更新. Default sigma is 0.15 a.u.; zero disables it.

@@ -9,11 +9,13 @@ from core.presets import PRESETS, preset
 from io_utils.csv_handler import import_csv, export_csv
 from io_utils.png_export import export_canvases
 from .plots import Plot, BG, FG, BLUE
+from .i18n import LocalizedVar, translate
 
 
 class MainWindow:
     def __init__(self, root):
         self.root = root
+        self.language = "zh"
         root.title("FFT Playground · 振动信号与频谱实验室 v1.0")
         # Tk fonts use DPI-scaled points; geometry and Canvas coordinates use pixels.
         # Both must use the same scale (not only SetProcessDpiAwareness).
@@ -30,13 +32,21 @@ class MainWindow:
         self.playing = False
         self.offset = 0
         self.mailbox = queue.Queue()
-        self.status = tk.StringVar(value="就绪 · 完全离线 · 教学模拟，频谱特征不构成确定诊断")
+        self.status = LocalizedVar(root, lambda: self.language, "就绪 · 完全离线 · 教学模拟，频谱特征不构成确定诊断")
         self.info = tk.StringVar(value="")
-        self.source = tk.StringVar(value="数据源：数学模型")
+        self.source = LocalizedVar(root, lambda: self.language, "数据源：数学模型")
         self.vars = {f.name: (tk.BooleanVar(value=getattr(Parameters(), f.name)) if f.name == "remove_dc"
                              else tk.StringVar(value=str(getattr(Parameters(), f.name)))) for f in fields(Parameters)}
         self.style()
         self.build()
+        self._text_bindings = []
+        def collect(widget):
+            if "text" in widget.keys() and widget.cget("text"):
+                self._text_bindings.append((widget, widget.cget("text")))
+            for child in widget.winfo_children():
+                collect(child)
+        collect(root)
+        self._tab_texts = [self.notebook.tab(tab, "text") for tab in self.notebook.tabs()]
         root.protocol("WM_DELETE_WINDOW", self.close)
         root.after(50, self.poll)
         root.after(100, self.update)
@@ -62,6 +72,11 @@ class MainWindow:
         head.pack(fill="x")
         ttk.Label(head, text="FFT PLAYGROUND", font=("Segoe UI", 17, "bold"), foreground="#63bcff").pack(side="left")
         ttk.Label(head, text="  振动信号与频谱实验室   /   v1.0", font=("Microsoft YaHei UI", 10)).pack(side="left")
+        self.language_choice = tk.StringVar(value="中文")
+        self.language_switch = ttk.Combobox(head, textvariable=self.language_choice,
+                                          values=["中文", "English"], width=10, state="readonly")
+        self.language_switch.pack(side="right", padx=(8, 0))
+        self.language_switch.bind("<<ComboboxSelected>>", self.change_language)
         ttk.Label(head, text="OFFLINE · CPU", foreground="#70debd").pack(side="right")
         body = ttk.Frame(self.root, padding=(10, 0))
         body.pack(fill="both", expand=True)
@@ -71,10 +86,12 @@ class MainWindow:
         ttk.Label(left, text="教学场景预设").pack(anchor="w", pady=(0, 4))
         self.preset_name = tk.StringVar(value="正常运行")
         choose = ttk.Combobox(left, textvariable=self.preset_name, values=list(PRESETS), state="readonly")
+        self.preset_selector = choose
         choose.pack(fill="x")
         choose.bind("<<ComboboxSelected>>", self.load_preset)
         ttk.Label(left, textvariable=self.source, foreground="#70debd").pack(anchor="w", pady=5)
         notebook = ttk.Notebook(left)
+        self.notebook = notebook
         notebook.pack(fill="both", expand=True)
         basic, signal, envelope = (ttk.Frame(notebook, padding=8) for _ in range(3))
         notebook.add(basic, text="采样 / 分析")
@@ -102,7 +119,7 @@ class MainWindow:
             ("carrier", "调幅载波 (Hz)"), ("modulation", "调制频率 (Hz)"),
             ("depth", "调制深度 [0,1]"), ("am_amplitude", "调幅信号幅值")]):
             entry(signal, i, key, label)
-        ttk.Label(signal, text="幅值为0表示关闭；谐波留空表示关闭\n倍频相对 RPM/60；例如 1:1,2:0.3\n正弦、谐波、冲击、噪声、AM 可叠加", foreground="#a6b7cc").grid(row=12, column=0, columnspan=2, sticky="w", pady=6)
+        ttk.Label(signal, text="幅值为0表示关闭；谐波留空表示关闭\n倍频相对 RPM/60；例如 1:1,2:0.3\n正弦、谐波、冲击、噪声、AM 可叠加", wraplength=round(295*self.scale), foreground="#a6b7cc").grid(row=12, column=0, columnspan=2, sticky="w", pady=6)
         entry(envelope, 0, "band_low", "带通下限 (Hz)")
         entry(envelope, 1, "band_high", "带通上限 (Hz)")
         ttk.Checkbutton(envelope, text="包络 FFT 前去除 DC", variable=self.vars["remove_dc"]).grid(row=2, column=0, columnspan=2, sticky="w", pady=7)
@@ -132,6 +149,34 @@ class MainWindow:
             ttk.Button(footer, text=text, command=callback).pack(side="left", padx=(0, 5))
         ttk.Label(self.root, textvariable=self.status, padding=(12, 4), anchor="w", foreground="#a6b7cc").pack(fill="x")
 
+    def tr(self, text):
+        return translate(text, self.language)
+
+    def error(self, title, text, **kwargs):
+        messagebox.showerror(self.tr(title), self.tr(text), parent=self.root)
+
+    def info_dialog(self, title, text, **kwargs):
+        messagebox.showinfo(self.tr(title), self.tr(text), parent=self.root)
+
+    def preset_key(self, value):
+        return next((key for key in PRESETS if value in (key, translate(key, "en"))), value)
+
+    def change_language(self, _event=None):
+        key = self.preset_key(self.preset_name.get())
+        self.language = "en" if self.language_choice.get() == "English" else "zh"
+        self.root.title(self.tr("FFT Playground · 振动信号与频谱实验室 v1.0"))
+        for widget, source in self._text_bindings:
+            widget.configure(text=self.tr(source))
+        for tab, source in zip(self.notebook.tabs(), self._tab_texts):
+            self.notebook.tab(tab, text=self.tr(source))
+        self.preset_selector.configure(values=[self.tr(key) for key in PRESETS])
+        self.preset_name.set(self.tr(key))
+        self.source.refresh()
+        self.status.refresh()
+        for plot in self.plots:
+            plot.language = self.language
+            plot.draw()
+
     def read_parameters(self):
         values = {}
         for f in fields(Parameters):
@@ -154,12 +199,12 @@ class MainWindow:
             return
         self.imported = None
         self.source.set("数据源：数学模型")
-        self.fill(preset(self.preset_name.get()))
+        self.fill(preset(self.preset_key(self.preset_name.get())))
         self.update()
 
     def defaults(self):
         if self.busy: return
-        self.preset_name.set("正常运行")
+        self.preset_name.set(self.tr("正常运行"))
         self.load_preset()
 
     def run_job(self, function):
@@ -187,7 +232,7 @@ class MainWindow:
             data = self.imported[:2] if self.imported else None
             self.run_job(lambda: analyze(p, data))
         except (ValueError, OverflowError) as exc:
-            messagebox.showerror("参数错误", str(exc), parent=self.root)
+            self.error("参数错误", str(exc), parent=self.root)
 
     def poll(self):
         if self.closed: return
@@ -208,7 +253,7 @@ class MainWindow:
                 self.render()
                 self.status.set("已更新 · 教学模拟，频谱特征不构成确定诊断；导出使用最后成功计算的参数")
             else:
-                messagebox.showerror("处理失败", payload, parent=self.root)
+                self.error("处理失败", payload, parent=self.root)
                 self.status.set("处理失败；保留上一次有效结果")
         self.root.after(50, self.poll)
 
@@ -229,11 +274,11 @@ class MainWindow:
         for label, amplitudes in [("FFT", self.result.amplitude), ("Envelope", self.result.envelope_amplitude)]:
             view = self.plots[1 if label == "FFT" else 2].view
             ids = peaks(self.result.frequency, amplitudes, maximum=view[1], minimum=max(0, view[0]))
-            lines.append(label + "（当前频率视图；DC不计）：")
+            lines.append(label + self.tr("（当前频率视图；DC不计）："))
             for i in ids:
                 f = self.result.frequency[i]
                 lines.append(f"  {f:.6g} Hz   {amplitudes[i]:.6g} a.u.   {f/(self.result.parameters.rpm/60):.3f}×")
-        messagebox.showinfo("峰值检测 · 频率分辨率受 Δf 限制", "\n".join(lines), parent=self.root)
+        self.info_dialog("峰值检测 · 频率分辨率受 Δf 限制", "\n".join(lines), parent=self.root)
 
     def start(self):
         if self.playing or not self.result or self.busy: return
@@ -264,7 +309,7 @@ class MainWindow:
 
     def load_csv(self):
         if self.busy: return
-        path = filedialog.askopenfilename(filetypes=[("CSV", "*.csv"), ("All files", "*.*")], parent=self.root)
+        path = filedialog.askopenfilename(title=self.tr("CSV 导入"), filetypes=[("CSV", "*.csv"), ("All files", "*.*")], parent=self.root)
         if not path: return
         try:
             base = self.read_parameters()
@@ -279,7 +324,7 @@ class MainWindow:
         self.run_job(job)
 
     def save_path(self, extension, title):
-        return filedialog.asksaveasfilename(defaultextension=extension, title=title + "（请使用新文件名，保护已有数据）",
+        return filedialog.asksaveasfilename(defaultextension=extension, title=self.tr(title + "（请使用新文件名，保护已有数据）"),
                                           filetypes=[(extension.upper()[1:], "*" + extension)], parent=self.root)
 
     def save_csv(self, kind):
@@ -290,7 +335,7 @@ class MainWindow:
                 export_csv(path, self.result, kind)
                 self.status.set("CSV 已导出（包含最后成功分析的参数），原记录未改写")
             except (OSError, ValueError) as exc:
-                messagebox.showerror("导出失败", str(exc), parent=self.root)
+                self.error("导出失败", str(exc), parent=self.root)
 
     def save_png(self):
         if not self.result: return
@@ -301,10 +346,10 @@ class MainWindow:
                 export_canvases(path, self.plots)
                 self.status.set("PNG 已导出（当前三幅图表视图）")
             except (OSError, ValueError) as exc:
-                messagebox.showerror("导出失败", str(exc), parent=self.root)
+                self.error("导出失败", str(exc), parent=self.root)
 
     def help(self):
-        messagebox.showinfo("参数与原理", "RPM/60 为转频；倍频是该频率的倍数。\n"
+        self.info_dialog("参数与原理", "RPM/60 为转频；倍频是该频率的倍数。\n"
             "FFT 单边幅值除以窗权重之和；内部频点×2，DC及偶数N的Nyquist不×2。\n"
             "Hann 为周期窗。Δf=Fs/N，并非峰值插值估计。\n"
             "背景底噪采用高斯白噪声，σ为标准差（a.u.）；0关闭，数值越大噪声越强。\n"
