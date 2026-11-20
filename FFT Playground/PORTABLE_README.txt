@@ -1,4 +1,7 @@
-FFT Playground 1.0.1 — Windows x64 portable edition
+FFT Playground 1.0.2 — Windows x64 portable edition
+
+New preset: 正常运行（有底噪）. Adjust 背景底噪 σ in 采样 / 分析,
+then click 生成 / 更新. Default sigma is 0.15 a.u.; zero disables it.
 
 1. Extract the entire ZIP to a normal writable folder.
 2. Double-click FFT Playground.exe. No Python installation or Internet required.

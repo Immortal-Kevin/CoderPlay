@@ -29,6 +29,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--python-root", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--version", default="1.0.1")
     args = parser.parse_args()
     source, out = args.python_root.resolve(), args.output.resolve()
     metadata = json.loads((source / "__install__.json").read_text(encoding="utf-8"))
@@ -75,7 +76,7 @@ def main():
                     "/reference:System.Windows.Forms.dll", f"/out:{out / 'FFT Playground.exe'}",
                     str(ROOT / "tools/PortableLauncher.cs")], check=True)
     bundled = {p.name.lower() for p in out.rglob("*") if p.suffix.lower() in (".dll", ".pyd", ".exe")}
-    manifest = {"application": "FFT Playground 1.0.1", "upstream": metadata["url"],
+    manifest = {"application": "FFT Playground " + args.version, "upstream": metadata["url"],
                 "upstream_archive_sha256": metadata["hash"]["sha256"],
                 "runtime_provenance": "official installed distribution; native/source file hashes below",
                 "isolation": "python314._pth; site packages disabled; no installed Python needed",

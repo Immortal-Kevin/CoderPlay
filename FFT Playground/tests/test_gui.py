@@ -149,6 +149,7 @@ def test_1366_screen_workarea_with_all_parameter_tabs(app):
     root=app.root
     root.geometry("1320x680+0+0")
     root.update()
+
     def descendants(widget):
         for child in widget.winfo_children():
             yield child
@@ -166,3 +167,25 @@ def test_1366_screen_workarea_with_all_parameter_tabs(app):
     notebook.select(0)
     root.geometry("1366x768+0+0")
     root.update()
+
+
+def test_normal_noise_preset_and_adjustable_floor(app):
+    app.preset_name.set("正常运行（有底噪）")
+    app.load_preset()
+    def wait():
+        deadline=time.monotonic()+15
+        while app.busy and time.monotonic()<deadline:
+            app.root.update()
+            time.sleep(.01)
+        assert not app.busy
+    wait()
+    assert float(app.vars["noise"].get())==0.15
+    noisy=app.result
+    app.vars["noise"].set("0")
+    app.update()
+    wait()
+    clean=app.result
+    assert clean.parameters.noise==0
+    assert noisy.parameters.harmonics==clean.parameters.harmonics
+    high_band=[i for i,f in enumerate(clean.frequency) if 200<=f<=500]
+    assert sum(noisy.amplitude[i]**2 for i in high_band)>sum(clean.amplitude[i]**2 for i in high_band)+1e-4

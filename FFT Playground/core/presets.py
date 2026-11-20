@@ -4,6 +4,7 @@ from .signals import Parameters
 
 PRESETS = {
     "正常运行": dict(),
+    "正常运行（有底噪）": dict(noise=0.15),
     "转子不平衡（1×主导）": dict(harmonics="1:1.5,2:0.04,3:0.02"),
     "不对中（2×成分）": dict(harmonics="1:0.5,2:1.2,3:0.15"),
     "机械松动（多次谐波）": dict(harmonics="1:1,2:0.7,3:0.5,4:0.3,5:0.2,6:0.15"),

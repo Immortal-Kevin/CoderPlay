@@ -91,7 +91,7 @@ class MainWindow:
             entry(basic, i, key, label)
         ttk.Label(basic, text="FFT 窗函数").grid(row=4, column=0, sticky="w", pady=6)
         ttk.Combobox(basic, textvariable=self.vars["window"], values=["Hann", "Rectangular"], width=15, state="readonly").grid(row=4, column=1, sticky="ew", padx=(6, 0))
-        for i, (key, label) in enumerate([("noise", "白噪声 σ (a.u.)"), ("seed", "随机种子（整数）")], 5):
+        for i, (key, label) in enumerate([("noise", "背景底噪 σ (a.u.)"), ("seed", "随机种子（整数）")], 5):
             entry(basic, i, key, label)
         ttk.Label(basic, text="N = round(Fs × T)，上限 32768 点\nΔf = Fs/N，观测时长为 N/Fs\n\n各图独立：滚轮缩放、拖动平移\n鼠标读取最近采样点；双击重置\n\n播放：循环浏览当前记录的时间窗口\n频谱始终对应完整记录；默认静态\n导入数据后，更新仅重新分析该记录",
                   wraplength=round(295*self.scale), foreground="#a6b7cc").grid(row=7, column=0, columnspan=2, sticky="w", pady=10)
@@ -307,7 +307,8 @@ class MainWindow:
         messagebox.showinfo("参数与原理", "RPM/60 为转频；倍频是该频率的倍数。\n"
             "FFT 单边幅值除以窗权重之和；内部频点×2，DC及偶数N的Nyquist不×2。\n"
             "Hann 为周期窗。Δf=Fs/N，并非峰值插值估计。\n"
-            "白噪声强度为标准差σ；固定种子可重复生成。相位单位为度。\n"
+            "背景底噪采用高斯白噪声，σ为标准差（a.u.）；0关闭，数值越大噪声越强。\n"
+            "固定种子便于比较不同底噪强度。真实监测噪声可能有色、非平稳，并非都符合此模型。相位单位为度。\n"
             "周期冲击是等间隔激励的指数衰减正弦叠加；衰减越大，振铃越短。\n"
             "AM=(1+d cos(2πfm t))A sin(2πfc t)，边带为fc±fm。\n"
             "包络为带通后Hilbert解析信号的模，峰值不是故障确诊。\n"
