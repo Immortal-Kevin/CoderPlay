@@ -349,6 +349,74 @@
       "sha256": "3df0c9601bfa2e0dca23cc574a4f900a4d7fdad060ab203fab8354350ed93320"
     },
     {
+      "file": "licenses/portable/CPython-incorporated-software.rst",
+      "sha256": "cd6f471c0bfdb099efefc25ddff9b3df8bf62e10428987f1f05e6f2f9e35d563"
+    },
+    {
+      "file": "licenses/portable/CPython-Windows-3.14.7.txt",
+      "sha256": "935cf13e19f8c31b497d20b05d73623431a226b230c3599bc30fa3348979bc68"
+    },
+    {
+      "file": "licenses/portable/libffi-3.4.4.txt",
+      "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+    },
+    {
+      "file": "licenses/portable/LibTomMath.txt",
+      "sha256": "2fa64b163659f41965c9815882a8296d3d03ff546b76153e11445f9bdecf955a"
+    },
+    {
+      "file": "licenses/portable/native-inputs.json",
+      "sha256": "f2c7aaf73c875e1f4d2a13c4a6500c65194af825f2beeb4a0caf804a38e5f82f"
+    },
+    {
+      "file": "licenses/portable/native-signatures.json",
+      "sha256": "7aecaced9ec1e25d8ec8768ff4f04e7aa120aae6ae30d533277b9933bd6579ed"
+    },
+    {
+      "file": "licenses/portable/sources.json",
+      "sha256": "05262aa2e8a6d7a71a41bd2b864da46a56244265e97070b4bea35de916eb71ba"
+    },
+    {
+      "file": "licenses/portable/stdlib-upstream.json",
+      "sha256": "f6ddcaa2e35deadfc94dc9667ba2f516e761ce050bf2a9deef6b6a016e469661"
+    },
+    {
+      "file": "licenses/portable/Tcl-9.0.4.txt",
+      "sha256": "c0a69a2bfd757361ec7e6143973b103c90409316b49e9c88db26ad6388e79f16"
+    },
+    {
+      "file": "licenses/portable/Tcl-regex-notice.txt",
+      "sha256": "dd2810e0c4594ed51ae17553f6b35267387d93707eb8814cc9ce7dec8bfcc8cb"
+    },
+    {
+      "file": "licenses/portable/Tcl-zlib.txt",
+      "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2"
+    },
+    {
+      "file": "licenses/portable/Tk-9.0.4.txt",
+      "sha256": "0d1e4405f6273f091732764ed89b57066be63ce64869be6c71ea337dc4f2f9b5"
+    },
+    {
+      "file": "licenses/portable/Tk-nanosvg.txt",
+      "sha256": "ec446c7df5e6d260d9a145630898787fdd72d5b7a2c336137aacb08abd012818"
+    },
+    {
+      "file": "licenses/portable/Tk-nanosvgrast.txt",
+      "sha256": "68b0214b2416d5f7ee7be7b21035959bbb24aedfee89ee4e9bf3f5107c80c3e9"
+    },
+    {
+      "file": "licenses/portable/Tk-X11.txt",
+      "sha256": "2cde822b93ca16ae535c954b7dfe658b4ad10df2a193628d1b358f1765e8b198"
+    },
+    {
+      "file": "licenses/portable/Tk-xlib.txt",
+      "sha256": "2cde822b93ca16ae535c954b7dfe658b4ad10df2a193628d1b358f1765e8b198"
+    },
+    {
+      "file": "licenses/portable/zlib-ng-2.2.4.txt",
+      "sha256": "6c9f0d975b41afaa34d22f55bb8986ce69e5cb7ad327cb2b28820cd425edf5ee"
+    },
+    {
       "file": "licenses/Python-3.14.7.txt",
       "sha256": "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231"
     },

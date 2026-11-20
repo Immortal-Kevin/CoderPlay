@@ -1,0 +1,72 @@
+[
+  {
+    "File": "python.exe",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "python314.dll",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "vcruntime140.dll",
+    "Status": "Valid",
+    "Signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+  },
+  {
+    "File": "DLLs\\_ctypes.pyd",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\_tkinter.pyd",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\_queue.pyd",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\_socket.pyd",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\select.pyd",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\unicodedata.pyd",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\libffi-8.dll",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\libtommath.dll",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\tcl90.dll",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\tcl9tk90.dll",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  },
+  {
+    "File": "DLLs\\zlib1.dll",
+    "Status": "Valid",
+    "Signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+  }
+]

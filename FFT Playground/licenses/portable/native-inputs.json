@@ -1,0 +1,62 @@
+{
+  "source": "official PythonCore3.14.7 Windows x64 installed distribution",
+  "python_core_signature": "Valid; Python Software Foundation",
+  "files": [
+    {
+      "path": "python.exe",
+      "sha256": "4942b86a6597e5aee0128daa00050ed79bc21f6e709a78eb19cbfeb0c2f39ac9"
+    },
+    {
+      "path": "python314.dll",
+      "sha256": "0f9857ffdfe010fe6b99328d58c2e3c7472ce75f336bf9c2ad9bd5bca3bce700"
+    },
+    {
+      "path": "vcruntime140.dll",
+      "sha256": "d1f4225df2cd877dbf130d5668a021dce3f94118455ff5ec952061c30afc9ce7"
+    },
+    {
+      "path": "DLLs/_ctypes.pyd",
+      "sha256": "408cc4e7a22ffa418ca52f5e13fe9268a3c50a2bc9de02b0530b555ef591bc5a"
+    },
+    {
+      "path": "DLLs/_tkinter.pyd",
+      "sha256": "ee3eb2cdac591821cf71cda8035a6bc9b148d92996dd45b24e3ae3715613315d"
+    },
+    {
+      "path": "DLLs/_queue.pyd",
+      "sha256": "2fd8668f52b34d0e71ae48784bd2e7d35e5d99df6f641edb0fc279235a187c8e"
+    },
+    {
+      "path": "DLLs/_socket.pyd",
+      "sha256": "02265dd0d0287f3ffd287ea5d8e3c918a5a056e8ef2c4529857f5e84ec9e2519"
+    },
+    {
+      "path": "DLLs/select.pyd",
+      "sha256": "722328e7fad8048057fc966474ba73966d2ceebaa32e7344cce09640ab4dc9bd"
+    },
+    {
+      "path": "DLLs/unicodedata.pyd",
+      "sha256": "280b09bd97b598d18c0ed9542dc18ed35fa57a16e84f8e65fd9c6e96516c28d6"
+    },
+    {
+      "path": "DLLs/libffi-8.dll",
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+    },
+    {
+      "path": "DLLs/libtommath.dll",
+      "sha256": "bf18448a56de62e56adb5a50040c08648f0bcf556217de90eca283490ee8c0c3"
+    },
+    {
+      "path": "DLLs/tcl90.dll",
+      "sha256": "ecf6c76a725d082a0f00c5940d39a5a71087d0e9d166eaa07d1d6b122a195020"
+    },
+    {
+      "path": "DLLs/tcl9tk90.dll",
+      "sha256": "6e81d58860701540042b8168af929c54437b3f4143bf1b8f6114e56c3b9a8df0"
+    },
+    {
+      "path": "DLLs/zlib1.dll",
+      "sha256": "6bc87ac126b343f794ff14254d2cb6fbfbeef5476c0272e7297c5b4e8acfc353"
+    }
+  ]
+}

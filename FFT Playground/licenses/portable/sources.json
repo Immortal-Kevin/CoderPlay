@@ -1,0 +1,60 @@
+[
+  {
+    "file": "CPython-incorporated-software.rst",
+    "source": "https://raw.githubusercontent.com/python/cpython/v3.14.7/Doc/license.rst"
+  },
+  {
+    "file": "Tcl-9.0.4.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tcl-9.0.4.0/license.terms"
+  },
+  {
+    "file": "Tk-9.0.4.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-bin-deps/tcltk-9.0.4.0/amd64/tklicense.terms"
+  },
+  {
+    "file": "LibTomMath.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tcl-9.0.4.0/libtommath/LICENSE"
+  },
+  {
+    "file": "Tcl-zlib.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tcl-9.0.4.0/compat/zlib/LICENSE"
+  },
+  {
+    "file": "zlib-ng-2.2.4.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/zlib-ng-2.2.4/LICENSE.md"
+  },
+  {
+    "file": "libffi-3.4.4.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/libffi-3.4.4/LICENSE"
+  },
+  {
+    "file": "CPython-Windows-3.14.7.txt",
+    "source": "https://www.python.org/ftp/python/3.14.7/python-3.14.7-amd64.zip",
+    "evidence": "exact installed official Windows distribution notice"
+  },
+  {
+    "file": "Tk-X11.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tk-9.0.4.1/xlib/X11/license.terms",
+    "scope": "license/attribution text only"
+  },
+  {
+    "file": "Tk-xlib.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tk-9.0.4.1/xlib/license.terms",
+    "scope": "license/attribution text only"
+  },
+  {
+    "file": "Tk-nanosvg.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tk-9.0.4.1/generic/nanosvg.h",
+    "scope": "license/attribution text only"
+  },
+  {
+    "file": "Tk-nanosvgrast.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tk-9.0.4.1/generic/nanosvgrast.h",
+    "scope": "license/attribution text only"
+  },
+  {
+    "file": "Tcl-regex-notice.txt",
+    "source": "https://raw.githubusercontent.com/python/cpython-source-deps/tcl-9.0.4.0/generic/regcomp.c",
+    "scope": "license/attribution text only"
+  }
+]

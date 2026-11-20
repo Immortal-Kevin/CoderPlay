@@ -48,7 +48,7 @@ def audit(development=False):
             "runtime_pip_dependencies": 0, "verified_license_files": len(data["license_files"]),
             "development_versions_checked": checked,
             "prohibited_or_unknown_distributed_components": 0,
-            "packager": "none; any future EXE requires a new file-level audit"}
+            "packager": "none for source; portable ZIP is separately checked by tools/audit_portable.py"}
 
 
 if __name__ == "__main__":

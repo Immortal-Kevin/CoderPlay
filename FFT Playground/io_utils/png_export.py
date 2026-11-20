@@ -8,6 +8,7 @@ from ctypes import wintypes as W
 import struct
 import zlib
 from pathlib import Path
+import tkinter.font as tkfont
 
 
 def write_png(path, width, height, rgb):
@@ -58,6 +59,7 @@ def export_canvases(path, canvases):
     old_bitmap = g.SelectObject(dc, bitmap)
     font = g.CreateFontW(-12, 0, 0, 0, 400, 0, 0, 0, 1, 0, 0, 0, 0, "Microsoft YaHei")
     old_font = g.SelectObject(dc, font)
+    fonts = {}
     g.SetBkMode(dc, 1)
     def color(canvas, value):
         r, green, b = (v // 257 for v in canvas.winfo_rgb(value))
@@ -85,6 +87,14 @@ def export_canvases(path, canvases):
                     g.SelectObject(dc, old_pen)
                     g.DeleteObject(pen)
                 elif kind == "text":
+                    spec = canvas.itemcget(item, "font")
+                    if spec not in fonts:
+                        actual = tkfont.Font(root=canvas, font=spec).actual()
+                        size = actual["size"]
+                        pixels = round(size * canvas.winfo_fpixels("1i") / 72) if size > 0 else -size
+                        fonts[spec] = g.CreateFontW(-pixels, 0, 0, 0, 700 if actual["weight"] == "bold" else 400,
+                                                   0, 0, 0, 1, 0, 0, 0, 0, actual["family"])
+                    g.SelectObject(dc, fonts[spec])
                     text = canvas.itemcget(item, "text")
                     anchor = canvas.itemcget(item, "anchor")
                     extent = W.SIZE()
@@ -114,6 +124,8 @@ def export_canvases(path, canvases):
         write_png(path, width, height, rgb)
     finally:
         g.SelectObject(dc, old_font)
+        for handle in fonts.values():
+            g.DeleteObject(handle)
         g.SelectObject(dc, old_bitmap)
         g.DeleteObject(font)
         g.DeleteObject(bitmap)

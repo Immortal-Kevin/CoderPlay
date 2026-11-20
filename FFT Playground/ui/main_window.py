@@ -15,9 +15,13 @@ class MainWindow:
     def __init__(self, root):
         self.root = root
         root.title("FFT Playground · 振动信号与频谱实验室 v1.0")
-        # Leave room for title bar/taskbar on a 1366×768 desktop.
-        root.geometry("1320x680")
-        root.minsize(1050, 650)
+        # Tk fonts use DPI-scaled points; geometry and Canvas coordinates use pixels.
+        # Both must use the same scale (not only SetProcessDpiAwareness).
+        self.scale = max(1.0, root.winfo_fpixels("1i") / 96)
+        px = lambda value: round(value * self.scale)
+        sw, sh = root.winfo_screenwidth(), root.winfo_screenheight()
+        root.geometry(f"{min(px(1320), sw-px(28))}x{min(px(680), sh-px(90))}")
+        root.minsize(min(px(1050), sw-px(28)), min(px(650), sh-px(90)))
         root.configure(bg=BG)
         self.result = None
         self.imported = None
@@ -61,7 +65,7 @@ class MainWindow:
         ttk.Label(head, text="OFFLINE · CPU", foreground="#70debd").pack(side="right")
         body = ttk.Frame(self.root, padding=(10, 0))
         body.pack(fill="both", expand=True)
-        left = ttk.Frame(body, width=332)
+        left = ttk.Frame(body, width=round(332 * self.scale))
         left.pack(side="left", fill="y", padx=(0, 12))
         left.pack_propagate(False)
         ttk.Label(left, text="教学场景预设").pack(anchor="w", pady=(0, 4))
@@ -90,7 +94,7 @@ class MainWindow:
         for i, (key, label) in enumerate([("noise", "白噪声 σ (a.u.)"), ("seed", "随机种子（整数）")], 5):
             entry(basic, i, key, label)
         ttk.Label(basic, text="N = round(Fs × T)，上限 32768 点\nΔf = Fs/N，观测时长为 N/Fs\n\n各图独立：滚轮缩放、拖动平移\n鼠标读取最近采样点；双击重置\n\n播放：循环浏览当前记录的时间窗口\n频谱始终对应完整记录；默认静态\n导入数据后，更新仅重新分析该记录",
-                  wraplength=295, foreground="#a6b7cc").grid(row=7, column=0, columnspan=2, sticky="w", pady=10)
+                  wraplength=round(295*self.scale), foreground="#a6b7cc").grid(row=7, column=0, columnspan=2, sticky="w", pady=10)
         for i, (key, label) in enumerate([
             ("sine_frequency", "正弦频率 (Hz)"), ("sine_amplitude", "正弦幅值"), ("phase", "正弦相位 (°)"),
             ("harmonics", "倍频:幅值, …"), ("impact_frequency", "周期冲击频率 (Hz)"),
@@ -102,7 +106,7 @@ class MainWindow:
         entry(envelope, 0, "band_low", "带通下限 (Hz)")
         entry(envelope, 1, "band_high", "带通上限 (Hz)")
         ttk.Checkbutton(envelope, text="包络 FFT 前去除 DC", variable=self.vars["remove_dc"]).grid(row=2, column=0, columnspan=2, sticky="w", pady=7)
-        ttk.Label(envelope, text="信号 → 带通 → Hilbert 解析信号\n→ 模值包络 → 可选去 DC → FFT\n\n带通采用频域滤波，带内两端各10%\n余弦过渡，中央80%增益为1。\n边界按周期延拓，记录边缘可能振铃。\n\n包络峰值用于观察重复冲击/调制。\n只有载波位于带通内，包络才有意义。\n\n预设仅为原创数学教学模拟。\n1×、2×、谐波及边带并不唯一对应\n某种故障，不能代替实测诊断。", wraplength=295, foreground="#a6b7cc").grid(row=3, column=0, columnspan=2, sticky="w", pady=8)
+        ttk.Label(envelope, text="信号 → 带通 → Hilbert 解析信号\n→ 模值包络 → 可选去 DC → FFT\n\n带通采用频域滤波，带内两端各10%\n余弦过渡，中央80%增益为1。\n边界按周期延拓，记录边缘可能振铃。\n\n包络峰值用于观察重复冲击/调制。\n只有载波位于带通内，包络才有意义。\n\n预设仅为原创数学教学模拟。\n1×、2×、谐波及边带并不唯一对应\n某种故障，不能代替实测诊断。", wraplength=round(295*self.scale), foreground="#a6b7cc").grid(row=3, column=0, columnspan=2, sticky="w", pady=8)
         buttons = ttk.Frame(left)
         buttons.pack(fill="x", pady=(7, 0))
         self.update_button = ttk.Button(buttons, text="生成 / 更新", command=self.update)

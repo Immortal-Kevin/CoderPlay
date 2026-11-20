@@ -2,6 +2,10 @@
 
 Windows 10/11 本地独立窗口，中文深色仪器界面。完全离线、CPU 运行，无账户、API Key、遥测或上传。自有源码采用 **Apache-2.0**。
 
+**v1.0.1 启动修复：**解释器/Tk 自动预检、失败日志和保留控制台；修复250% DPI下固定尺寸与字体不同步造成的严重挤压。提供无需安装Python的[Windows x64便携版](https://github.com/Immortal-Kevin/CoderPlay/releases/tag/fft-playground-v1.0.1)：完整解压ZIP后双击 `FFT Playground.exe`，保留旁边的 `runtime/`、`application/` 和许可证文件。它是带运行时的文件夹版，不是可单独搬走的单文件EXE。详见 [PORTABLE_README.txt](PORTABLE_README.txt)、[实际打包许可证审计](PORTABLE_LICENSES.md) 和 [启动修复验收](STARTUP_FIX_RESULTS.md)。
+
+![实际便携 EXE 桌面截图，250% DPI](docs/desktop.jpg)
+
 ![原创 GUI 图表导出](docs/charts.png)
 
 上图是实际 Tk 窗口在 1366×768 下导出的原创三图视图；不是第三方参考图。左侧参数面板包含采样/分析、信号叠加和 Envelope 三个页签。
@@ -13,6 +17,10 @@ Windows 10/11 本地独立窗口，中文深色仪器界面。完全离线、CPU
 ```powershell
 py -3 app.py
 ```
+
+`run.bat` 会依次预检项目 `.venv`、`py -0p` 列出的解释器、PATH和PEP514注册表安装，选择Python3.11+且真正创建Tk成功的解释器。WindowsApps的python商店跳转别名不会作为候选。预检有15秒超时，候选失败可继续尝试，错误显示解释器路径及真实异常；失败后控制台等待按键。仅对子进程忽略继承的PYTHONHOME/PYTHONPATH/TCL_LIBRARY/TK_LIBRARY，不修改系统设置，也不自动联网安装Python。
+
+无法复现启动故障时直接运行 `run.bat --diagnose`，它会检查全部候选并等待Enter。日志在 `%LOCALAPPDATA%\FFT Playground\logs\launcher.log` 和 `application.log`（应用日志滚动保留）。需要指定解释器可执行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\launch.ps1 -Diagnostic -PythonPath "C:\路径\python.exe"`。ExecutionPolicy只作用于该次PowerShell进程；不改变用户或系统执行策略。
 
 验证 Tkinter 可用：`py -3 -m tkinter`。实际验收环境为 Windows、Python 3.14.7、Tcl/Tk 8.6.13；其他 Python 版本和 Windows 10 尚未逐一实测。网络仅用于开发时安装 pytest；已安装 Python 的用户运行应用无需联网。
 
@@ -57,7 +65,16 @@ py -3 -m venv .venv
 .\.venv\Scripts\python tools/gui_smoke.py test_output/gui.png
 ```
 
-测试安装步骤需要网络；应用启动不需要这些包。完整结果见 [TEST_RESULTS.md](TEST_RESULTS.md)，许可证清单与核验边界见 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)。本次交付只有源码、通知和原创示例PNG；没有分发解释器、DLL、字体、安装器或EXE。未来打包必须针对实际捆绑文件重新审计，不能直接沿用源码交付结论。未引入PyInstaller或其他打包工具。
+测试安装步骤需要网络；应用启动不需要这些包。v1.0初始结果见 [TEST_RESULTS.md](TEST_RESULTS.md)，v1.0.1结果见 [STARTUP_FIX_RESULTS.md](STARTUP_FIX_RESULTS.md)。[THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)覆盖源码；[PORTABLE_LICENSES.md](PORTABLE_LICENSES.md)单独覆盖便携ZIP实际运行时及DLL。EXE通过自有C#启动器和标准库构建，不使用PyInstaller/cx_Freeze，也没有复制现有环境的site-packages或字体。
+
+重建便携版（必须使用审计过的官方Python3.14.7 Windows x64运行时；Windows自带.NET Framework C#编译器）：
+
+```powershell
+python tools/build_portable.py --python-root "C:\路径\pythoncore-3.14-64" --output releases/FFT-Playground-v1.0.1-win64
+python tools/audit_portable.py releases/FFT-Playground-v1.0.1-win64.zip
+```
+
+输出目录必须尚不存在，脚本不会删除已有产物。实际包有独立MANIFEST.json，记录文件、嵌套stdlib源码成员、SHA256及PE导入；运行时由`python314._pth`隔离。修改组件后必须重新核验，不能直接沿用旧审计。
 
 ## 只读参考与数学来源
 

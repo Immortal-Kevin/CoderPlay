@@ -1,0 +1,2181 @@
+{
+  "source": "https://github.com/python/cpython/tree/v3.14.7/Lib",
+  "files": [
+    {
+      "path": "__future__.py",
+      "upstream_git_blob_sha1": "39720a5e4126cd06fdc344bd041488c4bf394389"
+    },
+    {
+      "path": "__hello__.py",
+      "upstream_git_blob_sha1": "c09d6a4f52332e958259618fdd68d8aeb7391b21"
+    },
+    {
+      "path": "__phello__/__init__.py",
+      "upstream_git_blob_sha1": "d37bd2766ac1c6c50660afff724338ab696afbbd"
+    },
+    {
+      "path": "__phello__/ham/__init__.py",
+      "upstream_git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "__phello__/ham/eggs.py",
+      "upstream_git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "__phello__/spam.py",
+      "upstream_git_blob_sha1": "d37bd2766ac1c6c50660afff724338ab696afbbd"
+    },
+    {
+      "path": "_aix_support.py",
+      "upstream_git_blob_sha1": "dadc75c2bf4200e0e645333dc1833813b7825281"
+    },
+    {
+      "path": "_android_support.py",
+      "upstream_git_blob_sha1": "320dab52acdc0bd71635ef4a1a1e9fa3a2e1c064"
+    },
+    {
+      "path": "_apple_support.py",
+      "upstream_git_blob_sha1": "92febdcf5870703fc18e7a125afe0457cee7bd00"
+    },
+    {
+      "path": "_ast_unparse.py",
+      "upstream_git_blob_sha1": "1c8741b5a5548334cd95041a07968accde03df72"
+    },
+    {
+      "path": "_collections_abc.py",
+      "upstream_git_blob_sha1": "996b094377a6cd66bb3188ff5cdae2570727d28e"
+    },
+    {
+      "path": "_colorize.py",
+      "upstream_git_blob_sha1": "d6673f6692f76151b3b226ebe4d7976456a257e5"
+    },
+    {
+      "path": "_compat_pickle.py",
+      "upstream_git_blob_sha1": "439f8c02f4b586abb23194567a751adf3043ee54"
+    },
+    {
+      "path": "_ios_support.py",
+      "upstream_git_blob_sha1": "20467a7c2bcaeb06e4fefb43de9d20bf73b0ee54"
+    },
+    {
+      "path": "_markupbase.py",
+      "upstream_git_blob_sha1": "614f0cd16ddb44e73b8990da2e78ae3423adec82"
+    },
+    {
+      "path": "_opcode_metadata.py",
+      "upstream_git_blob_sha1": "b9304ec3c03fddb95fd7a68a5839d6b25d93f3de"
+    },
+    {
+      "path": "_osx_support.py",
+      "upstream_git_blob_sha1": "0cb064fcd791be0104242f9f2070b38b53e32dc0"
+    },
+    {
+      "path": "_py_abc.py",
+      "upstream_git_blob_sha1": "c870ae9048b4f131a71beb1b5827ba13f0eda2f3"
+    },
+    {
+      "path": "_py_warnings.py",
+      "upstream_git_blob_sha1": "36513ba2e05ef4dd140be6b3cd24f10226fb8ff3"
+    },
+    {
+      "path": "_pydatetime.py",
+      "upstream_git_blob_sha1": "0f95a57508482370da8e131cf9349e6e3f0af2fb"
+    },
+    {
+      "path": "_pydecimal.py",
+      "upstream_git_blob_sha1": "2277578df5412b739008d0d57b05bdb6f552eaf3"
+    },
+    {
+      "path": "_pyio.py",
+      "upstream_git_blob_sha1": "cc336d2939443cd3f55507d9ae1b8adcf875b127"
+    },
+    {
+      "path": "_pylong.py",
+      "upstream_git_blob_sha1": "be1acd17ce3592c4911f018237f55f67049a6e47"
+    },
+    {
+      "path": "_sitebuiltins.py",
+      "upstream_git_blob_sha1": "81b36efc6c285f0143e2555237d5e24a2b0dbaa6"
+    },
+    {
+      "path": "_strptime.py",
+      "upstream_git_blob_sha1": "fc7e369c3d1e26fdc46d6e288c654d80fdc6e417"
+    },
+    {
+      "path": "_threading_local.py",
+      "upstream_git_blob_sha1": "0b9e5d3bbf6ef6454eb5b6bff6f36eb4291d7651"
+    },
+    {
+      "path": "_weakrefset.py",
+      "upstream_git_blob_sha1": "d1c7fcaeec9821c80861f7039d4aaca5a70644e6"
+    },
+    {
+      "path": "abc.py",
+      "upstream_git_blob_sha1": "f8a4e11ce9c3b1e7a8afeae5626a73af81a7a208"
+    },
+    {
+      "path": "annotationlib.py",
+      "upstream_git_blob_sha1": "5c9a0812646f8149eb4afa4da1fdaafeb5422bf3"
+    },
+    {
+      "path": "antigravity.py",
+      "upstream_git_blob_sha1": "6dc520733577af68cd7926105204baf807251a39"
+    },
+    {
+      "path": "argparse.py",
+      "upstream_git_blob_sha1": "a106a718a995ba3174502a5d28bdc6a7a5e3e0da"
+    },
+    {
+      "path": "ast.py",
+      "upstream_git_blob_sha1": "2f11683ecf7c681d4c76cb0c234587370aea08d5"
+    },
+    {
+      "path": "asyncio/__init__.py",
+      "upstream_git_blob_sha1": "32a5dbae03af2165847da1ff334b6ebb2c3521f9"
+    },
+    {
+      "path": "asyncio/__main__.py",
+      "upstream_git_blob_sha1": "d662f8499e9b3e95bd1dad22d306e19e5e8d9e96"
+    },
+    {
+      "path": "asyncio/base_events.py",
+      "upstream_git_blob_sha1": "d89790e7eeb6e19ec17a5d9597e0e94c084f92e5"
+    },
+    {
+      "path": "asyncio/base_futures.py",
+      "upstream_git_blob_sha1": "7987963bd993492eb4b55e48307daad4762b6e2e"
+    },
+    {
+      "path": "asyncio/base_subprocess.py",
+      "upstream_git_blob_sha1": "0423bc100b2d932213914be5f11582ca926cdd2a"
+    },
+    {
+      "path": "asyncio/base_tasks.py",
+      "upstream_git_blob_sha1": "c907b683413732516753f429f7dff298c535c5ac"
+    },
+    {
+      "path": "asyncio/constants.py",
+      "upstream_git_blob_sha1": "b60c1e4236af1fa8de14f35dfdc4b50476396fe8"
+    },
+    {
+      "path": "asyncio/coroutines.py",
+      "upstream_git_blob_sha1": "6727065bbe323ffd5c99d3303b8b832ec6b58afe"
+    },
+    {
+      "path": "asyncio/events.py",
+      "upstream_git_blob_sha1": "42d8408a38dfd1fca80a1aa4c186d7db1250c80d"
+    },
+    {
+      "path": "asyncio/exceptions.py",
+      "upstream_git_blob_sha1": "5ece595aad647542740e5e9efcae9642518cb147"
+    },
+    {
+      "path": "asyncio/format_helpers.py",
+      "upstream_git_blob_sha1": "93737b7708a67b6cdcd07284f21a1b698923bf44"
+    },
+    {
+      "path": "asyncio/futures.py",
+      "upstream_git_blob_sha1": "e8a99556b1885ec497db550bfc3d292dfac92054"
+    },
+    {
+      "path": "asyncio/graph.py",
+      "upstream_git_blob_sha1": "35f7fa62140bd49f36df736671f1ad8aebc6f8e7"
+    },
+    {
+      "path": "asyncio/locks.py",
+      "upstream_git_blob_sha1": "1592d30ed45832c9e18cb0ae3c772b35a49501b8"
+    },
+    {
+      "path": "asyncio/log.py",
+      "upstream_git_blob_sha1": "23a7074afb0a53aa114341bdbf060ea68f543603"
+    },
+    {
+      "path": "asyncio/mixins.py",
+      "upstream_git_blob_sha1": "c6bf97329e9249416859e4e367d03c9790d5c592"
+    },
+    {
+      "path": "asyncio/proactor_events.py",
+      "upstream_git_blob_sha1": "3cd8ceadaf272f582840f207666c1f441f2e3230"
+    },
+    {
+      "path": "asyncio/protocols.py",
+      "upstream_git_blob_sha1": "09987b164c66e57f8bd12190899a86947cd065b6"
+    },
+    {
+      "path": "asyncio/queues.py",
+      "upstream_git_blob_sha1": "30004f2bc9bacd2b02d9f6ddea7b92dc42a6da09"
+    },
+    {
+      "path": "asyncio/runners.py",
+      "upstream_git_blob_sha1": "774a317564df22cb7b8f842ddb0b24846b77ec94"
+    },
+    {
+      "path": "asyncio/selector_events.py",
+      "upstream_git_blob_sha1": "0c96e81cce0bd5a5ce40046039d725d6303bedf1"
+    },
+    {
+      "path": "asyncio/sslproto.py",
+      "upstream_git_blob_sha1": "74c5f0d5ca0609cc68830cec8ad2aa73a2fefe51"
+    },
+    {
+      "path": "asyncio/staggered.py",
+      "upstream_git_blob_sha1": "2ad65d8648e6c52ed6cbb45460cc9db57dffdd3e"
+    },
+    {
+      "path": "asyncio/streams.py",
+      "upstream_git_blob_sha1": "0ea2881fa18acf4cd6b6873d7a497f9e5d07b6b3"
+    },
+    {
+      "path": "asyncio/subprocess.py",
+      "upstream_git_blob_sha1": "043359bbd03f8aa8354059f1ba9b0c44400fbedf"
+    },
+    {
+      "path": "asyncio/taskgroups.py",
+      "upstream_git_blob_sha1": "00e8f6d5d1a68b2028e9304e19cc3006bf1f2c49"
+    },
+    {
+      "path": "asyncio/tasks.py",
+      "upstream_git_blob_sha1": "9d20930dc300c6752dae6922022238b3eb684416"
+    },
+    {
+      "path": "asyncio/threads.py",
+      "upstream_git_blob_sha1": "5001351b0976ecd44b983c9104b5993ffd973d0e"
+    },
+    {
+      "path": "asyncio/timeouts.py",
+      "upstream_git_blob_sha1": "65ddc285abd971d7f6a33615edd9afdc65e9b60c"
+    },
+    {
+      "path": "asyncio/tools.py",
+      "upstream_git_blob_sha1": "f39e11fdd513b4d61c3b9cec0f8728310c414766"
+    },
+    {
+      "path": "asyncio/transports.py",
+      "upstream_git_blob_sha1": "34c7ad44ffd8ab3e65f45f938f258a387f86cbb4"
+    },
+    {
+      "path": "asyncio/trsock.py",
+      "upstream_git_blob_sha1": "c1f20473b32030c0a124fbe676acc5ee5535ed8b"
+    },
+    {
+      "path": "asyncio/unix_events.py",
+      "upstream_git_blob_sha1": "ba6a62bacc7565ed7f2bed8ae736bee0b30cfd76"
+    },
+    {
+      "path": "asyncio/windows_events.py",
+      "upstream_git_blob_sha1": "c905db1016807f9d5daa8f6b5c39df8a097ac484"
+    },
+    {
+      "path": "asyncio/windows_utils.py",
+      "upstream_git_blob_sha1": "d6393f0b1ffee5dd84a2172db7823e7ae490506a"
+    },
+    {
+      "path": "base64.py",
+      "upstream_git_blob_sha1": "0f84420d7a20629b679c07d44c13c37e13ae7ef1"
+    },
+    {
+      "path": "bdb.py",
+      "upstream_git_blob_sha1": "79da4bab9c903472d7b8bcb46b362c28cb0061eb"
+    },
+    {
+      "path": "bisect.py",
+      "upstream_git_blob_sha1": "ca6ca7240840bbee58c1bbc79b56998c5ae2dbbd"
+    },
+    {
+      "path": "bz2.py",
+      "upstream_git_blob_sha1": "eb58f4da596ea18ff5764b43c3233dded3c2a112"
+    },
+    {
+      "path": "calendar.py",
+      "upstream_git_blob_sha1": "18f76d52ff858199f606a35273b47606d5f3937d"
+    },
+    {
+      "path": "cmd.py",
+      "upstream_git_blob_sha1": "51495fb32160b06ea0ca118e1f458afc41859d59"
+    },
+    {
+      "path": "code.py",
+      "upstream_git_blob_sha1": "b134886dc267fbd2f242c4ccdb68fc497b63164d"
+    },
+    {
+      "path": "codecs.py",
+      "upstream_git_blob_sha1": "e4a8010aba90a503aa25ae4a81eef68790150be3"
+    },
+    {
+      "path": "codeop.py",
+      "upstream_git_blob_sha1": "8cac00442d99e3a47dd8505603473968904d2340"
+    },
+    {
+      "path": "collections/__init__.py",
+      "upstream_git_blob_sha1": "0aeca1ed7e5a743cbda8e893b3abca9c4e51fbbf"
+    },
+    {
+      "path": "colorsys.py",
+      "upstream_git_blob_sha1": "e97f91718a3a30a4dbe502a7ff2fa30cb7b8ac3a"
+    },
+    {
+      "path": "compileall.py",
+      "upstream_git_blob_sha1": "67fe370451e1efbaf97f2972d54bb316914ef842"
+    },
+    {
+      "path": "compression/__init__.py",
+      "upstream_git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "compression/_common/__init__.py",
+      "upstream_git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "compression/_common/_streams.py",
+      "upstream_git_blob_sha1": "9f367d4e30440f75d9a32c035713b281f3fbb26a"
+    },
+    {
+      "path": "compression/bz2.py",
+      "upstream_git_blob_sha1": "16815d6cd20e5b4e8e8f4092e9f84b9b7f66c837"
+    },
+    {
+      "path": "compression/gzip.py",
+      "upstream_git_blob_sha1": "552f48f948ae479efe01767ceaa6ae79d09e68df"
+    },
+    {
+      "path": "compression/lzma.py",
+      "upstream_git_blob_sha1": "b4bc7ccb1db3cfb401f2bc58c6d26b5b68ab5c16"
+    },
+    {
+      "path": "compression/zlib.py",
+      "upstream_git_blob_sha1": "3aa7e2db90e8623c943e681064411648399340d5"
+    },
+    {
+      "path": "compression/zstd/__init__.py",
+      "upstream_git_blob_sha1": "5326cf9b19cf88350161b1732591645f76a7210f"
+    },
+    {
+      "path": "compression/zstd/_zstdfile.py",
+      "upstream_git_blob_sha1": "26d7c9006375fb6227cc7892470135817386ee2c"
+    },
+    {
+      "path": "concurrent/__init__.py",
+      "upstream_git_blob_sha1": "196d3788575993eb403588b01ac6b0a3fbba13da"
+    },
+    {
+      "path": "concurrent/futures/__init__.py",
+      "upstream_git_blob_sha1": "d6ac4b3e0b675f60cfdaa949ddba883a160298c8"
+    },
+    {
+      "path": "concurrent/futures/_base.py",
+      "upstream_git_blob_sha1": "43ae9c8b9014788a19d1fea0e9fffeea4714fe56"
+    },
+    {
+      "path": "concurrent/futures/interpreter.py",
+      "upstream_git_blob_sha1": "fd3d45144b49a7145fce4e77f1dd6d56bb44b832"
+    },
+    {
+      "path": "concurrent/futures/process.py",
+      "upstream_git_blob_sha1": "d892240aae696080405584d84a523e06be98a7ce"
+    },
+    {
+      "path": "concurrent/futures/thread.py",
+      "upstream_git_blob_sha1": "909359b648709fe980db610c8834c34f2b2d2e76"
+    },
+    {
+      "path": "concurrent/interpreters/__init__.py",
+      "upstream_git_blob_sha1": "ea4147ee9a25da554cddc06632e04e620008a6d2"
+    },
+    {
+      "path": "concurrent/interpreters/_crossinterp.py",
+      "upstream_git_blob_sha1": "a5f46b20fbb4c561f2878a6bbdc1792ea3b46e4e"
+    },
+    {
+      "path": "concurrent/interpreters/_queues.py",
+      "upstream_git_blob_sha1": "56c947f7d2aa12d8a907bc8ad8ecde331696d8e8"
+    },
+    {
+      "path": "configparser.py",
+      "upstream_git_blob_sha1": "3c452afe8ade48501f4561db2d5505206fbca8db"
+    },
+    {
+      "path": "contextlib.py",
+      "upstream_git_blob_sha1": "5b646fabca0225b4bb2cecec065f6861e7ed12ae"
+    },
+    {
+      "path": "contextvars.py",
+      "upstream_git_blob_sha1": "14514f185e069dd60ec521f7f5a579c10f1d802c"
+    },
+    {
+      "path": "copy.py",
+      "upstream_git_blob_sha1": "c64fc0761793f54847882d46a4368e3f34690592"
+    },
+    {
+      "path": "copyreg.py",
+      "upstream_git_blob_sha1": "a5e8add4a554d7942b8d59a73872ebfe6549408e"
+    },
+    {
+      "path": "cProfile.py",
+      "upstream_git_blob_sha1": "770d26f79628fe14aa735cfe0258a84f912d5bea"
+    },
+    {
+      "path": "csv.py",
+      "upstream_git_blob_sha1": "5d15344ea2495e139e616e0de4ca1554cd1687e4"
+    },
+    {
+      "path": "ctypes/__init__.py",
+      "upstream_git_blob_sha1": "7223fc499773aa607c5855d23664fa3695688dff"
+    },
+    {
+      "path": "ctypes/_aix.py",
+      "upstream_git_blob_sha1": "ee790f713a9ee3a566c653e2f6b56f3c280c770d"
+    },
+    {
+      "path": "ctypes/_endian.py",
+      "upstream_git_blob_sha1": "6382dd22b8acc83653ac76e481cd9aa5b6a9a70f"
+    },
+    {
+      "path": "ctypes/_layout.py",
+      "upstream_git_blob_sha1": "2048ccb6a1c93fff4613c9b9cbc13c110be0cb87"
+    },
+    {
+      "path": "ctypes/macholib/__init__.py",
+      "upstream_git_blob_sha1": "5621defccd61d1c4b0c64b8e136ef4357052dcb3"
+    },
+    {
+      "path": "ctypes/macholib/dyld.py",
+      "upstream_git_blob_sha1": "583c47daff3ad8d6780279cecb5653daaa18677c"
+    },
+    {
+      "path": "ctypes/macholib/dylib.py",
+      "upstream_git_blob_sha1": "0ad4cba8da3521756942a18942bd11aaaad95a58"
+    },
+    {
+      "path": "ctypes/macholib/framework.py",
+      "upstream_git_blob_sha1": "495679fff19d418a8248c492bb5959f52787123c"
+    },
+    {
+      "path": "ctypes/util.py",
+      "upstream_git_blob_sha1": "cd67fd87efca9a43d7c013f03cd3a58685ae759b"
+    },
+    {
+      "path": "ctypes/wintypes.py",
+      "upstream_git_blob_sha1": "4beba0d19513e23b3ba0c86a1a28073bc1586565"
+    },
+    {
+      "path": "curses/__init__.py",
+      "upstream_git_blob_sha1": "6165fe6c9875c00c144025d916d9e5d2d8807c54"
+    },
+    {
+      "path": "curses/ascii.py",
+      "upstream_git_blob_sha1": "95acff33925ed7a22224b54bc63ec5bbfdd2e949"
+    },
+    {
+      "path": "curses/has_key.py",
+      "upstream_git_blob_sha1": "4e37b480f13353f5510d38d06b085de50f2ee72e"
+    },
+    {
+      "path": "curses/panel.py",
+      "upstream_git_blob_sha1": "067afef730a5b65dd5ef971faad848db4d4717fa"
+    },
+    {
+      "path": "curses/textpad.py",
+      "upstream_git_blob_sha1": "c58a7174d194cf3dfbe3de8491b0786a75ccfb5e"
+    },
+    {
+      "path": "dataclasses.py",
+      "upstream_git_blob_sha1": "242a6d2ffc23b29a9e710bb0f0a9dd3e38e2a5ce"
+    },
+    {
+      "path": "datetime.py",
+      "upstream_git_blob_sha1": "14f30556584e32b98bec77922f9fa69af39a87e4"
+    },
+    {
+      "path": "dbm/__init__.py",
+      "upstream_git_blob_sha1": "4fdbc54e74cfb64ffe16263a07840f2a6c932e88"
+    },
+    {
+      "path": "dbm/dumb.py",
+      "upstream_git_blob_sha1": "def120ffc3778b6ac5e92abd330a1725ba2c2d2c"
+    },
+    {
+      "path": "dbm/gnu.py",
+      "upstream_git_blob_sha1": "b07a1defffdf2fcc8532f52ed49751fb0733a1a7"
+    },
+    {
+      "path": "dbm/ndbm.py",
+      "upstream_git_blob_sha1": "23056a29ef2b6200c8bfd2b44fba832b6774a488"
+    },
+    {
+      "path": "dbm/sqlite3.py",
+      "upstream_git_blob_sha1": "d0eed54e0f84c10ffdc68543079fd34dc7a56b06"
+    },
+    {
+      "path": "decimal.py",
+      "upstream_git_blob_sha1": "530bdfb38953d995e715f02fca97f9160c4fab2c"
+    },
+    {
+      "path": "difflib.py",
+      "upstream_git_blob_sha1": "aef2b6f0fd8a1bfcfee3c778d827e566f5ccd4c9"
+    },
+    {
+      "path": "dis.py",
+      "upstream_git_blob_sha1": "d6d2c1386dd7858db7aa00becfc690e7d38146da"
+    },
+    {
+      "path": "doctest.py",
+      "upstream_git_blob_sha1": "a66888d8fc9673eac980f2db4c003e16bc08d533"
+    },
+    {
+      "path": "email/__init__.py",
+      "upstream_git_blob_sha1": "6d597006e5eefe1a7e48bf632aa0971c0a23eb39"
+    },
+    {
+      "path": "email/_encoded_words.py",
+      "upstream_git_blob_sha1": "05a34a4c10523369712c7134a9f092d11cad562b"
+    },
+    {
+      "path": "email/_header_value_parser.py",
+      "upstream_git_blob_sha1": "c02175e24e0e08eeebd9a11e4a05504c80eea738"
+    },
+    {
+      "path": "email/_parseaddr.py",
+      "upstream_git_blob_sha1": "e311948cb09a7d6ff32098ced1e420edb0047a3b"
+    },
+    {
+      "path": "email/_policybase.py",
+      "upstream_git_blob_sha1": "e23843df44881f3764d6150655dfbd4202309bf7"
+    },
+    {
+      "path": "email/base64mime.py",
+      "upstream_git_blob_sha1": "a5a3f737a97b519a63c61790f1846acb5c75569b"
+    },
+    {
+      "path": "email/charset.py",
+      "upstream_git_blob_sha1": "c4b246455f86c64a281ec222b3eb07e7408d60bd"
+    },
+    {
+      "path": "email/contentmanager.py",
+      "upstream_git_blob_sha1": "11d1536db27d79c3fd4b51498830b94845dede6d"
+    },
+    {
+      "path": "email/encoders.py",
+      "upstream_git_blob_sha1": "55741a22a07b20403cb2d6e1c16fe75f0a0631f1"
+    },
+    {
+      "path": "email/errors.py",
+      "upstream_git_blob_sha1": "6bc744bd59c5bb4d10512c39ef448fbd51019050"
+    },
+    {
+      "path": "email/feedparser.py",
+      "upstream_git_blob_sha1": "ae8ef32792b3e9205f338a838a0cbf5c5f0acd91"
+    },
+    {
+      "path": "email/generator.py",
+      "upstream_git_blob_sha1": "ba11d63fba600a3b2e0665a80845f188013485b8"
+    },
+    {
+      "path": "email/header.py",
+      "upstream_git_blob_sha1": "220a84a7454b214fc0ca056cf51e1edf5dd61b65"
+    },
+    {
+      "path": "email/headerregistry.py",
+      "upstream_git_blob_sha1": "0e8698efc0b96676c79a656fc49a9f6e1492807d"
+    },
+    {
+      "path": "email/iterators.py",
+      "upstream_git_blob_sha1": "08ede3ec679613a21f791f0f67a802fb6da5f488"
+    },
+    {
+      "path": "email/message.py",
+      "upstream_git_blob_sha1": "641fb2e944d43112e8d367258464faf0a4ea0968"
+    },
+    {
+      "path": "email/mime/__init__.py",
+      "upstream_git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "email/mime/application.py",
+      "upstream_git_blob_sha1": "9a9d213d2a940d1cdb094dbe9c3f2d2cdde214eb"
+    },
+    {
+      "path": "email/mime/audio.py",
+      "upstream_git_blob_sha1": "85f4a955238c52060e01a688301e276d50fdb3f6"
+    },
+    {
+      "path": "email/mime/base.py",
+      "upstream_git_blob_sha1": "da4c6e591a5cb8545d8eca5892215fce2e63ee6c"
+    },
+    {
+      "path": "email/mime/image.py",
+      "upstream_git_blob_sha1": "dab9685848172b34e255c01d947be57372dc13c0"
+    },
+    {
+      "path": "email/mime/message.py",
+      "upstream_git_blob_sha1": "13d9ff599f86dbb9383442189f170276cd88154a"
+    },
+    {
+      "path": "email/mime/multipart.py",
+      "upstream_git_blob_sha1": "1abb84d5fed0bb2f5809b7ba8cf3e054abf97f61"
+    },
+    {
+      "path": "email/mime/nonmultipart.py",
+      "upstream_git_blob_sha1": "5beab3a441e2bc6f4b88337718c8daa4711188a8"
+    },
+    {
+      "path": "email/mime/text.py",
+      "upstream_git_blob_sha1": "aa4da7f8217e433186c518604e4ae531d2d78c48"
+    },
+    {
+      "path": "email/parser.py",
+      "upstream_git_blob_sha1": "c6a51dd8e377b819bd3b8acee23c2bf78d407df8"
+    },
+    {
+      "path": "email/policy.py",
+      "upstream_git_blob_sha1": "4169150101a29d615a9f43c9f892848edb37ab9e"
+    },
+    {
+      "path": "email/quoprimime.py",
+      "upstream_git_blob_sha1": "bc53b3768213102eeb757ea771ac8a263e8db119"
+    },
+    {
+      "path": "email/utils.py",
+      "upstream_git_blob_sha1": "5838a80856879537c07789a1898121deb2390c42"
+    },
+    {
+      "path": "encodings/__init__.py",
+      "upstream_git_blob_sha1": "8548bbe04ad37c90c07867f79229624d759369bd"
+    },
+    {
+      "path": "encodings/_win_cp_codecs.py",
+      "upstream_git_blob_sha1": "4f8eb886794404f4272c985166c789567e7fbda0"
+    },
+    {
+      "path": "encodings/aliases.py",
+      "upstream_git_blob_sha1": "8b175772c58e0d2ab2a11ee02cd9516963b87ed9"
+    },
+    {
+      "path": "encodings/ascii.py",
+      "upstream_git_blob_sha1": "2033cde97484a9ba86f9008dabd15ac846c663ee"
+    },
+    {
+      "path": "encodings/base64_codec.py",
+      "upstream_git_blob_sha1": "8e7703b3b6072d644f9ea000b1a2737f990d6f95"
+    },
+    {
+      "path": "encodings/big5.py",
+      "upstream_git_blob_sha1": "7adeb0e1605274414014ee7849c36b203f7589f7"
+    },
+    {
+      "path": "encodings/big5hkscs.py",
+      "upstream_git_blob_sha1": "350df37baaedafcd75120723bf8e9b85a7e2a4b8"
+    },
+    {
+      "path": "encodings/bz2_codec.py",
+      "upstream_git_blob_sha1": "fd9495e341baee1437dad343f537938f71066efd"
+    },
+    {
+      "path": "encodings/charmap.py",
+      "upstream_git_blob_sha1": "81189b161a64ad2edbe9172597d848e64b28b28c"
+    },
+    {
+      "path": "encodings/cp037.py",
+      "upstream_git_blob_sha1": "4edd708f3d7501be4c93fb4d5c2e1c608e1093cf"
+    },
+    {
+      "path": "encodings/cp1006.py",
+      "upstream_git_blob_sha1": "a1221c3ef1ce52c3e45c556e148f2484b5c5f761"
+    },
+    {
+      "path": "encodings/cp1026.py",
+      "upstream_git_blob_sha1": "46f71f74dae2789c130dba8cd77673135dcaea2f"
+    },
+    {
+      "path": "encodings/cp1125.py",
+      "upstream_git_blob_sha1": "b1fd69deb075ba011d28226777e19cb04a7d9334"
+    },
+    {
+      "path": "encodings/cp1140.py",
+      "upstream_git_blob_sha1": "0a919d837e1d4e80380f0e7bc1b91d537b5eec8d"
+    },
+    {
+      "path": "encodings/cp1250.py",
+      "upstream_git_blob_sha1": "c2c83aaf3e884c993bb08f9825b00f6c05e03274"
+    },
+    {
+      "path": "encodings/cp1251.py",
+      "upstream_git_blob_sha1": "22bc66002d3e8a72d2dd42c79055b61d6b8e082b"
+    },
+    {
+      "path": "encodings/cp1252.py",
+      "upstream_git_blob_sha1": "c0e8088ea829ffed5adf6aff2442f4b310efb77b"
+    },
+    {
+      "path": "encodings/cp1253.py",
+      "upstream_git_blob_sha1": "ec9c0972d10d72566c337fec1f372031003819b0"
+    },
+    {
+      "path": "encodings/cp1254.py",
+      "upstream_git_blob_sha1": "4912327a5bcfc46a62579db4f6edfd89cde7bd5f"
+    },
+    {
+      "path": "encodings/cp1255.py",
+      "upstream_git_blob_sha1": "91ce26b9bff1f636ccb212063727747225efedcb"
+    },
+    {
+      "path": "encodings/cp1256.py",
+      "upstream_git_blob_sha1": "fd6afab52c634c7d801de6d7a642ce966a697d88"
+    },
+    {
+      "path": "encodings/cp1257.py",
+      "upstream_git_blob_sha1": "9ebc90d509d3c6dfd76cb9a1d0072a51a3b6a22a"
+    },
+    {
+      "path": "encodings/cp1258.py",
+      "upstream_git_blob_sha1": "784378a83697ca6ce6eef95d852e42a821ccd27d"
+    },
+    {
+      "path": "encodings/cp273.py",
+      "upstream_git_blob_sha1": "69c6d778c57345f03305d7e0cdfa6aea736a3b0f"
+    },
+    {
+      "path": "encodings/cp424.py",
+      "upstream_git_blob_sha1": "6753daf122df44ab9a4fb28b4fc493e2a521ddde"
+    },
+    {
+      "path": "encodings/cp437.py",
+      "upstream_git_blob_sha1": "b6c75e2ca1c897d563bd329ca2881d167abf5f12"
+    },
+    {
+      "path": "encodings/cp500.py",
+      "upstream_git_blob_sha1": "5f61535f82aa991eb8dd8940df7e92e9a4db5763"
+    },
+    {
+      "path": "encodings/cp720.py",
+      "upstream_git_blob_sha1": "96d609616c4d28e290f1a4d711dc8e4033ff90f2"
+    },
+    {
+      "path": "encodings/cp737.py",
+      "upstream_git_blob_sha1": "9685bae75b36ccc300422966620e51955a756d5b"
+    },
+    {
+      "path": "encodings/cp775.py",
+      "upstream_git_blob_sha1": "fe06e7bc3b3dd7707878efc4f134798de4065b27"
+    },
+    {
+      "path": "encodings/cp850.py",
+      "upstream_git_blob_sha1": "f98aef99fb6a251f9712d56aa3213a622b41928f"
+    },
+    {
+      "path": "encodings/cp852.py",
+      "upstream_git_blob_sha1": "34d8a0ea5acc4b7f97cf4f943cfc4a78bb3d4247"
+    },
+    {
+      "path": "encodings/cp855.py",
+      "upstream_git_blob_sha1": "4fe9210697ce29487035e8691a5502c82c0b1eb5"
+    },
+    {
+      "path": "encodings/cp856.py",
+      "upstream_git_blob_sha1": "cacbfb2f80475e7bc9176e2438539d51a8dbed9f"
+    },
+    {
+      "path": "encodings/cp857.py",
+      "upstream_git_blob_sha1": "741b059b9a26f66d82432dab7f327d2a7ad603b4"
+    },
+    {
+      "path": "encodings/cp858.py",
+      "upstream_git_blob_sha1": "7579f52538686c27185835344ec02c2311c9d9d2"
+    },
+    {
+      "path": "encodings/cp860.py",
+      "upstream_git_blob_sha1": "65903e74641873f751715cbc8afee4462ebd72a1"
+    },
+    {
+      "path": "encodings/cp861.py",
+      "upstream_git_blob_sha1": "860a05fa3f4f1b64c9a417e10c58d939d94ad136"
+    },
+    {
+      "path": "encodings/cp862.py",
+      "upstream_git_blob_sha1": "3df22f997b728eda96ad43b56bcf5f0894295449"
+    },
+    {
+      "path": "encodings/cp863.py",
+      "upstream_git_blob_sha1": "764180b623271cf8ae9f68ed5932e1ea464f54ee"
+    },
+    {
+      "path": "encodings/cp864.py",
+      "upstream_git_blob_sha1": "53df482dcd617ac6c4d239a9a40b31b9e8ab058f"
+    },
+    {
+      "path": "encodings/cp865.py",
+      "upstream_git_blob_sha1": "6726cf3f9ed3717503f7b2935c1d939d5a00ff4a"
+    },
+    {
+      "path": "encodings/cp866.py",
+      "upstream_git_blob_sha1": "bec7ae39fbac9d9310a1dbd67c07a6c7017f785e"
+    },
+    {
+      "path": "encodings/cp869.py",
+      "upstream_git_blob_sha1": "8d8a29b175c18809229748bed747ef44b65c6a67"
+    },
+    {
+      "path": "encodings/cp874.py",
+      "upstream_git_blob_sha1": "59bfcbc98ab47d61ab7b7d48caa56379eaf3ca0b"
+    },
+    {
+      "path": "encodings/cp875.py",
+      "upstream_git_blob_sha1": "c25a5a43bc49e1ce821793979b87d39fbbd05d18"
+    },
+    {
+      "path": "encodings/cp932.py",
+      "upstream_git_blob_sha1": "e01f59b719057657c65f739e43fc0400722293e6"
+    },
+    {
+      "path": "encodings/cp949.py",
+      "upstream_git_blob_sha1": "627c87125e2affe4bc75eae769f901a54e2f92fb"
+    },
+    {
+      "path": "encodings/cp950.py",
+      "upstream_git_blob_sha1": "39eec5ed0ddef9579cf1be928acfd1a2cf37d39b"
+    },
+    {
+      "path": "encodings/euc_jis_2004.py",
+      "upstream_git_blob_sha1": "72b87aea68862f2fabbb7b30274e683a6654d4ae"
+    },
+    {
+      "path": "encodings/euc_jisx0213.py",
+      "upstream_git_blob_sha1": "cc47d04112a187d585dce4af4bd76a38e89e0f51"
+    },
+    {
+      "path": "encodings/euc_jp.py",
+      "upstream_git_blob_sha1": "7bcbe4147f2ad49c6a0d3a9cc6eb5417cdabdf2d"
+    },
+    {
+      "path": "encodings/euc_kr.py",
+      "upstream_git_blob_sha1": "c1fb1260e879f0c42491be24b6a0cd0b8a365122"
+    },
+    {
+      "path": "encodings/gb18030.py",
+      "upstream_git_blob_sha1": "34fb6c366a76147b9e2b4a62f886b2a91eb6add8"
+    },
+    {
+      "path": "encodings/gb2312.py",
+      "upstream_git_blob_sha1": "3c3b837d618ecd262007eec7d3bd786209e91c06"
+    },
+    {
+      "path": "encodings/gbk.py",
+      "upstream_git_blob_sha1": "1b45db89859cdf58931436a954e7eb304b5962b8"
+    },
+    {
+      "path": "encodings/hex_codec.py",
+      "upstream_git_blob_sha1": "9fb1072804456a36469dd527c4c713b56e614fe3"
+    },
+    {
+      "path": "encodings/hp_roman8.py",
+      "upstream_git_blob_sha1": "58de1033c13b76048f543617c2b6901e7848005b"
+    },
+    {
+      "path": "encodings/hz.py",
+      "upstream_git_blob_sha1": "383442a3c9ac9ae5d093d972f1ff26fe758897d5"
+    },
+    {
+      "path": "encodings/idna.py",
+      "upstream_git_blob_sha1": "0c90b4c9fe18fad8e2fa6f0dbb7ae39edb0726a3"
+    },
+    {
+      "path": "encodings/iso2022_jp.py",
+      "upstream_git_blob_sha1": "ab0406069356e4dfd7cfcc4a981535c40c9c5574"
+    },
+    {
+      "path": "encodings/iso2022_jp_1.py",
+      "upstream_git_blob_sha1": "997044dc3787496be0ed70f2ed1b63d9ebe1b0ac"
+    },
+    {
+      "path": "encodings/iso2022_jp_2.py",
+      "upstream_git_blob_sha1": "9106bf762512fdd3e9deb73cba91529ab0db94ac"
+    },
+    {
+      "path": "encodings/iso2022_jp_2004.py",
+      "upstream_git_blob_sha1": "40198bf098570be21f67335c42fbf9f956204725"
+    },
+    {
+      "path": "encodings/iso2022_jp_3.py",
+      "upstream_git_blob_sha1": "346e08beccbbafd347371743ec89333370d3b083"
+    },
+    {
+      "path": "encodings/iso2022_jp_ext.py",
+      "upstream_git_blob_sha1": "752bab9813a094e9446b084ae90957290f1324c0"
+    },
+    {
+      "path": "encodings/iso2022_kr.py",
+      "upstream_git_blob_sha1": "bf7018763eae38729d6c206379467f36e41910c3"
+    },
+    {
+      "path": "encodings/iso8859_1.py",
+      "upstream_git_blob_sha1": "8cfc01fe14e4853c69c76e5cb9bb0659cd2b8d2a"
+    },
+    {
+      "path": "encodings/iso8859_10.py",
+      "upstream_git_blob_sha1": "b4fb0419c42c2d26a50f6896d7af46c72d91ac71"
+    },
+    {
+      "path": "encodings/iso8859_11.py",
+      "upstream_git_blob_sha1": "c7258ecf4640ef0940c990fdaf1608582b0fa0a4"
+    },
+    {
+      "path": "encodings/iso8859_13.py",
+      "upstream_git_blob_sha1": "6f8eab2b821481b9ab33398a4219e54b5fe1445b"
+    },
+    {
+      "path": "encodings/iso8859_14.py",
+      "upstream_git_blob_sha1": "7568d4ee1f0448fda1a5f78aced1bbd568c56c8a"
+    },
+    {
+      "path": "encodings/iso8859_15.py",
+      "upstream_git_blob_sha1": "43bdecd446841da1866749ca8c6ebb9d86c7795b"
+    },
+    {
+      "path": "encodings/iso8859_16.py",
+      "upstream_git_blob_sha1": "e70c96e3335fb8357c34476758024cd9bd1ad8a1"
+    },
+    {
+      "path": "encodings/iso8859_2.py",
+      "upstream_git_blob_sha1": "3698747b4794da2627a369313d93a2a31b55ea05"
+    },
+    {
+      "path": "encodings/iso8859_3.py",
+      "upstream_git_blob_sha1": "96d3063ea68159c2ce73fcfbfa4895c5786930e7"
+    },
+    {
+      "path": "encodings/iso8859_4.py",
+      "upstream_git_blob_sha1": "65c1e00f3067a3b044365085f006540e5d9eb969"
+    },
+    {
+      "path": "encodings/iso8859_5.py",
+      "upstream_git_blob_sha1": "a3c868a50c5d0cd82d53c9e6ef20dd52146a00ad"
+    },
+    {
+      "path": "encodings/iso8859_6.py",
+      "upstream_git_blob_sha1": "b02ade6eaf4e13771ce952c868191d4d693f5c9a"
+    },
+    {
+      "path": "encodings/iso8859_7.py",
+      "upstream_git_blob_sha1": "d7b39cbc3a70ed6618114ef001db85379596f2be"
+    },
+    {
+      "path": "encodings/iso8859_8.py",
+      "upstream_git_blob_sha1": "81849027388d6d350a6115745fede8ef766dd29b"
+    },
+    {
+      "path": "encodings/iso8859_9.py",
+      "upstream_git_blob_sha1": "e539fddac6c9b1059de1b7aff69e7028a6277897"
+    },
+    {
+      "path": "encodings/johab.py",
+      "upstream_git_blob_sha1": "512aeeb732b5221ba35585a97e3cc1b85d3c5b02"
+    },
+    {
+      "path": "encodings/koi8_r.py",
+      "upstream_git_blob_sha1": "41ddde856e684341d3038f2a87939b668549b60b"
+    },
+    {
+      "path": "encodings/koi8_t.py",
+      "upstream_git_blob_sha1": "b5415ba366582bb3ea90dfef584357ba74fd442e"
+    },
+    {
+      "path": "encodings/koi8_u.py",
+      "upstream_git_blob_sha1": "f9e3fae5fa2bf447bd03b5de10f260b5720511c5"
+    },
+    {
+      "path": "encodings/kz1048.py",
+      "upstream_git_blob_sha1": "712aee6e93084760e88f729d42822c1ba5762e23"
+    },
+    {
+      "path": "encodings/latin_1.py",
+      "upstream_git_blob_sha1": "370160c0cb512f25573985bce277ea2f590a420c"
+    },
+    {
+      "path": "encodings/mac_arabic.py",
+      "upstream_git_blob_sha1": "72847e859c464fb6fe9a351a885cfe02f9b35e72"
+    },
+    {
+      "path": "encodings/mac_croatian.py",
+      "upstream_git_blob_sha1": "4a92fe61a4f12544b4455e65f415bae3fa918a6d"
+    },
+    {
+      "path": "encodings/mac_cyrillic.py",
+      "upstream_git_blob_sha1": "d20272acfadf68a4afc0f040cf8526844aaaaad3"
+    },
+    {
+      "path": "encodings/mac_farsi.py",
+      "upstream_git_blob_sha1": "e357d43510b5f62ce99233c830ef687c5064eedf"
+    },
+    {
+      "path": "encodings/mac_greek.py",
+      "upstream_git_blob_sha1": "d3d0c4f0c38755072250d81edd0b3145f1806331"
+    },
+    {
+      "path": "encodings/mac_iceland.py",
+      "upstream_git_blob_sha1": "add10f4e555ff2779e50a1cef035a7a733beefc1"
+    },
+    {
+      "path": "encodings/mac_latin2.py",
+      "upstream_git_blob_sha1": "da9d4b134ade7721535354bd50c9f809d4535017"
+    },
+    {
+      "path": "encodings/mac_roman.py",
+      "upstream_git_blob_sha1": "b74b002134fa0b245239d4890971e70b25955846"
+    },
+    {
+      "path": "encodings/mac_romanian.py",
+      "upstream_git_blob_sha1": "d141b4c50912523464e187032cd90cca944cef4b"
+    },
+    {
+      "path": "encodings/mac_turkish.py",
+      "upstream_git_blob_sha1": "044d4cb5ad7b30375b873624c2c4163c56194120"
+    },
+    {
+      "path": "encodings/mbcs.py",
+      "upstream_git_blob_sha1": "baf46cbd4836bda6bb8ddccff7c282048383e0a2"
+    },
+    {
+      "path": "encodings/oem.py",
+      "upstream_git_blob_sha1": "2c3426ba48ba5ad561b800336e65ec2d4c4ec006"
+    },
+    {
+      "path": "encodings/palmos.py",
+      "upstream_git_blob_sha1": "df164ca5b9549cc454c138a2d307050a489e2607"
+    },
+    {
+      "path": "encodings/ptcp154.py",
+      "upstream_git_blob_sha1": "656b79d6ac8adfe21645ae4985431d015898cc7b"
+    },
+    {
+      "path": "encodings/punycode.py",
+      "upstream_git_blob_sha1": "4622fc8c9206f375b2fe7024fc215219d880c591"
+    },
+    {
+      "path": "encodings/quopri_codec.py",
+      "upstream_git_blob_sha1": "496cb7655d032def0791960108b517ae2ac6c4a3"
+    },
+    {
+      "path": "encodings/raw_unicode_escape.py",
+      "upstream_git_blob_sha1": "46c8e070dd192ed4bae9682d91e5d56413345cf1"
+    },
+    {
+      "path": "encodings/rot_13.py",
+      "upstream_git_blob_sha1": "5627bfbc69cbbc815515d405e53c391cc95f29a7"
+    },
+    {
+      "path": "encodings/shift_jis.py",
+      "upstream_git_blob_sha1": "83381172764dea0f76874716cda28852a5906f7f"
+    },
+    {
+      "path": "encodings/shift_jis_2004.py",
+      "upstream_git_blob_sha1": "161b1e86f9918a4df5c3290505a98d5de4566e0e"
+    },
+    {
+      "path": "encodings/shift_jisx0213.py",
+      "upstream_git_blob_sha1": "cb653f53055e679c513218b0102ffa9d1b4ca82c"
+    },
+    {
+      "path": "encodings/tis_620.py",
+      "upstream_git_blob_sha1": "e288386343df6b2ee2c147980a5bbfff38b318e8"
+    },
+    {
+      "path": "encodings/undefined.py",
+      "upstream_git_blob_sha1": "082771e1c866773f6498fc46a61132a0736ec4b8"
+    },
+    {
+      "path": "encodings/unicode_escape.py",
+      "upstream_git_blob_sha1": "9b1ce99b339ae08eb63334393d8d81d54ab26475"
+    },
+    {
+      "path": "encodings/utf_16.py",
+      "upstream_git_blob_sha1": "d3b9980026666f10d646569ec8f138a98bd62844"
+    },
+    {
+      "path": "encodings/utf_16_be.py",
+      "upstream_git_blob_sha1": "86b458eb9bcd96b50f128df1978a14f5d1e41835"
+    },
+    {
+      "path": "encodings/utf_16_le.py",
+      "upstream_git_blob_sha1": "ec454142eedf251e31eab481a1cbea6424273a0a"
+    },
+    {
+      "path": "encodings/utf_32.py",
+      "upstream_git_blob_sha1": "1924bedbb74c686d80d36aa0032948d31e28f977"
+    },
+    {
+      "path": "encodings/utf_32_be.py",
+      "upstream_git_blob_sha1": "fe272b5fafec69e506c7cb398712d7b6dd9e6145"
+    },
+    {
+      "path": "encodings/utf_32_le.py",
+      "upstream_git_blob_sha1": "9e48210928ee652b17fe797785a20267b1d12a6e"
+    },
+    {
+      "path": "encodings/utf_7.py",
+      "upstream_git_blob_sha1": "8e0567f2087d65e33b3152b8240bcaf703d855fb"
+    },
+    {
+      "path": "encodings/utf_8.py",
+      "upstream_git_blob_sha1": "1bf6336571547bcec3f5aa7978ff1c7f247490ce"
+    },
+    {
+      "path": "encodings/utf_8_sig.py",
+      "upstream_git_blob_sha1": "1bb479203f365dabd6cc59bb0b6debef55e40396"
+    },
+    {
+      "path": "encodings/uu_codec.py",
+      "upstream_git_blob_sha1": "4e58c62fe9ef0f37576e8c10b19bf5abc454239c"
+    },
+    {
+      "path": "encodings/zlib_codec.py",
+      "upstream_git_blob_sha1": "95908a4b4a13a1db70763974cf714d01b25d0ceb"
+    },
+    {
+      "path": "enum.py",
+      "upstream_git_blob_sha1": "87b2f2ab7ebf0a6d9e27c9373ca622d2f5d20673"
+    },
+    {
+      "path": "filecmp.py",
+      "upstream_git_blob_sha1": "c5b8d854d77de3dfecb058994b3436f69f5dfad5"
+    },
+    {
+      "path": "fileinput.py",
+      "upstream_git_blob_sha1": "3dba3d2fbfa967b613b8928d6fb36ae73162b274"
+    },
+    {
+      "path": "fnmatch.py",
+      "upstream_git_blob_sha1": "10e1c936688d8f84c87977ed592c4beaf88e4336"
+    },
+    {
+      "path": "fractions.py",
+      "upstream_git_blob_sha1": "a497ee19935345cd22d1f778c094328bf0888ec2"
+    },
+    {
+      "path": "ftplib.py",
+      "upstream_git_blob_sha1": "73882a38dce98f236460cace7e6769ff04fe6b92"
+    },
+    {
+      "path": "functools.py",
+      "upstream_git_blob_sha1": "e8ccc2795d28087cbea6c81b5439a926f6164836"
+    },
+    {
+      "path": "genericpath.py",
+      "upstream_git_blob_sha1": "9363f564aab7a6d8378e23fb60a9e9ddcb1c45d9"
+    },
+    {
+      "path": "getopt.py",
+      "upstream_git_blob_sha1": "25f3e2439b3e352488d5e2f7879d9627b7aa3a30"
+    },
+    {
+      "path": "getpass.py",
+      "upstream_git_blob_sha1": "3d9bb1f0d146a48ba9622f84b008e7f69f7584b9"
+    },
+    {
+      "path": "gettext.py",
+      "upstream_git_blob_sha1": "6c11ab2b1eb57091affba895a6fe8bc34de84ecc"
+    },
+    {
+      "path": "glob.py",
+      "upstream_git_blob_sha1": "173272ba38f63773ce797a56787d9f1197db1c0b"
+    },
+    {
+      "path": "graphlib.py",
+      "upstream_git_blob_sha1": "7961c9c5cac2d66d04082bbf34e98b5438100ccc"
+    },
+    {
+      "path": "gzip.py",
+      "upstream_git_blob_sha1": "f3f9fa91c8161bfeb4d08a6b6cfe8502d3d2faf3"
+    },
+    {
+      "path": "hashlib.py",
+      "upstream_git_blob_sha1": "0e9bd98aa1fc31b5dccef0d34780b86ae05f6ab3"
+    },
+    {
+      "path": "heapq.py",
+      "upstream_git_blob_sha1": "17f62dd2d5839b9c7f4f1d3583ae01f215d57f0f"
+    },
+    {
+      "path": "hmac.py",
+      "upstream_git_blob_sha1": "2d6016cda11c0e5791ef361a80795d44126acaf4"
+    },
+    {
+      "path": "html/__init__.py",
+      "upstream_git_blob_sha1": "1543460ca33b0ae92b22780a4041dc36251f49a2"
+    },
+    {
+      "path": "html/entities.py",
+      "upstream_git_blob_sha1": "eb6dc12190586d90d8e8070e9065a6f6f243e260"
+    },
+    {
+      "path": "html/parser.py",
+      "upstream_git_blob_sha1": "fbe0d3665e073ccfd20c51bb01129d1a51ed5004"
+    },
+    {
+      "path": "http/__init__.py",
+      "upstream_git_blob_sha1": "691b4a9a367bd0fb432b7aafa7c57b348509ae00"
+    },
+    {
+      "path": "http/client.py",
+      "upstream_git_blob_sha1": "50f7862d3d2ab861d081baf2a65f14f9543286c4"
+    },
+    {
+      "path": "http/cookiejar.py",
+      "upstream_git_blob_sha1": "68cf16c93cc1c83b5fb54d79a09bde1d18f22578"
+    },
+    {
+      "path": "http/cookies.py",
+      "upstream_git_blob_sha1": "abebb4b69fd05f45aa5f810bb800f0fe372573b6"
+    },
+    {
+      "path": "http/server.py",
+      "upstream_git_blob_sha1": "118e039aef3be397fdd75ea88f619c448b48e76c"
+    },
+    {
+      "path": "imaplib.py",
+      "upstream_git_blob_sha1": "4c0aefd082f8dce9db6170aee5e7b66073cd8c21"
+    },
+    {
+      "path": "importlib/__init__.py",
+      "upstream_git_blob_sha1": "a7d57561ead046c481d4d78bf33a6726185e399d"
+    },
+    {
+      "path": "importlib/_abc.py",
+      "upstream_git_blob_sha1": "693b466112638f52c8b8822daf1973dd288209c2"
+    },
+    {
+      "path": "importlib/_bootstrap.py",
+      "upstream_git_blob_sha1": "9d911e1dcaba61d4846c151317801f5719a6f4cd"
+    },
+    {
+      "path": "importlib/_bootstrap_external.py",
+      "upstream_git_blob_sha1": "6a828ae75ed34c1fb2148563d4e245dac212a3ca"
+    },
+    {
+      "path": "importlib/abc.py",
+      "upstream_git_blob_sha1": "1e47495f65fa02f9f31860d673992338d09bed7a"
+    },
+    {
+      "path": "importlib/machinery.py",
+      "upstream_git_blob_sha1": "63d726445c3d96d8dda46aed39897a10b8d05db1"
+    },
+    {
+      "path": "importlib/metadata/__init__.py",
+      "upstream_git_blob_sha1": "8ce62dd864fc2735dc4c863909b0622b4f5f4548"
+    },
+    {
+      "path": "importlib/metadata/_adapters.py",
+      "upstream_git_blob_sha1": "591168808953ba8ec54b47f14584a3ed7bc073f2"
+    },
+    {
+      "path": "importlib/metadata/_collections.py",
+      "upstream_git_blob_sha1": "cf0954e1a30546d781bf25781ec716ef92a77e32"
+    },
+    {
+      "path": "importlib/metadata/_functools.py",
+      "upstream_git_blob_sha1": "71f66bd03cb713a2190853bdf7170c4ea80d2425"
+    },
+    {
+      "path": "importlib/metadata/_itertools.py",
+      "upstream_git_blob_sha1": "d4ca9b9140e3f085b36609bb8dfdaea79c78e144"
+    },
+    {
+      "path": "importlib/metadata/_meta.py",
+      "upstream_git_blob_sha1": "1927d0f624d82f2fa12f81c80cce91279f039e84"
+    },
+    {
+      "path": "importlib/metadata/_text.py",
+      "upstream_git_blob_sha1": "c88cfbb2349c6401336bc5ba6623f51afd1eb59d"
+    },
+    {
+      "path": "importlib/metadata/diagnose.py",
+      "upstream_git_blob_sha1": "e405471ac4d94371b1ee9b1622227ff76b337180"
+    },
+    {
+      "path": "importlib/readers.py",
+      "upstream_git_blob_sha1": "df7fb92e5cd9f5574e3b17a81228dabaeb922b96"
+    },
+    {
+      "path": "importlib/resources/__init__.py",
+      "upstream_git_blob_sha1": "723c9f9eb33ce1e5f7fb5a70c5c9d62628a93521"
+    },
+    {
+      "path": "importlib/resources/_adapters.py",
+      "upstream_git_blob_sha1": "50688fbb666658c5b0569a363a4ea5b75f2fc00d"
+    },
+    {
+      "path": "importlib/resources/_common.py",
+      "upstream_git_blob_sha1": "4e9014c45a056e220eaa131839e69c9ba7d3023f"
+    },
+    {
+      "path": "importlib/resources/_functional.py",
+      "upstream_git_blob_sha1": "f59416f2dd627d560b3e393775cc5be14c578370"
+    },
+    {
+      "path": "importlib/resources/_itertools.py",
+      "upstream_git_blob_sha1": "7b775ef5ae893f2b8061c5f996dc0a15a4c72adb"
+    },
+    {
+      "path": "importlib/resources/abc.py",
+      "upstream_git_blob_sha1": "6750a7aaf14aa9695fa89d4f8bb43b4be13d9fa5"
+    },
+    {
+      "path": "importlib/resources/readers.py",
+      "upstream_git_blob_sha1": "70fc7e2b9c0145b003e4be8d3723b01e31bd52db"
+    },
+    {
+      "path": "importlib/resources/simple.py",
+      "upstream_git_blob_sha1": "2e75299b13aabf3dd11aea5a23e6723d67854fc9"
+    },
+    {
+      "path": "importlib/simple.py",
+      "upstream_git_blob_sha1": "845bb9036478447fa7e95c12cc30861fc4154e0e"
+    },
+    {
+      "path": "importlib/util.py",
+      "upstream_git_blob_sha1": "2b564e9b52e0cb247c66286e0c6a5788bd75c2cb"
+    },
+    {
+      "path": "inspect.py",
+      "upstream_git_blob_sha1": "cf61ae943b1624f12ab71475c3978dc14b7bb711"
+    },
+    {
+      "path": "io.py",
+      "upstream_git_blob_sha1": "63ffadb1d385f99897b9dc9adfccfcb9eff40947"
+    },
+    {
+      "path": "ipaddress.py",
+      "upstream_git_blob_sha1": "ca732e4f2e85a815d20e74ec6d2b51e53807b9d2"
+    },
+    {
+      "path": "json/__init__.py",
+      "upstream_git_blob_sha1": "800cc37f6afe31d86345d7b4d0ce9cf08efe8082"
+    },
+    {
+      "path": "json/__main__.py",
+      "upstream_git_blob_sha1": "1808eaddb62776695309e7b2bfb64fb282aec01f"
+    },
+    {
+      "path": "json/decoder.py",
+      "upstream_git_blob_sha1": "44a13fd3965b1a3d8e94718eefef7178fb5e9991"
+    },
+    {
+      "path": "json/encoder.py",
+      "upstream_git_blob_sha1": "5cf6d64f3eade60b65f1324ae394454e97883c45"
+    },
+    {
+      "path": "json/scanner.py",
+      "upstream_git_blob_sha1": "090897515fe2f3818767a6dcf7b2310dca2c850a"
+    },
+    {
+      "path": "json/tool.py",
+      "upstream_git_blob_sha1": "0cabbdba85a15513797686d5d5cded507007f762"
+    },
+    {
+      "path": "keyword.py",
+      "upstream_git_blob_sha1": "e22c837835e740aa9be9ffed805757836a06b0ea"
+    },
+    {
+      "path": "linecache.py",
+      "upstream_git_blob_sha1": "ef3b2d9136b4d20fc0175af7fdd359884c66a6a9"
+    },
+    {
+      "path": "locale.py",
+      "upstream_git_blob_sha1": "6984a6a5e2bc187206484ba173ccbe59b28ad93f"
+    },
+    {
+      "path": "logging/__init__.py",
+      "upstream_git_blob_sha1": "6e7606269fb7133c7e2d3730d7926737797c1046"
+    },
+    {
+      "path": "logging/config.py",
+      "upstream_git_blob_sha1": "e0524eb5e3d89c25e820bc69ad74109cf148c74a"
+    },
+    {
+      "path": "logging/handlers.py",
+      "upstream_git_blob_sha1": "4a07258f8d6d07ef487d0f3d2773109be8bf720d"
+    },
+    {
+      "path": "lzma.py",
+      "upstream_git_blob_sha1": "316066d024ea02f3bf5edda62df3127b2f0247f8"
+    },
+    {
+      "path": "mailbox.py",
+      "upstream_git_blob_sha1": "364af6bb0109597b632c39be15b1f4d3d6b579e8"
+    },
+    {
+      "path": "mimetypes.py",
+      "upstream_git_blob_sha1": "e7581d2ae0ace416866e796d0e53ffe07fdaccd1"
+    },
+    {
+      "path": "modulefinder.py",
+      "upstream_git_blob_sha1": "ac478ee7f51722188a19eee4b7928ca54611bf30"
+    },
+    {
+      "path": "multiprocessing/__init__.py",
+      "upstream_git_blob_sha1": "8336f381decaacf58640640a6f05a45ba3a2c3e4"
+    },
+    {
+      "path": "multiprocessing/connection.py",
+      "upstream_git_blob_sha1": "f577186e91b0d4b9fb3196f19c2d42ca6ceadcdc"
+    },
+    {
+      "path": "multiprocessing/context.py",
+      "upstream_git_blob_sha1": "5fa6d7e48611f03993b4949b85b415f95917ab0d"
+    },
+    {
+      "path": "multiprocessing/dummy/__init__.py",
+      "upstream_git_blob_sha1": "7dc5d1c8dde8484e59728eb6dfa7a36c158dd2ef"
+    },
+    {
+      "path": "multiprocessing/dummy/connection.py",
+      "upstream_git_blob_sha1": "f0ce320fcf514083f3a6477e87abf40e9719285a"
+    },
+    {
+      "path": "multiprocessing/forkserver.py",
+      "upstream_git_blob_sha1": "e431b3f12988067b1910bd1270ddfae3a206a111"
+    },
+    {
+      "path": "multiprocessing/heap.py",
+      "upstream_git_blob_sha1": "6217dfe12689b379f2dad6f1e4bc3bbf6af8f60a"
+    },
+    {
+      "path": "multiprocessing/managers.py",
+      "upstream_git_blob_sha1": "11c6e21de90e693170fe246a9b6d33a94a4e7606"
+    },
+    {
+      "path": "multiprocessing/pool.py",
+      "upstream_git_blob_sha1": "f979890170b1a1f8721f0826169a440ae0859749"
+    },
+    {
+      "path": "multiprocessing/popen_fork.py",
+      "upstream_git_blob_sha1": "a02a53b6a176da91150ae181d3840862df748cf3"
+    },
+    {
+      "path": "multiprocessing/popen_forkserver.py",
+      "upstream_git_blob_sha1": "a56eb9bf11080b0d499ae81cfef7b501545cb90e"
+    },
+    {
+      "path": "multiprocessing/popen_spawn_posix.py",
+      "upstream_git_blob_sha1": "cccd659ae776377921d36dc17cd12ec8cd24fee3"
+    },
+    {
+      "path": "multiprocessing/popen_spawn_win32.py",
+      "upstream_git_blob_sha1": "62fb0ddbf91a5d0291ae9808d1915583d6df598a"
+    },
+    {
+      "path": "multiprocessing/process.py",
+      "upstream_git_blob_sha1": "262513f295fde56f2a0ca763e15ab4fb43d68424"
+    },
+    {
+      "path": "multiprocessing/queues.py",
+      "upstream_git_blob_sha1": "981599acf5ef26e9bb4fb41b4a080511efdcc1a2"
+    },
+    {
+      "path": "multiprocessing/reduction.py",
+      "upstream_git_blob_sha1": "fcccd3eef86cc7e8cbde463ffb132c1450fe9ea3"
+    },
+    {
+      "path": "multiprocessing/resource_sharer.py",
+      "upstream_git_blob_sha1": "b8afb0fbed3a3c2c31d1c1a567a135c8d34c4e40"
+    },
+    {
+      "path": "multiprocessing/resource_tracker.py",
+      "upstream_git_blob_sha1": "dfb5a3dfe8b7b6ed8136376ae78a2090de21e3c2"
+    },
+    {
+      "path": "multiprocessing/shared_memory.py",
+      "upstream_git_blob_sha1": "99a8ce3320ad4ee9e6e47e8a3972116acb3de3d7"
+    },
+    {
+      "path": "multiprocessing/sharedctypes.py",
+      "upstream_git_blob_sha1": "6071707027bea46dccfc4d92fb3195060faf07ce"
+    },
+    {
+      "path": "multiprocessing/spawn.py",
+      "upstream_git_blob_sha1": "d43864c939cb63faae44ef68c9d6f9d30dc0dbe0"
+    },
+    {
+      "path": "multiprocessing/synchronize.py",
+      "upstream_git_blob_sha1": "9188114ae284c742116552e1f80f89fee909848d"
+    },
+    {
+      "path": "multiprocessing/util.py",
+      "upstream_git_blob_sha1": "549fb07c27549e0fbada3d94f9310b4e43d92df7"
+    },
+    {
+      "path": "netrc.py",
+      "upstream_git_blob_sha1": "bd003e80a48081e079698d7c401e8dec56bcc263"
+    },
+    {
+      "path": "ntpath.py",
+      "upstream_git_blob_sha1": "36da5b7cb0fb2a6afc36ca789f0b704aa2aea427"
+    },
+    {
+      "path": "nturl2path.py",
+      "upstream_git_blob_sha1": "57c7858dff0b8187d69795f7053b384cd4ed822b"
+    },
+    {
+      "path": "numbers.py",
+      "upstream_git_blob_sha1": "37fddb8917727b6b79216e7941c01d3ade7d1a65"
+    },
+    {
+      "path": "opcode.py",
+      "upstream_git_blob_sha1": "0e9520b68324997ea1061cfaade68554d4b5a6f4"
+    },
+    {
+      "path": "operator.py",
+      "upstream_git_blob_sha1": "1b765522f8594953f368c887e17b403023780c0b"
+    },
+    {
+      "path": "optparse.py",
+      "upstream_git_blob_sha1": "38cf16d21efffa658c0ef3fa81bb1f9fc3306a29"
+    },
+    {
+      "path": "os.py",
+      "upstream_git_blob_sha1": "9bb00f45f0121fd94420c1a3b9a2d432ea301f3a"
+    },
+    {
+      "path": "pathlib/__init__.py",
+      "upstream_git_blob_sha1": "0d763d1f0dcaa55bb3b2fe3eadf8a133d668eafb"
+    },
+    {
+      "path": "pathlib/_local.py",
+      "upstream_git_blob_sha1": "58e137f2a92d3b967a6c79343237d658b3290868"
+    },
+    {
+      "path": "pathlib/_os.py",
+      "upstream_git_blob_sha1": "039836941dd456e186e2de23b76d54ec5d1c6bd4"
+    },
+    {
+      "path": "pathlib/types.py",
+      "upstream_git_blob_sha1": "d8f5c34a1a75131c447d9655924353efcf83d336"
+    },
+    {
+      "path": "pdb.py",
+      "upstream_git_blob_sha1": "7dcd0cb1b37e71dfb5f8f28422ecf4cbf6a795db"
+    },
+    {
+      "path": "pickle.py",
+      "upstream_git_blob_sha1": "7b951858604bb93f101873e69ca91c8d2eae6c03"
+    },
+    {
+      "path": "pickletools.py",
+      "upstream_git_blob_sha1": "254b6c7fcc9dd230664c653713a3482799ee6097"
+    },
+    {
+      "path": "pkgutil.py",
+      "upstream_git_blob_sha1": "8772a66791a3c9aced4fa96e23ea79c1eda17f5d"
+    },
+    {
+      "path": "platform.py",
+      "upstream_git_blob_sha1": "b017b841311be3e40481c34bdf56c4eb0195d210"
+    },
+    {
+      "path": "plistlib.py",
+      "upstream_git_blob_sha1": "c3aee1e15c767a600b5afc7f39e54de436b3e18f"
+    },
+    {
+      "path": "poplib.py",
+      "upstream_git_blob_sha1": "4469bff44b4c45593e1a026c0f6e9cd9c094f76a"
+    },
+    {
+      "path": "posixpath.py",
+      "upstream_git_blob_sha1": "ad86cc06c017a0599ff9d2aa8b70febe790021b6"
+    },
+    {
+      "path": "pprint.py",
+      "upstream_git_blob_sha1": "dc0953cec67a5842957bad27de256107dad8b7a4"
+    },
+    {
+      "path": "profile.py",
+      "upstream_git_blob_sha1": "a5afb12c9d121a69d6682b6bc6a59e831d8af5bd"
+    },
+    {
+      "path": "pstats.py",
+      "upstream_git_blob_sha1": "becaf35580eaee439b37c21e6538af4ecc888745"
+    },
+    {
+      "path": "pty.py",
+      "upstream_git_blob_sha1": "4b25ac32c8da14e48974ef1ff7be79aa179d8a95"
+    },
+    {
+      "path": "py_compile.py",
+      "upstream_git_blob_sha1": "43d8ec90ffb6b1d3f5456dd3bbfe37f3f800a20a"
+    },
+    {
+      "path": "pyclbr.py",
+      "upstream_git_blob_sha1": "37f86995d6ce00013643f1b4a8aa387cebaeae72"
+    },
+    {
+      "path": "pydoc.py",
+      "upstream_git_blob_sha1": "091f8af01b2b42295f7b49d87e03743abce20b45"
+    },
+    {
+      "path": "pydoc_data/__init__.py",
+      "upstream_git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "pydoc_data/module_docs.py",
+      "upstream_git_blob_sha1": "2d3543f298376bb15671b823a05c4d04cc268535"
+    },
+    {
+      "path": "pydoc_data/topics.py",
+      "upstream_git_blob_sha1": "753d9d4306938696e5232fd3542b1c8689718803"
+    },
+    {
+      "path": "queue.py",
+      "upstream_git_blob_sha1": "c0b359876543f7b0159f7432c52ce667e56e4245"
+    },
+    {
+      "path": "quopri.py",
+      "upstream_git_blob_sha1": "129fd2f5c7c28a86e802317a9d9c4fd4beac5c88"
+    },
+    {
+      "path": "random.py",
+      "upstream_git_blob_sha1": "0e6a183d179f48811ad56b48496b931a7253c726"
+    },
+    {
+      "path": "re/__init__.py",
+      "upstream_git_blob_sha1": "af2808a77da69152b32aafb5a5c941d076921bc4"
+    },
+    {
+      "path": "re/_casefix.py",
+      "upstream_git_blob_sha1": "fed2d84fc01473c8eece3abae784395c591e1a46"
+    },
+    {
+      "path": "re/_compiler.py",
+      "upstream_git_blob_sha1": "20dd561d1c1520fe0ece07bcd92e7e24a297f779"
+    },
+    {
+      "path": "re/_constants.py",
+      "upstream_git_blob_sha1": "d6f32302d37b2db934a93a520717304fbb94a27e"
+    },
+    {
+      "path": "re/_parser.py",
+      "upstream_git_blob_sha1": "35ab7ede2a75a98033c08d45b0f1a181b9232cfb"
+    },
+    {
+      "path": "reprlib.py",
+      "upstream_git_blob_sha1": "ab18247682b69aa50be81f14d61682a1365a6fd4"
+    },
+    {
+      "path": "rlcompleter.py",
+      "upstream_git_blob_sha1": "e75dd0a9e3dc197d5001605f06443b50f1ef8ab2"
+    },
+    {
+      "path": "runpy.py",
+      "upstream_git_blob_sha1": "1d5ecf0cf15bc0e75a6966cee94629f6e8681cd7"
+    },
+    {
+      "path": "sched.py",
+      "upstream_git_blob_sha1": "fb20639d45996721e32d8cd5bf1e004c4c5ff803"
+    },
+    {
+      "path": "secrets.py",
+      "upstream_git_blob_sha1": "566a09b7311154a1814bacb69b9ac8bdf07641f9"
+    },
+    {
+      "path": "selectors.py",
+      "upstream_git_blob_sha1": "b8e5f6a4f77d8941c0782f6b5d2332d3766ebf70"
+    },
+    {
+      "path": "shelve.py",
+      "upstream_git_blob_sha1": "50584716e9ea6417f6cb6bf4886f2dc78dd142cf"
+    },
+    {
+      "path": "shlex.py",
+      "upstream_git_blob_sha1": "5959f52dd12639de2afd6f2f1a6bc312ab794163"
+    },
+    {
+      "path": "shutil.py",
+      "upstream_git_blob_sha1": "a3a112f69541ef3f452c0762e5e67b26f191f9de"
+    },
+    {
+      "path": "signal.py",
+      "upstream_git_blob_sha1": "c8cd3d4f597ca500947b74541d2d96be21f9627d"
+    },
+    {
+      "path": "site.py",
+      "upstream_git_blob_sha1": "aeb7c6cfc71de99dd097c6c5c1e88b2db3d3c72e"
+    },
+    {
+      "path": "smtplib.py",
+      "upstream_git_blob_sha1": "4cfc2338d99c67e4a47c9b3e94163963be97c31b"
+    },
+    {
+      "path": "socket.py",
+      "upstream_git_blob_sha1": "9ac0badc6606c19d9044dae32d987c1f8187bf71"
+    },
+    {
+      "path": "socketserver.py",
+      "upstream_git_blob_sha1": "35b2723de3babe41b72e53bb2c56584628b6ce39"
+    },
+    {
+      "path": "sqlite3/__init__.py",
+      "upstream_git_blob_sha1": "ed727fae609d1dfc282bb0fe95ffc025ad8e0673"
+    },
+    {
+      "path": "sqlite3/__main__.py",
+      "upstream_git_blob_sha1": "4ccf292ddf211c271922310aeb886a87d84ab5db"
+    },
+    {
+      "path": "sqlite3/dbapi2.py",
+      "upstream_git_blob_sha1": "0315760516edf825dc9069e1690b0ff810236c7b"
+    },
+    {
+      "path": "sqlite3/dump.py",
+      "upstream_git_blob_sha1": "95e14a6655ef17282e6e7fee8c7e36221d05e621"
+    },
+    {
+      "path": "sre_compile.py",
+      "upstream_git_blob_sha1": "f9da61e6487869b7f416b0a4e92064ad8e877fa2"
+    },
+    {
+      "path": "sre_constants.py",
+      "upstream_git_blob_sha1": "fa09d044292965a05a9c67e579d73091b56da892"
+    },
+    {
+      "path": "sre_parse.py",
+      "upstream_git_blob_sha1": "25a3f557d44c61fae2a8bf7ede49c2845b73a3d7"
+    },
+    {
+      "path": "ssl.py",
+      "upstream_git_blob_sha1": "8889aff92fa6c0c221282f8c6347ed97fd5dfb75"
+    },
+    {
+      "path": "stat.py",
+      "upstream_git_blob_sha1": "81f694329bf4ff04aeed40a03e43798639fd2ddb"
+    },
+    {
+      "path": "statistics.py",
+      "upstream_git_blob_sha1": "26cf925529ea60b9654569767c82a2d6c1658794"
+    },
+    {
+      "path": "string/__init__.py",
+      "upstream_git_blob_sha1": "b2c369ef9d1f76cfd00833b3065d96ee37ff29eb"
+    },
+    {
+      "path": "string/templatelib.py",
+      "upstream_git_blob_sha1": "8164872432ad09ecabaf1aceb343e6bc4a097f7d"
+    },
+    {
+      "path": "stringprep.py",
+      "upstream_git_blob_sha1": "44ecdb266ce8b95a0e5c9142ded9e43ac2e0235a"
+    },
+    {
+      "path": "struct.py",
+      "upstream_git_blob_sha1": "ff98e8c4cb3f1d423052e913546262ca618857e7"
+    },
+    {
+      "path": "subprocess.py",
+      "upstream_git_blob_sha1": "52b7b7117703d71e835a90af45b54faa567bacd9"
+    },
+    {
+      "path": "symtable.py",
+      "upstream_git_blob_sha1": "7a30e1ac4ca37855f6f74a3546154127606e99ec"
+    },
+    {
+      "path": "sysconfig/__init__.py",
+      "upstream_git_blob_sha1": "faf8273bd0b31f350deb1f8719b797a904e0709e"
+    },
+    {
+      "path": "sysconfig/__main__.py",
+      "upstream_git_blob_sha1": "bc2197cfe794028ac6eeb09e5754ad7cc290d578"
+    },
+    {
+      "path": "tabnanny.py",
+      "upstream_git_blob_sha1": "c0097351b269f2c7f3f7425e3fdbe49622c1a5cf"
+    },
+    {
+      "path": "tarfile.py",
+      "upstream_git_blob_sha1": "d3c489997006e7a9013cb9d63e9ce2898b3529b3"
+    },
+    {
+      "path": "tempfile.py",
+      "upstream_git_blob_sha1": "6c036d2fd51cb0f0522e47ccbde32c6616d1782e"
+    },
+    {
+      "path": "textwrap.py",
+      "upstream_git_blob_sha1": "41366fbf443a4fc46768a6745d0b9e64c1d3b056"
+    },
+    {
+      "path": "this.py",
+      "upstream_git_blob_sha1": "e68dd3ff39b04ff857420b98889bee590b344024"
+    },
+    {
+      "path": "threading.py",
+      "upstream_git_blob_sha1": "c03b0b5370c933680bd04c8934d17dfa211bbf54"
+    },
+    {
+      "path": "timeit.py",
+      "upstream_git_blob_sha1": "0451f66bdf1ca789d8cbbf84730bc9dc26436f1a"
+    },
+    {
+      "path": "tkinter/__init__.py",
+      "upstream_git_blob_sha1": "1c2afadd3cb234d460956b5db0ec0924b7162032"
+    },
+    {
+      "path": "tkinter/__main__.py",
+      "upstream_git_blob_sha1": "757880d439c02c359378c42becaf243c60484cb3"
+    },
+    {
+      "path": "tkinter/colorchooser.py",
+      "upstream_git_blob_sha1": "4085bde1637a79f8fc7d0eae11c6f79ebe2e26c9"
+    },
+    {
+      "path": "tkinter/commondialog.py",
+      "upstream_git_blob_sha1": "408cedc345def634d76a4be42d54fe2048b4455f"
+    },
+    {
+      "path": "tkinter/constants.py",
+      "upstream_git_blob_sha1": "63eee33d24d6c7e2a3bfb504999a74ec34b53d07"
+    },
+    {
+      "path": "tkinter/dialog.py",
+      "upstream_git_blob_sha1": "ef005af0d5a19c0b5455720a9b20af0feab7d10c"
+    },
+    {
+      "path": "tkinter/dnd.py",
+      "upstream_git_blob_sha1": "acec61ba71f1c9f58597de27ee292176a6a23a1e"
+    },
+    {
+      "path": "tkinter/filedialog.py",
+      "upstream_git_blob_sha1": "e2eff98e601c07c00baf66a4797915c47866acc3"
+    },
+    {
+      "path": "tkinter/font.py",
+      "upstream_git_blob_sha1": "569c31222136e1bf14d60f2d4e1fee6a8bad07bf"
+    },
+    {
+      "path": "tkinter/messagebox.py",
+      "upstream_git_blob_sha1": "f6848142a9aff62ecdc4c5e70cf27d056aba0a8a"
+    },
+    {
+      "path": "tkinter/scrolledtext.py",
+      "upstream_git_blob_sha1": "8dcead5e31930ea9c479c2b94e84551a1f2c6b84"
+    },
+    {
+      "path": "tkinter/simpledialog.py",
+      "upstream_git_blob_sha1": "81edd77e0bd2446f739fd3e5a3ff1bb43798be0f"
+    },
+    {
+      "path": "tkinter/ttk.py",
+      "upstream_git_blob_sha1": "e002ac8cfd0b641746821fa2ab400fe4d634027b"
+    },
+    {
+      "path": "token.py",
+      "upstream_git_blob_sha1": "f61723cc09da02c4e6cd04e6620725f585714f47"
+    },
+    {
+      "path": "tokenize.py",
+      "upstream_git_blob_sha1": "1f31258ce361c945f4e370a6b44efa3277911ecd"
+    },
+    {
+      "path": "tomllib/__init__.py",
+      "upstream_git_blob_sha1": "ef91cb9d25dd794b2668b9557adca0601b5069f4"
+    },
+    {
+      "path": "tomllib/_parser.py",
+      "upstream_git_blob_sha1": "84e70495dd0d3a2aee6c567c9054f68083114cd3"
+    },
+    {
+      "path": "tomllib/_re.py",
+      "upstream_git_blob_sha1": "eb8beb1974728898335fb0d1d29284489b380f01"
+    },
+    {
+      "path": "tomllib/_types.py",
+      "upstream_git_blob_sha1": "d949412e03b29d70592c7721fe747e5085c2e280"
+    },
+    {
+      "path": "trace.py",
+      "upstream_git_blob_sha1": "cf8817f4383fc1d513bc54dc977bc5b3e255f52e"
+    },
+    {
+      "path": "traceback.py",
+      "upstream_git_blob_sha1": "227ca8efa172543a596337ef467bb6de10b6428c"
+    },
+    {
+      "path": "tracemalloc.py",
+      "upstream_git_blob_sha1": "cec99c59700fe05e457f3668d2b947cc6bfef9c6"
+    },
+    {
+      "path": "tty.py",
+      "upstream_git_blob_sha1": "5a49e0400425f3ab26458d33db82cc604d79cc12"
+    },
+    {
+      "path": "turtle.py",
+      "upstream_git_blob_sha1": "db38a5a23581a7ff00783db03e2f5599fa8f470d"
+    },
+    {
+      "path": "types.py",
+      "upstream_git_blob_sha1": "60a4b22c200a802fc34f0cd7e47ef4c6610d0217"
+    },
+    {
+      "path": "typing.py",
+      "upstream_git_blob_sha1": "2b4389b2967d12885b8547fcaa79ae969ee25c47"
+    },
+    {
+      "path": "unittest/__init__.py",
+      "upstream_git_blob_sha1": "78ff6bb4fdcce5db138212392ad87515d7dee576"
+    },
+    {
+      "path": "unittest/__main__.py",
+      "upstream_git_blob_sha1": "e5876f569b5fa8a1bc1be582e8ba7e433f3efa1c"
+    },
+    {
+      "path": "unittest/_log.py",
+      "upstream_git_blob_sha1": "94868e5bb95eb35fb17c9bea103f04c7d0fd5433"
+    },
+    {
+      "path": "unittest/async_case.py",
+      "upstream_git_blob_sha1": "a1c0d6c368ce8a48954c9bc7fc3a4f3f4e170073"
+    },
+    {
+      "path": "unittest/case.py",
+      "upstream_git_blob_sha1": "884fc1b21f64d8ed574cf71d9c5d0dd61d5f4d15"
+    },
+    {
+      "path": "unittest/loader.py",
+      "upstream_git_blob_sha1": "697520246f0e3c61c043fb0e6f74716ad0e1af73"
+    },
+    {
+      "path": "unittest/main.py",
+      "upstream_git_blob_sha1": "be99d93c78cca6c614691f783fa8a6fcfaf1abee"
+    },
+    {
+      "path": "unittest/mock.py",
+      "upstream_git_blob_sha1": "f940235a6e50dcb2ef55ecf3eb489942d9a13ea1"
+    },
+    {
+      "path": "unittest/result.py",
+      "upstream_git_blob_sha1": "b8ea396db6772edbcae66f6e724763bb42ab0473"
+    },
+    {
+      "path": "unittest/runner.py",
+      "upstream_git_blob_sha1": "5f22d91aebd05f44ec1b9c2f1321bda0ec237c93"
+    },
+    {
+      "path": "unittest/signals.py",
+      "upstream_git_blob_sha1": "e6a5fc524397121e170bd5a888957374b91ba946"
+    },
+    {
+      "path": "unittest/suite.py",
+      "upstream_git_blob_sha1": "6f45b6fe5f6039b94725b732e18eab5c01f4494b"
+    },
+    {
+      "path": "unittest/util.py",
+      "upstream_git_blob_sha1": "050eaed0b3f58fb09d1797f81c19de44110c511e"
+    },
+    {
+      "path": "urllib/__init__.py",
+      "upstream_git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "urllib/error.py",
+      "upstream_git_blob_sha1": "a9cd1ecadd63f2b09ee4363fc283e8f1f5cbbb3b"
+    },
+    {
+      "path": "urllib/parse.py",
+      "upstream_git_blob_sha1": "c9f8a33e72c39df7191f360ee8f6621552984991"
+    },
+    {
+      "path": "urllib/request.py",
+      "upstream_git_blob_sha1": "a8f40100b7b440cfd3ff9ef68fab480bb36f8811"
+    },
+    {
+      "path": "urllib/response.py",
+      "upstream_git_blob_sha1": "5a2c3cc78c395d57de3fbadf7d75b96035b785b6"
+    },
+    {
+      "path": "urllib/robotparser.py",
+      "upstream_git_blob_sha1": "d267ed00345c4907df2a38b9da71d358042c010e"
+    },
+    {
+      "path": "uuid.py",
+      "upstream_git_blob_sha1": "043ad7bcbde8493657cf68a5ca40f5c473fb3b5d"
+    },
+    {
+      "path": "warnings.py",
+      "upstream_git_blob_sha1": "6759857d909399272c635189a71e21c698795c34"
+    },
+    {
+      "path": "wave.py",
+      "upstream_git_blob_sha1": "b8476e264868fc704fd4447aa02cde7c9495eac9"
+    },
+    {
+      "path": "weakref.py",
+      "upstream_git_blob_sha1": "94e4278143c9878a82aa1c397267309ea0ea16cc"
+    },
+    {
+      "path": "webbrowser.py",
+      "upstream_git_blob_sha1": "97aad6eea509eb54db0c10523f66dccbb9c34069"
+    },
+    {
+      "path": "wsgiref/__init__.py",
+      "upstream_git_blob_sha1": "59ee48fddec232b485a3559f7ccc80585616dfd7"
+    },
+    {
+      "path": "wsgiref/handlers.py",
+      "upstream_git_blob_sha1": "f8fe89f6e13436b5035003779c7fcc27bf869eb2"
+    },
+    {
+      "path": "wsgiref/headers.py",
+      "upstream_git_blob_sha1": "eb6ea6a412dcc9061c66d5bca558c80d00d90521"
+    },
+    {
+      "path": "wsgiref/simple_server.py",
+      "upstream_git_blob_sha1": "a0f2397fcf0006430534324fe679de3c78491ffa"
+    },
+    {
+      "path": "wsgiref/types.py",
+      "upstream_git_blob_sha1": "ef0aead5b28b647bd1ad49fef80a490fbd2dc1a8"
+    },
+    {
+      "path": "wsgiref/util.py",
+      "upstream_git_blob_sha1": "63b923317373f5d405ddaebbb035f2df85450b8f"
+    },
+    {
+      "path": "wsgiref/validate.py",
+      "upstream_git_blob_sha1": "1a1853cd63a0d2aedcdb93e5f692040e48c9092e"
+    },
+    {
+      "path": "xml/__init__.py",
+      "upstream_git_blob_sha1": "bf6d8ddfd04c934003004472d7f03bfa3f06b5f5"
+    },
+    {
+      "path": "xml/dom/__init__.py",
+      "upstream_git_blob_sha1": "dd7fb996afd616cfc811ea56a8d50345bf3ea7b6"
+    },
+    {
+      "path": "xml/dom/domreg.py",
+      "upstream_git_blob_sha1": "69c17eebb265daad3243e62018409d72942a93af"
+    },
+    {
+      "path": "xml/dom/expatbuilder.py",
+      "upstream_git_blob_sha1": "7dd667bf3fbe042d8d14ff1d07541cf52dc8f333"
+    },
+    {
+      "path": "xml/dom/minicompat.py",
+      "upstream_git_blob_sha1": "5d6fae9a2575bf502999b3c59aeecb7b93a37385"
+    },
+    {
+      "path": "xml/dom/minidom.py",
+      "upstream_git_blob_sha1": "16b33b90184dc59d08805ebfd07c4d660606e66e"
+    },
+    {
+      "path": "xml/dom/NodeFilter.py",
+      "upstream_git_blob_sha1": "640e0bfd246ca5f9b61fd7ca79ad7b3e560a2a2d"
+    },
+    {
+      "path": "xml/dom/pulldom.py",
+      "upstream_git_blob_sha1": "913141cd7ef3cebbb28683c6be6b33cd477b4bf3"
+    },
+    {
+      "path": "xml/dom/xmlbuilder.py",
+      "upstream_git_blob_sha1": "a8852625a2f9a2c22227cac152f6c4e34281710e"
+    },
+    {
+      "path": "xml/etree/__init__.py",
+      "upstream_git_blob_sha1": "e2ec53421d3f70267ddc34436eec6a30ee9f1855"
+    },
+    {
+      "path": "xml/etree/cElementTree.py",
+      "upstream_git_blob_sha1": "368e679189582990ab92cd73b8b820e74df253a7"
+    },
+    {
+      "path": "xml/etree/ElementInclude.py",
+      "upstream_git_blob_sha1": "986e6c3bbe90f65ef7ba42134caedd8579c16753"
+    },
+    {
+      "path": "xml/etree/ElementPath.py",
+      "upstream_git_blob_sha1": "de1fd203ff6a0f6755412e767ff844223d363e62"
+    },
+    {
+      "path": "xml/etree/ElementTree.py",
+      "upstream_git_blob_sha1": "0a4203d372ce9914d6319ae2a32e8b535399f9a6"
+    },
+    {
+      "path": "xml/parsers/__init__.py",
+      "upstream_git_blob_sha1": "eb314a3b40573763835ad959acff985fad014537"
+    },
+    {
+      "path": "xml/parsers/expat.py",
+      "upstream_git_blob_sha1": "bcbe9fb1f8f00e568f76fce02fdbe7528012b622"
+    },
+    {
+      "path": "xml/sax/__init__.py",
+      "upstream_git_blob_sha1": "fe4582c6f8b758c9ac5c0b7ac408c90dbe5c1f50"
+    },
+    {
+      "path": "xml/sax/_exceptions.py",
+      "upstream_git_blob_sha1": "f292dc3a8e50123ecb0579c8bf0467d07f1e60a8"
+    },
+    {
+      "path": "xml/sax/expatreader.py",
+      "upstream_git_blob_sha1": "ba3c1e98517429bf8463fd36d10e31440ea6c178"
+    },
+    {
+      "path": "xml/sax/handler.py",
+      "upstream_git_blob_sha1": "3183c3fe96d74fb35cc6b185cdbce3dc7dc911b4"
+    },
+    {
+      "path": "xml/sax/saxutils.py",
+      "upstream_git_blob_sha1": "c1612ea1cebc5d064280e7d2d617d0fc2cf1f0f0"
+    },
+    {
+      "path": "xml/sax/xmlreader.py",
+      "upstream_git_blob_sha1": "e906121d23b9ef31d3071475e7b6c7246d393103"
+    },
+    {
+      "path": "xmlrpc/__init__.py",
+      "upstream_git_blob_sha1": "196d3788575993eb403588b01ac6b0a3fbba13da"
+    },
+    {
+      "path": "xmlrpc/client.py",
+      "upstream_git_blob_sha1": "84e4e4d11a7319eb427620dd06a5289beef6f9f9"
+    },
+    {
+      "path": "xmlrpc/server.py",
+      "upstream_git_blob_sha1": "3e6871157d092994a49dba801f392e53cc7b64cd"
+    },
+    {
+      "path": "zipapp.py",
+      "upstream_git_blob_sha1": "7a4ef96ea0f07793b76527a691c95fdf9d577107"
+    },
+    {
+      "path": "zipfile/__init__.py",
+      "upstream_git_blob_sha1": "2b6e6163b96592db947adddfcf251463de86d0a2"
+    },
+    {
+      "path": "zipfile/__main__.py",
+      "upstream_git_blob_sha1": "868d99efc3c4a317b869b9bfc30a0ccf857ca73e"
+    },
+    {
+      "path": "zipfile/_path/__init__.py",
+      "upstream_git_blob_sha1": "80f5d607731fd78a3706f1be1885b4dc30ded7c9"
+    },
+    {
+      "path": "zipfile/_path/glob.py",
+      "upstream_git_blob_sha1": "bd2839304b7db2a628c7d3785f1d0a0d316424f8"
+    },
+    {
+      "path": "zipimport.py",
+      "upstream_git_blob_sha1": "444c9dd11d86722ab0ea8638ce49f0d9055a5845"
+    },
+    {
+      "path": "zoneinfo/__init__.py",
+      "upstream_git_blob_sha1": "df2ae909f53cf29a49ec35a051e03ad7c37204fa"
+    },
+    {
+      "path": "zoneinfo/_common.py",
+      "upstream_git_blob_sha1": "98668c15d8bf94b67c0649a58d3f071071296efd"
+    },
+    {
+      "path": "zoneinfo/_tzpath.py",
+      "upstream_git_blob_sha1": "177d32c35eff29625c2edaea6489a3e45641c77f"
+    },
+    {
+      "path": "zoneinfo/_zoneinfo.py",
+      "upstream_git_blob_sha1": "48154775568b6dc050ec255f4ce811617356ba39"
+    }
+  ]
+}

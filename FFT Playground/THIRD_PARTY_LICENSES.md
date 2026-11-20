@@ -1,5 +1,11 @@
 # Third-party inventory and license review
 
+v1.0.1 note: this document remains the **source-distribution** inventory. The
+new portable binary has a separate actual-component audit in
+[PORTABLE_LICENSES.md](PORTABLE_LICENSES.md), original notice texts under
+`licenses/portable/`, and a per-file MANIFEST.json inside the ZIP. It uses an
+original .NET launcher/stdlib build script, not the rejected cx_Freeze toolchain.
+
 Review date: 2026-11-19 (America/Los_Angeles). Delivery scope: **source only**,
 original PNG charts, documentation and explicitly identified license notices.
 No interpreter, Tcl/Tk DLL, package wheel, font, data file, installer, bundler
