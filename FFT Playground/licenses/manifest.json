@@ -1,0 +1,364 @@
+{
+  "distribution": "source only; no interpreter, binaries, wheels or installer",
+  "runtime_pip_dependencies": [],
+  "verified_platform": [
+    {
+      "name": "Python",
+      "version": "3.14.7",
+      "spdx": "Python-2.0",
+      "distributed": false
+    },
+    {
+      "name": "Tcl",
+      "version": "8.6.13",
+      "spdx": "TCL",
+      "distributed": false
+    },
+    {
+      "name": "Tk",
+      "version": "8.6.13",
+      "spdx": "TCL",
+      "distributed": false
+    }
+  ],
+  "tools": [
+    {
+      "name": "pytest",
+      "version": "9.0.2",
+      "spdx": "MIT",
+      "scope": "development only",
+      "source": "https://pypi.org/project/pytest/9.0.2/",
+      "distributed": false
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0",
+      "spdx": "MIT",
+      "scope": "development only",
+      "source": "https://pypi.org/project/iniconfig/2.3.0/",
+      "distributed": false
+    },
+    {
+      "name": "packaging",
+      "version": "25.0",
+      "spdx": "Apache-2.0 OR BSD-2-Clause",
+      "scope": "development only",
+      "source": "https://pypi.org/project/packaging/25.0/",
+      "distributed": false
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "spdx": "MIT",
+      "scope": "development only",
+      "source": "https://pypi.org/project/pluggy/1.6.0/",
+      "distributed": false
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "spdx": "BSD-3-Clause",
+      "scope": "development only",
+      "source": "https://pypi.org/project/colorama/0.4.6/",
+      "distributed": false
+    },
+    {
+      "name": "Pygments",
+      "version": "2.19.2",
+      "spdx": "BSD-2-Clause",
+      "scope": "development only",
+      "source": "https://pypi.org/project/Pygments/2.19.2/",
+      "distributed": false
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1",
+      "spdx": "MIT",
+      "scope": "bootstrap tool only",
+      "source": "https://pypi.org/project/pip/26.2.1/",
+      "distributed": false
+    },
+    {
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "spdx": "Apache-2.0",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "distlib",
+      "version": "0.4.2",
+      "spdx": "PSF-2.0",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "spdx": "Apache-2.0",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "msgpack",
+      "version": "1.1.2",
+      "spdx": "Apache-2.0",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "packaging",
+      "version": "26.2",
+      "spdx": "Apache-2.0 OR BSD-2-Clause",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.10.0",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "pyproject-hooks",
+      "version": "1.2.0",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "spdx": "Apache-2.0",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "certifi",
+      "version": "2026.6.17",
+      "spdx": "MPL-2.0",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "idna",
+      "version": "3.18",
+      "spdx": "BSD-3-Clause",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "urllib3",
+      "version": "2.7.0",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "rich",
+      "version": "14.2.0",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "Pygments",
+      "version": "2.20.0",
+      "spdx": "BSD-2-Clause",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "resolvelib",
+      "version": "1.2.1",
+      "spdx": "ISC",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "setuptools (pkg_resources subset)",
+      "version": "70.3.0",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "tomli",
+      "version": "2.4.1",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "tomli-w",
+      "version": "1.2.0",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.4",
+      "spdx": "MIT",
+      "scope": "vendored by bootstrap pip only",
+      "source": "https://github.com/pypa/pip/tree/26.2.1/src/pip/_vendor",
+      "distributed": false
+    }
+  ],
+  "license_files": [
+    {
+      "file": "licenses/bootstrap/LICENSE.txt",
+      "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/cachecontrol/LICENSE.txt",
+      "sha256": "86eeee87be2a43f3ff1f56496f451f69243926f025fedbb033666c304c4c161b"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/certifi/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/distlib/LICENSE.txt",
+      "sha256": "808e10c8a6ab8deb149ff9b3fb19f447a808094606d712a9ca57fead3552599d"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/distro/LICENSE",
+      "sha256": "cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/idna/LICENSE.md",
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/msgpack/COPYING",
+      "sha256": "492dedba85da5872f78e6091bcd1fea474d660d35acb4dee964b8aab3f007427"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/packaging/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/packaging/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/packaging/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/pkg_resources/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/platformdirs/LICENSE",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/pygments/LICENSE",
+      "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/pyproject_hooks/LICENSE",
+      "sha256": "1b22b049b5267d6dfc23a67bf4a84d8ec04b9fdfb1a51d360e42b4342c8b4154"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/requests/LICENSE",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/resolvelib/LICENSE",
+      "sha256": "f388fd38cad13112c1dc0f669bbe80e7f84541edbafb72f3030d2ca7642c3c9d"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/rich/LICENSE",
+      "sha256": "deed7c17a4318158190a3ea239cc879a5a50271cebb98ae7025f48fbe58dca15"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/tomli/LICENSE",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/tomli_w/LICENSE",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/truststore/LICENSE",
+      "sha256": "33be7b7e8fa4fd19b1760e1a8ed8a668bdab852c91b692dd41424bcb725a9fca"
+    },
+    {
+      "file": "licenses/bootstrap/src/pip/_vendor/urllib3/LICENSE.txt",
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686"
+    },
+    {
+      "file": "licenses/development/colorama/LICENSE.txt",
+      "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318"
+    },
+    {
+      "file": "licenses/development/iniconfig/LICENSE",
+      "sha256": "3409fa91f7ace557894632676656e32264fe5ef7581535725dc9a23774551bd4"
+    },
+    {
+      "file": "licenses/development/packaging/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+    },
+    {
+      "file": "licenses/development/packaging/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "file": "licenses/development/packaging/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+    },
+    {
+      "file": "licenses/development/pluggy/LICENSE",
+      "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606"
+    },
+    {
+      "file": "licenses/development/Pygments/AUTHORS",
+      "sha256": "0660e318a6f215802adc8731ab85d0c65ff27cfcca3f5d28597f306476195bd9"
+    },
+    {
+      "file": "licenses/development/Pygments/LICENSE",
+      "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17"
+    },
+    {
+      "file": "licenses/development/pytest/LICENSE",
+      "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b"
+    },
+    {
+      "file": "licenses/pip-vendor-versions.txt",
+      "sha256": "3df0c9601bfa2e0dca23cc574a4f900a4d7fdad060ab203fab8354350ed93320"
+    },
+    {
+      "file": "licenses/Python-3.14.7.txt",
+      "sha256": "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231"
+    },
+    {
+      "file": "licenses/Tcl-8.6.13.txt",
+      "sha256": "c0a69a2bfd757361ec7e6143973b103c90409316b49e9c88db26ad6388e79f16"
+    },
+    {
+      "file": "licenses/Tk-8.6.13.txt",
+      "sha256": "2cde822b93ca16ae535c954b7dfe658b4ad10df2a193628d1b358f1765e8b198"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+* text=auto eol=lf
+run.bat text eol=crlf
+*.png binary
+# Preserve reviewed upstream notices byte-for-byte, including their whitespace.
+licenses/** -text -whitespace

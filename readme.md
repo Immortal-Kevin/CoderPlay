@@ -11,6 +11,7 @@ CoderPlay 收集可在本地运行的小工具，目标是在没有网络时也�
 | 应用 | 用途 |
 | --- | --- |
 | AIsharpner | 本地照片锐化、细节增强与分辨率调整。 |
+| [FFT Playground](FFT%20Playground/) | 离线振动信号生成、FFT 与 Envelope 包络频谱教学实验室（Apache-2.0）。 |
 | CarCoating DIY | 车膜设计素材处理、三维建模、渲染与成品检查脚本。 |
 | Chinglish Simulator | 基于本地语言模型的中译英工具，可调节中式英语风格与语气。 |
 | Simple Generator | 本地图片生成、风格转换与提示词中译英。 |
