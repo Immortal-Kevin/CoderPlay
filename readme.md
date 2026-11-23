@@ -11,8 +11,9 @@ CoderPlay 收集可在本地运行的小工具，目标是在没有网络时也�
 | 应用 | 用途 |
 | --- | --- |
 | AIsharpner | 本地照片锐化、细节增强与分辨率调整。 |
-| [FFT Playground](FFT%20Playground/) | 离线振动信号生成、FFT 与 Envelope 包络频谱教学实验室（Apache-2.0）。 |
 | CarCoating DIY | 车膜设计素材处理、三维建模、渲染与成品检查脚本。 |
+| [Desktop Cleaner](Desktop%20Cleaner/) | 桌面图标网格整理与布局恢复，适用于 Windows 11；目前通过主屏实测，副屏支持仍待完善。 |
+| [FFT Playground](FFT%20Playground/) | 离线振动信号模拟、FFT 频谱与包络分析教学工具，支持中英文界面。 |
 | Chinglish Simulator | 基于本地语言模型的中译英工具，可调节中式英语风格与语气。 |
 | Simple Generator | 本地图片生成、风格转换与提示词中译英。 |
 | Tapper | 可配置间隔的 Windows 鼠标连点器。 |
@@ -32,6 +33,8 @@ CoderPlay brings together small local utilities for everyday tasks, including us
 | --- | --- |
 | AIsharpner | Local photo sharpening, detail enhancement and resizing. |
 | CarCoating DIY | Scripts for vehicle-wrap assets, 3D modeling, rendering and output checks. |
+| [Desktop Cleaner](Desktop%20Cleaner/) | Desktop icon grid arrangement and layout restoration for Windows 11; tested on the primary display, with secondary-display support still being refined. |
+| [FFT Playground](FFT%20Playground/) | Offline vibration signal simulation, FFT spectra and envelope analysis for learning, with Chinese and English interfaces. |
 | Chinglish Simulator | Local-model Chinese-to-English translation with adjustable Chinglish style and tone. |
 | Simple Generator | Local image generation, style conversion and Chinese-to-English prompt translation. |
 | Tapper | A Windows mouse auto-clicker with configurable intervals. |
@@ -51,6 +54,8 @@ CoderPlay は、インターネットに接続できないときにも日常の�
 | --- | --- |
 | AIsharpner | 写真のローカル鮮鋭化、細部補正、サイズ変更。 |
 | CarCoating DIY | カーラッピング素材の処理、3D モデリング、レンダリング、成果物の確認。 |
+| [Desktop Cleaner](Desktop%20Cleaner/) | Windows 11 のデスクトップアイコンをグリッドに整列し、元の配置を復元。メイン画面で動作確認済みで、サブ画面への対応は改善中。 |
+| [FFT Playground](FFT%20Playground/) | 振動信号のシミュレーション、FFT スペクトル、包絡線解析を学ぶオフラインツール。中国語・英語 UI に対応。 |
 | Chinglish Simulator | ローカル言語モデルによる中国語から英語への翻訳。中国語風の英語表現や口調を調整可能。 |
 | Simple Generator | ローカル画像生成、スタイル変換、プロンプトの中国語から英語への翻訳。 |
 | Tapper | クリック間隔を設定できる Windows 用マウス連打ツール。 |
@@ -70,6 +75,8 @@ CoderPlay는 인터넷 연결 없이도 일상적인 작업에 활용할 수 있
 | --- | --- |
 | AIsharpner | 로컬 사진 선명도 개선, 세부 묘사 향상 및 크기 조정. |
 | CarCoating DIY | 차량 래핑 소재 처리, 3D 모델링, 렌더링 및 결과물 검증 스크립트. |
+| [Desktop Cleaner](Desktop%20Cleaner/) | Windows 11 바탕 화면 아이콘의 격자 정렬과 원래 배치 복원. 주 모니터에서 검증했으며 보조 모니터 지원은 개선 중. |
+| [FFT Playground](FFT%20Playground/) | 진동 신호 시뮬레이션, FFT 스펙트럼 및 포락선 분석을 학습하는 오프라인 도구. 중국어·영어 UI 지원. |
 | Chinglish Simulator | 로컬 언어 모델 기반 중국어에서 영어로의 번역 도구로, 중국어식 영어 표현과 어조를 조절. |
 | Simple Generator | 로컬 이미지 생성, 스타일 변환 및 중국어 프롬프트의 영어 번역. |
 | Tapper | 클릭 간격을 설정할 수 있는 Windows 마우스 자동 클릭 도구. |
@@ -89,6 +96,8 @@ CoderPlay объединяет локальные утилиты для повс
 | --- | --- |
 | AIsharpner | Локальное повышение резкости и детализации фотографий, изменение размера. |
 | CarCoating DIY | Скрипты подготовки материалов для автомобильных плёнок, 3D-моделирования, рендеринга и проверки результатов. |
+| [Desktop Cleaner](Desktop%20Cleaner/) | Упорядочивание значков рабочего стола Windows 11 по сетке и восстановление расположения. Проверено на основном экране; поддержка дополнительного экрана дорабатывается. |
+| [FFT Playground](FFT%20Playground/) | Офлайн-инструмент для изучения моделирования вибрационных сигналов, спектров FFT и анализа огибающей, с китайским и английским интерфейсами. |
 | Chinglish Simulator | Перевод с китайского на английский с помощью локальной языковой модели, с настройкой стиля Chinglish и тона. |
 | Simple Generator | Локальная генерация изображений, преобразование стиля и перевод запросов с китайского на английский. |
 | Tapper | Автокликер мыши для Windows с настраиваемыми интервалами. |
@@ -108,6 +117,8 @@ CoderPlay reúne pequeñas herramientas locales para tareas cotidianas, incluso 
 | --- | --- |
 | AIsharpner | Mejora local de nitidez y detalle fotográfico, y cambio de tamaño. |
 | CarCoating DIY | Scripts para preparar diseños de vinilos para vehículos, modelar en 3D, renderizar y revisar resultados. |
+| [Desktop Cleaner](Desktop%20Cleaner/) | Organización en cuadrícula y restauración de iconos del escritorio de Windows 11. Probado en la pantalla principal; la compatibilidad con pantallas secundarias sigue en desarrollo. |
+| [FFT Playground](FFT%20Playground/) | Herramienta educativa sin conexión para simular señales de vibración y analizar espectros FFT y envolventes, con interfaz en chino e inglés. |
 | Chinglish Simulator | Traducción del chino al inglés mediante un modelo local, con estilo Chinglish y tono ajustables. |
 | Simple Generator | Generación local de imágenes, conversión de estilo y traducción de instrucciones del chino al inglés. |
 | Tapper | Clics automáticos del ratón en Windows con intervalos configurables. |
